@@ -120,7 +120,7 @@ body{
 /* 슬라이드 전체 박스 */
 .slideshow{
   position:relative;
-  max-width:520px;          /* ✅ 슬라이드 가로 크기 */
+  max-width:520px;
   width:90%;
   margin:0 auto;
   border-radius:14px;
@@ -203,7 +203,8 @@ footer{
 .footer-logo img{
   height:36px;
 }
-  /* 반응형 */
+
+/* 반응형 */
 @media(max-width:900px){
   .card-container{
     grid-template-columns:repeat(2, minmax(150px,1fr));
@@ -223,7 +224,7 @@ footer{
 
 <body>
 
-<!-- ================== 상단메뉴뉴 ================== -->
+<!-- ================== 상단 메뉴 ================== -->
 <div class="navbar">
 
   <div class="nav-left">
@@ -256,14 +257,13 @@ footer{
 
     <!-- Publications 드롭다운 -->
     <div class="has-dropdown">
-  <a href="publications.html">Publications ▾</a>
-  <div class="dropdown">
-    <a href="pub_papers.html">논문 · 특허</a>
-    <a href="pub_conference.html">학회 발표</a>
-    <a href="pub_books.html">저서</a>
-  </div>
-</div>
-
+      <a href="publications.html">Publications ▾</a>
+      <div class="dropdown">
+        <a href="pub_papers.html">논문 · 특허</a>
+        <a href="pub_conference.html">학회 발표</a>
+        <a href="pub_books.html">저서</a>
+      </div>
+    </div>
 
     <a href="contact.html">Contact</a>
   </div>
@@ -279,33 +279,32 @@ footer{
   <h1>Environmental Biotechnology Laboratory</h1>
 </div>
 
-<!-- ================== PHOTO ================== -->
+<!-- ================== PHOTO SLIDESHOW ================== -->
 <div class="lab-photo-section">
 
   <div class="slideshow">
+    <!-- 슬라이드 1 -->
     <div class="slide active">
-      <img src="img/lab_group_2024 (2).png">
-        <div class="lab-photo-caption">
-    2025.05 애기능 HEMM 단체사진
+      <img src="img/lab_group_2024 (2).png" alt="HEMM Lab group photo 1">
     </div>
 
+    <!-- 슬라이드 2 (예: 다른 사진 있으면 파일명만 바꾸면 됨) -->
     <div class="slide">
-      <img src="img/lab_group_2024 (2).png">
-        <div class="lab-photo-caption">
-    2025.05 애기능 HEMM 단체사진
+      <img src="img/lab_group_2024 (2).png" alt="HEMM Lab group photo 2">
     </div>
 
+    <!-- 슬라이드 3 -->
     <div class="slide">
-      <img src="img/lab_group_2024 (2).png">
-        <div class="lab-photo-caption">
-    2025.05 애기능 HEMM 단체사진
+      <img src="img/lab_group_2024 (2).png" alt="HEMM Lab group photo 3">
     </div>
   </div>
-      
-      <div class="lab-photo-caption">
-    환경생명공학연구실 활동 모습 (여러 사진이 4초 간격으로 순환합니다)
+
+  <div class="lab-photo-caption">
+    2025.05 애기능 HEMM 단체사진 (여러 사진이 4초 간격으로 순환합니다)
   </div>
+
 </div>
+
 <!-- ================== CARDS ================== -->
 <div class="card-container">
 
@@ -340,4 +339,19 @@ footer{
   Address: Korea University, Seoul, Korea | Email: nocont2xt@korea.ac.kr
 </footer>
 
-</body></html>
+<!-- ================== 슬라이드 자동 전환 스크립트 ================== -->
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+
+  setInterval(function(){
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 4000); // 4초마다 전환
+});
+</script>
+
+</body>
+</html>
