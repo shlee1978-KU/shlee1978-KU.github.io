@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>논문 목록 | 환경생명공학연구실</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+  --ku-main:#8C1D18;
+  --ku-dark:#701414;
+  --ku-hover:#A32620;
+  --bg-gray:#f5f2f2;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--bg-gray);
+  font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif;
+  color:#333;
+}
+.navbar{
+  background:var(--ku-main);
+  color:#fff;
+  padding:10px 36px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+.navbar-left img{height:48px;}
+.navbar-right{margin-left:auto;}
+.main-menu{list-style:none; display:flex; gap:22px; margin:0; padding:0;}
+.main-menu > li{position:relative;}
+.main-menu a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:14px;
+  padding:6px 0;
+}
+.main-menu a:hover{color:#ffe6e5; border-bottom:2px solid #ffe6e5;}
+.has-sub > a::after{content:" ▾"; font-size:11px; margin-left:4px; opacity:0.9;}
+.sub-menu,.sub-menu li{list-style:none; margin:0; padding:0;}
+.sub-menu{
+  position:absolute;
+  top:calc(100% + 8px);
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--ku-main);
+  min-width:160px;
+  padding:6px 0;
+  border-radius:6px;
+  display:none;
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
+}
+.has-sub:hover .sub-menu{display:block;}
+.sub-menu a{
+  display:block;
+  padding:8px 14px;
+  font-size:12.5px;
+  color:white;
+  border-bottom:1px solid rgba(255,255,255,0.12);
+  text-decoration:none;
+}
+.sub-menu a:hover{background:var(--ku-hover); border-bottom-color:transparent;}
+
+.hero{
+  background:var(--ku-main);
+  text-align:center;
+  padding:60px 20px 45px;
+}
+.hero h1{
+  color:#fff;
+  font-size:36px;
+  margin:0;
+  text-shadow:0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* 하얀 배경 박스 적용 */
+.content{
+  max-width:1000px;
+  margin:60px auto;
+  padding:30px 24px;
+  background:white;
+  border-radius:14px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+.content h1{
+  color: var(--ku-main);
+  margin-bottom:24px;
+  font-size:32px;
+}
+.content h2{
+  color:var(--ku-main);
+  margin-bottom:18px;
+  font-size:24px;
+}
+.content ul{
+  padding-left:20px;
+  line-height:1.6;
+}
+.content ul li{
+  margin-bottom:8px;
+  font-size:14px;
+}
+.footer{
+  background:var(--ku-dark);
+  color:#fff;
+  text-align:center;
+  padding:16px;
+  font-size:13px;
+}
+</style>
+</head>
+<body>
+<div class="navbar">
+  <div class="navbar-left"><img src="img/ku_logo.png" alt="Korea University"></div>
+  <div class="navbar-right">
+    <ul class="main-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="notice.html">Notice</a></li>
+      <li class="has-sub"><a href="people.html">People</a>
+        <ul class="sub-menu">
+          <li><a href="people_prof.html">지도교수</a></li>
+          <li><a href="people_members.html">연구원 및 대학원생</a></li>
+          <li><a href="people_former.html">Former Members</a></li>
+        </ul>
+      </li>
+      <li class="has-sub"><a href="research.html">Research</a>
+        <ul class="sub-menu">
+          <li><a href="research_nitrogen.html">Nitrogen Cycle</a></li>
+          <li><a href="research_diet.html">DIET Research</a></li>
+          <li><a href="research_other.html">Other Research</a></li>
+        </ul>
+      </li>
+      <li class="has-sub"><a href="publications.html">Publications</a>
+        <ul class="sub-menu">
+          <li><a href="publications_papers.html">논문·특허</a></li>
+          <li><a href="publications_confs.html">학회 발표</a></li>
+          <li><a href="publications_books.html">저서</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="hero"><h1>학회 발표</h1></div>
+
+<div class="content">
+
+  <h2>1. 국제학회 (International Conferences)</h2>
+  <ul>
+    <li>Park, H.-D. (Aug. 2014) "Explanining the temporal dynamics of bacterial communities in activated sludge bioreactor", ISME 15, Seoul, Korea.</li>
+    <li>Lee, S.-H., Kang, H.-J., and Park, H.-D. (Sep. 2013) "Effect of immigration on bacterial community dynamics in activated sludge bioreactors", The 5th IWA-ASPIRE Conference &amp; Exhibition, Daejeon, Korea.</li>
+    <li>Kim, T.-S., Park, K.-H., and Park H.-D. (Sep. 2013) "Fabriciation of a novel nano-porous membrane using V2O5 nanowire", The 5th IWA-ASPIRE Conference &amp; Exhibition, Daejeon, Korea.</li>
+    <li>Lee, S.-H., Kim, T.-S., Jeong, J.-Y., and Park, H.-D. (Jul. 2013) "Temporal variation of rare bacterial taxa in an activated sludge bioreactor", KMB's 40th Anniversary 2013 International Symposium &amp; Annual Meeting, Pyeonchang, Korea.</li>
+    <li>Lee, S.-H., Kim, H.-J., Kang, Y. H., Lee, T., and Park, H.-D. (Jun. 2013) "Spirochates in anaerobic digesters: evidences of syntrophic acetate oxidation", The 2nd International Workshop on Resource Recovery Wastewater/Biosolids, Seoul, Korea.</li>
+    <li>Kim, H.-S. and Park, H.-D. (May 2013) "Alterd gene expression in Pseuomonas aeruginosa PA14 by ginger extract", ASM 2013, Denver, USA.</li>
+    <li>Lee, S.-H., Kim, T.-S., Jeong, J.-Y., Park, H.-D. (May 2013) "Distribution of general and rare bacterial taxa in an activated sludge bioreactor", ASM 2013, Denver, USA.</li>
+    <li>Lee, J.-Y., Park, H.-D., and Lee, K.-J. (Mar. 2013) "The effect of biofilm formation on the fouling resistance in RO process", 第47回 日本水環境學會年會, Osaka, Japan.</li>
+    <!-- 나머지 항목 동일하게 추가 가능 -->
+  </ul>
+
+  <h2>2. 국내 학회 (Domestic Conferences)</h2>
+  <ul>
+    <li>강현진, 한금석, 김금철, 최영준, 이택준, 이영행, 박희등 (2011) "고형물 농도를 유입변수로 이용한 혐기소화모델에 관한 연구", 2011년도 대한환경공학회 학술대회, 부산.</li>
+    <li>김택승, 김한신, 김용수, 이승용, 황석환, 박희등 (2011) "시간 변화에 따른 하수처리장의 활성슬러지 세균군집의 다양성과 역동성에 관한 연구", 2011년도 대한환경공학회 학술대회, 부산.</li>
+    <li>김용수, 김한신, 김택승, 문정기, 남해욱, 김관엽, 박희등 (2011) "정밀여과 공정의 파울링 유발 인자 분석을 위한 기수호 성상분석 및 응집 침전 반응", 2011년도 대한환경공학회 학술대회, 부산.</li>
+    <li>김한신, 김택승, 김용수, 강현진, 이정훈, 박희등 (2011) "생물막 형성 저해제를 이용한 역삼투 분리막 오염 저감에 관한 연구", 2011년도 대한환경공학회 학술대회, 부산.</li>
+    <li>박정훈, 김상현, 박희등, 김용진, 윤정준 (2011) "홍조류를 이용한 Biohydrogen생산 타당성 연구", 2011년도 대한환경공학회 학술대회, 부산.</li>
+    <li>이정훈, 김택승, 김한신, 김용수, 박희등 (2011) "배양법을 이용한 하수처리장 활성슬러지 미생물의 군집 분석", 2011년도 대한환경공학회 학술대회, 부산.</li>
+    <li>김택승, 권순동, 김한신, 이승용, 황석환, 박희등 (2010) "하수처리장 활성슬러지 내의 미생물 군집구조와 역동성 분석", 한국물환경학회 추계발표회, 일산.</li>
+    <li>김한신, 권순동, 박희등 (2010) "미생물의 생물막 형성 저해제를 이용한 분리막 수처리 공정 바이오파울링의 제어", 한국물환경학회 추계발표회, 일산.</li>
+    <li>박진호, 권순동, 김택승, 조석규, 박희등 (2010) "소화액을 이용한 pH 제어 및 2상 고온혐기성 소화방식의 음식물쓰레기 음폐수처리기술", 한국물환경학회 춘계발표회, 대전.</li>
+    <li>권순동, 김택승, 박진호, 한양수, 이영행, 박희등 (2010) "Pyrosequencing을 이용한 하수처리MBR의 미생물 다양성 분석", 한국물환경학회 춘계발표회, 대전.</li>
+    <li>김택승, 권순동, 박진호, 남해욱, 박희등 (2010) "배양법, Cloning, Pyrosequencing 방법으로 얻은 하수처리장 활성슬러지 미생물 군집의 비교 분석", 한국물환경학회 춘계발표회, 대전.</li>
+    <li>권순동, 유기현, 정준홍, 박희등 (2009) "Pyrosequencing을 이용한 고정상 생물막 하수처리 생물반응기의 Bacteria 다양성 분석", 한국물환경학회 추계발표회, 인천.</li>
+  </ul>
+
+</div>
+
+<div class="footer">
+  © Environmental Biotechnology Laboratory, Korea University<br>
+  Address: Korea University, Seoul, Korea | Email: nocont2xt@korea.ac.kr
+</div>
+</body>
+</html>
