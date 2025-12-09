@@ -1,395 +1,252 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>Publications | 환경생명공학연구실</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Publications | 환경생명공학연구실</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root{
-      --ku-main:#8C1D18;
-      --ku-dark:#701414;
-      --ku-hover:#A32620;
-      --bg-gray:#f5f2f2;
-    }
+<style>
+:root{
+  --ku-main:#8C1D18;
+  --ku-dark:#701414;
+  --ku-hover:#A32620;
+  --bg-gray:#f5f2f2;
+}
 
-    *{ box-sizing:border-box; }
+*{box-sizing:border-box;}
 
-    body{
-      margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      background:var(--bg-gray);
-      color:#333;
-      line-height:1.5;
-    }
+body{
+  margin:0;
+  background:var(--bg-gray);
+  color:#333;
+  font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif;
+}
 
-    .navbar{
-      background:var(--ku-main);
-      color:#fff;
-      padding:10px 40px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-    .navbar-left img{ height:48px; }
-    .navbar-right a{
-      color:#fff;
-      margin-left:18px;
-      text-decoration:none;
-      font-weight:bold;
-      font-size:14px;
-      transition:.2s;
-    }
-    .navbar-right a:hover{
-      color:#ffe6e5;
-      border-bottom:2px solid #ffe6e5;
-      padding-bottom:2px;
-    }
+/* NAVBAR */
+.navbar{
+  background:var(--ku-main);
+  color:#fff;
+  padding:10px 36px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+.navbar-left img{
+  height:48px;
+  display:block;
+}
+.navbar-right{
+  margin-left:auto; 
+}
+.main-menu{
+  list-style:none;
+  display:flex;
+  gap:22px;
+  margin:0;
+  padding:0;
+}
+.main-menu > li{
+  position:relative;
+}
+.main-menu a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:14px;
+  padding:6px 0;
+}
+.main-menu a:hover{
+  color:#ffe6e5;
+  border-bottom:2px solid #ffe6e5;
+}
 
-    .wrapper{
-      width:94%;
-      max-width:1200px;
-      margin:40px auto 60px auto;
-      background:#fff;
-      border-radius:12px;
-      padding:30px 30px 40px 30px;
-      box-shadow:0 8px 18px rgba(0,0,0,0.08);
-    }
+/* 드롭다운 화살표 */
+.has-sub > a::after{
+  content:" ▾";
+  font-size:11px;
+  margin-left:4px;
+  opacity:0.9;
+}
 
-    h1,h2,h3{
-      color:var(--ku-main);
-      margin-top:20px;
-      margin-bottom:10px;
-    }
-    h1{ margin-top:0; }
+/* 드롭다운 (서브메뉴) */
+/* ← 여기서 점(●) 제거됨 */
+.sub-menu,
+.sub-menu li{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
 
-    .subtext{
-      font-size:14px;
-      color:#555;
-      margin-bottom:20px;
-    }
+.sub-menu{
+  position:absolute;
+  top:calc(100% + 8px);
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--ku-main);
+  min-width:160px;
+  padding:6px 0;
+  border-radius:6px;
+  display:none;
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
+  z-index:1200;
+  white-space:nowrap;
+}
 
-    ul{
-      padding-left:20px;
-      margin-top:8px;
-      margin-bottom:16px;
-    }
-    li{
-      margin-bottom:4px;
-      font-size:14px;
-    }
+.has-sub:hover .sub-menu{
+  display:block;
+}
 
-    a.scholar-link{
-      font-size:13px;
-      color:#0056b3;
-      text-decoration:none;
-    }
-    a.scholar-link:hover{
-      text-decoration:underline;
-    }
+.sub-menu a{
+  display:block;
+  padding:8px 14px;
+  font-size:12.5px;
+  color:white;
+  border-bottom:1px solid rgba(255,255,255,0.12);
+  text-decoration:none;
+}
+.sub-menu a:hover{
+  background:var(--ku-hover);
+  border-bottom-color:transparent;
+}
 
-    .footer{
-      background:var(--ku-dark);
-      color:#fff;
-      text-align:center;
-      padding:18px;
-      font-size:13px;
-    }
+/* HERO */
+.hero{
+  background:var(--ku-main);
+  text-align:center;
+  padding:60px 20px 45px;
+}
+.hero h1{
+  color:#fff;
+  font-size:36px;
+  margin:0;
+  text-shadow:0 2px 4px rgba(0,0,0,0.3);
+}
 
-    @media(max-width:768px){
-      .navbar{ padding:10px 16px; }
-      .wrapper{ width:94%; padding:20px 15px 30px; }
-    }
-  </style>
+/* CARD GRID */
+.card-container{
+  max-width:1100px;
+  margin:60px auto 80px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+  padding:0 24px;
+}
+.card{
+  background:white;
+  padding:30px 20px;
+  border-radius:14px;
+  text-align:center;
+  text-decoration:none;
+  color:#333;
+  box-shadow:0 8px 16px rgba(0,0,0,0.08);
+  border:1px solid #eee;
+  transition:.25s;
+}
+.card:hover{
+  transform:translateY(-6px);
+  border-color:var(--ku-main);
+  box-shadow:0 12px 24px rgba(140,29,24,.22);
+}
+.card h2{
+  margin:0;
+  color:var(--ku-main);
+  font-size:20px;
+  font-weight:700;
+}
+.card p{
+  margin-top:12px;
+  color:#555;
+  font-size:14px;
+  line-height:1.5;
+}
+
+/* FOOTER */
+.footer{
+  background:var(--ku-dark);
+  color:#fff;
+  text-align:center;
+  padding:16px;
+  font-size:13px;
+}
+
+@media (max-width:700px){
+  .navbar{ padding:10px 16px; }
+}
+</style>
+
 </head>
 <body>
 
+<!-- NAVBAR -->
 <div class="navbar">
   <div class="navbar-left">
     <img src="img/ku_logo.png" alt="Korea University">
   </div>
   <div class="navbar-right">
-    <a href="index.html">Home</a>
-    <a href="notice.html">Notice</a>
-    <a href="people.html">People</a>
-    <a href="research.html">Research</a>
-    <a href="publications.html">Publications</a>
-    <a href="contact.html">Contact</a>
+    <ul class="main-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="notice.html">Notice</a></li>
+
+      <li class="has-sub">
+        <a href="people.html">People</a>
+        <ul class="sub-menu">
+          <li><a href="people_prof.html">지도교수</a></li>
+          <li><a href="people_members.html">연구원 및 대학원생</a></li>
+          <li><a href="people_former.html">Former Members</a></li>
+        </ul>
+      </li>
+
+      <li class="has-sub">
+        <a href="research.html">Research</a>
+        <ul class="sub-menu">
+          <li><a href="research_nitrogen.html">Nitrogen Cycle</a></li>
+          <li><a href="research_diet.html">DIET Research</a></li>
+          <li><a href="research_other.html">Other Research</a></li>
+        </ul>
+      </li>
+
+      <li class="has-sub">
+        <a href="publications.html">Publications</a>
+        <ul class="sub-menu">
+          <li><a href="publications_papers.html">논문·특허</a></li>
+          <li><a href="publications_confs.html">학회 발표</a></li>
+          <li><a href="publications_books.html">저서</a></li>
+        </ul>
+      </li>
+
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
   </div>
 </div>
 
-<div class="wrapper">
+<!-- HERO -->
+<div class="hero">
+  <h1>Publications</h1>
+</div>
 
-  <h1>2-1) 지도교수 논문 (Publications)</h1>
-  <p class="subtext">
-    아래 목록은 지도교수님의 국제논문, 국내논문, 학회 발표 및 저서를 정리한 것입니다.
-    최신 정보는 Google Scholar 페이지에서 확인하실 수 있습니다.<br>
-    <a class="scholar-link" href="https://scholar.google.com/citations?user=h9wxbfcAAAAJ&amp;hl=ko&amp;oi=ao" target="_blank">
-      ▶ Google Scholar 프로필 바로가기
-    </a>
-  </p>
+<!-- CARDS -->
+<div class="card-container">
 
-  <h2>1. 국제논문 (International Journals)</h2>
-  <ul>
-    <li>174. Ham, S., Kim, H.-S., Jo, M. J., Cha, E. J., Ryoo, H.-S., Kim, H., Lee, H., Ko, G.-J., and Park, H.-D. (May 2025) "Synergistic treatment of linoleic acid and cefazolin on Staphylococcus aureus biofilm-related cateter infections", Applied and Environmental Microbiology, e00770-25.</li>
-    <li>173. Trinh, H. P., Lee, S.-H., Kim, N.-K., Nguyen, T. V., and Park, H.-D. (Mar. 2025) "Contribution of the microbial community to operational stability in an anammox reactor: Neutral theory and functional redundancy perspectives", Bioresource Technology, 419: 132029.</li>
-    <li>172. Nguyen, T. V., Kim, N.-K., Lee, S.-H., Trinh, H. P., and Park, H.-D. (Feb. 2025) "Gene abundance and microbial syntrophy as key drivers of anaerobic digestion revealed through 16S rRNA gene and metagenomic analysis", Chemosphere, 370: 144028.</li>
-    <li>171. Nguyen, T. V., Trinh, H. P., and Park, H.-D. (Feb. 2025) "Genome-based analysis reveals niche differentiation among Firmicutes in full-scale anaerobic digestion systems", Bioresource Technology, 418: 131993.</li>
-    <li>170. Trinh, H. P., Lee, S.-H., Kim, N.-K., Nguyen, T. V., and Park, H.-D. (Jan. 2025) "Fimbriimonadales performed dissimilatory nitrate reduction to ammonium (DNRA) in an anammox reactor", Water Research, 268: 122575.</li>
-    <li>169. Lim, T., Ham, S., Kim, H.-S., Yang, J.-E., Lim, H., Park, H.-D., and Byun, Y. (Dec. 2024) "Developing gingerol-based analogs against Pseudomonas aeruginosa infections", ACS Omega, 9(51): 50281-50299. (Co-corresponding author)</li>
-    <li>168. Jang, Y., Lee, S.-H., Kim, N.-K., and Park, H.-D. (Dec. 2024) "Metagenomic analysis reveals abundance of mixotrophic, heterotrophic, and homoacetogenic bacteria in a hydrogen-based membrane biofilm reactor", Water Research, 267: 122564.</li>
-    <li>167. Kim, B., Baek, G., Kim, C., Lee, S. Y., Yang, E., Lee, S., Nam, J.-Y., Lee, C., Chae, K.-J., Lee, H.-S., Park, H.-D., and Kim, J. R. (Aug. 2024) "Progess and perspective for applications of extracellular electron transport mechanism in environmental biotechnology", ACS ES&amp;T Engineering, 4: 1520-1539.</li>
-    <li>166. Zhai, Y., Kang, Q., Zhao, F., Chen, H., Li, J., and Park, H.-D. (Aug. 2024) "Microstructure and performance modification of PVDF ultrafiltration membrane via adjusting the composition of coagulation bath", Journal of Applied Polymer Science, 141(30): e55687.</li>
-    <li>165. Chen, H., Zhao, F., Zhang, X., Park, H.-D., Li, Z., and Yang, L. (Jul. 2024) "Design an in-situ anti-bacerial structure of nanofiltration membrane with a novel bisimidazoline aqueous monomer", Journal of Membrane Science, 707: 122992.</li>
-    <li>164. Lee, S.-H., Kim, N.-K., Jung, Y.-Y., Cho, S. H., Choi, O., Lee, J.-H., Choi, K.-S., Yoon, H.-J., Hur, M., and Park, H.-D. (Jun. 2024) "Isolation and characterization of novel 3,3′-iminodipropionitrile biodegrading Paracoccus communis, from an industrial wastewater treatment bioreactor", Science of The Total Environment, 927: 172099.</li>
-    <li>163. Kang, Q., Zhai, Y., Zhao, F., Yang, L., Yang, Y., Park, H.-D., Chen, H., and Sun, G. (May 2024) "Salt-resistant and antibacterial polyvinyl alcohol/chitosan/silver-loaded graphene oxide electrospun nanofiber membrane for high-efficiency solar-driven desalination", Chemical Engineering Research and Design, 205: 107-117.</li>
-    <li>162. Jang, Y., Choi, J., Moon, H., Shin, Y.-C., and Park, H.-D. (May 2024) "Investigation of shear stress behavior on membrane in reciprocating membrane bioreactors using fluid-structure interaction simulations", Journal of Membrane Science, 700: 122688.</li>
-    <li>161. Jang, Y., Lee, S.-H., Ryoo, H.-S., and Park, H.-D. (Feb. 2024) "Effects of hydrogen pressure on stabilization with improved denitrification in a hydrogen-based membrane biofilm reactor" Journal of Membrane Science, 693: 122390.</li>
-    <li>160. Ham, S., Ryoo, H.-S., Jang, Y., Lee, S.-H., Lee, J.-Y., Kim, H.-S., Lee, J.-H., and Park, H.-D., (Jan. 2024) "Isolation of a quorum quenching bacterium effective to various acyl-homoserine lactones: Its quorm quenching mechanism and application to a membrane bioreactor", Chemosphere, 347: 140735.</li>
-    <li>159. Zhang, X., Zhao, F., Yang, L., Geng, C., Park, H.-D., Chen, H., Li, Z., and Yang, Y.. (Dec. 2023) "Constructing quaternized graphene oxide filttration lay on PVDF membrane by a facile strategy via dopamine crosslinking and its performance", Journal of Environmental Chemical Engineering, 11(6): 111611.</li>
-    <li>158. Sun, P.-F., Sarkar, P., Yun, E.-T., Lee, J.-H., Tang, C., and Park, H.-D. (Oct. 2023) "Multi-layer structure toward simultaneous enhancement of forward osmosis membrane separation performance and anti-biofouling property", Journal of Membrane Science, 683: 121804.</li>
-    <li>157. Yang, Y., Zhao, F., Yang, L., Zhang, J., Park, H.-D., Li, Z., Chen, H., Zhang, X., and Gao, M. (Oct. 2023) "Catalytic degradation of bisphenol a (BPA) in water by immobilizing silver-loaded graphene oxide (GO-Ag) in ultrafiltration membrane with finger-like structure", Chemical Engineering Journal, 474: 145577. (Co-corresponding author)</li>
-    <li>156. Choe, Y. J., Song, I. H., Kim, K., Hyun, S., Park, H.-D., and Kim, Y.-K. (Sep. 2023) "Mitigating from COVID-19 during intercollegiate sports match", Infection &amp; Chemotherapy, 555(3): 394-396.</li>
-    <li>155. Kang, H.-J., Lee, S.-H., Kim, H.-S., Jung, Y. W., and Park, H.-D. (Aug. 2023) "Rapid and sensitive detection of gram-negative bacteria using surface-immobilized polymyxin B", Plos One, 18(8): e0290579.</li>
-    <li>154. Kim, H.-S., Ham, S.-Y., Ryoo, H.-S., Kim, D.-H., Yun, E.-T., Park, H.-D., and Park, J.-H., (May 2023) "Inhibiting bacterial biofilm formation by stimulating c-di_GMP reulation using citrus peel extract from Jeju Island", Science of the Total Environment, 872: 162180.</li>
-    <li>153. Jang, Y., Lee., S.-H., Kim, N.-K., Ahn, C. H., Rittmann, B. E., and Park, H.-D. (Mar. 2023) "Biofilm characteristics for providing resilient dnitrification in a hydrogen-based membrane biofilm reactor", Water Research, 231: 119654.</li>
-    <li>152. Lee, J. H., Yun, E.-T., Kim, H.-S., Ham, S.-Y., Sun, P.-F., Jang, Y.-S., Park, J.-H., Kim, N. P., and Park, H.-D. (Feb. 2023) "Chromium (VI) reduction  by two-chamber bioelectrochemical system with electrically conductive wall", Electrochemica Acta, 440: 141738.</li>
-    <li>151. Kim, H., Kwon, H., Song, R., Shin, S., Ham, S.-Y., Park, H.-D., Lee, J., Fisher, P., and Bodenschatz, E. (Nov. 2022) "Hierachical optofluidic microreactor for water purification using an array of TiO2 nanostructures", npj Clean Water, 5(1): 1-10.</li>
-    <li>150.  Lee, S.-H., Kang, H.-J., Kim, Y., Kim, N.-K., and Park, H.-D.​ (Nov. 2022) "Different contribution of exoelectrogens in methanogenesis via direct interspecies electron transfer (DIET) by the different substrate in continuous anaerobic bioreactor", Bioresource Technology, 364: 128115.</li>
-    <li>149. Kim, N.-K., Lee, S.-H., and Park, H.-D.​ (Nov. 2022) "Current biotechnologies on depolymerization of polyethylene terephthalate (PET) and repolymerization of reclaimed monomers from PET for bio-upcycling: a critical review", Bioresource Technology, 363: 127931.</li>
-    <li>148. Ali, B. B., Noon, M. T., Lee, S.-H., Park, H.-D., and Min, B. (Aug 2022) "Enhanced biogas and electricity recovery using an iron-manganese oxide catalyzed bioanode in an integrated submersible microbial fuel cell-anaerobic digester" Sustainable Energy Technologies and Assessments, 52: 102276.</li>
-    <li>147. Jang, Y., Ryoo, H.-S., Shin, Y.-C., and  Park, H.-D.​ (Aug 2022) "Simulation of fluid and shear stress behaviors in reciprocating membrane bioreactors for fouling control using fluid-structure interaction analysis", Separation and Purification Technology: 294: 121220.</li>
-    <li>146. Lee, J.-H., Yun, E.-T., Ham, S.-Y., Kim, H.-S., and  Park, H.-D.​ (Aug 2022) "Electrically conductive carbon nanotube/graphene composite membrane for self-cleaning of biofouling via bubble generation", Desalination, 535: 115841.</li>
-    <li>145. Ham, S.-Y., Cha, E., Kim, H.-S., LIm, T., Byun, Y., and Park, H.-D.​ (May 2022) "Raffinose inhibits Streptococcus mutans biofilm formation by targetting glucosyltransferase" Microbiology Spectrum, e02076-21.</li>
-    <li>144. Trinh, H. P., Lee, S.-H., Kim, N.-K., Yoon, H., Jeong, G., Jung, Y.-J., Hur, M., Lee, B.-H., and  Park, H.-D.​ (May 2022) "Enrichment of Ca. Jettenia in sequencing batch reactors with low nitrogen loading rate and high influent nitrogen concentration", Bioresource Technology,352: 127079.</li>
-    <li>143. Yang, B, Suh, S.-I., Ryoo, H.-S., Ham, S.-Y., Kim, J., Ko, Y.-J., Woo, H., Choi, J., Oh, H.-S., Lee, S.-H., Park, H.-D., Kwon, M. J., Lee, H., and Lee, J. (Apr. 2022) "Peroxide activation by microbially synthesized sulfidated iron: Comparison against abiotic iron-based materials in terms of treatment efficiency and oxidative degradation pathway", Applied Catalysis B: Environmental, 303: 120884.</li>
-    <li>142. Lim, T., Ham, S.-Y., Nam, S., Kim, M., Lee, K. Y., Park, H.-D., and Byun, Y. (Feb. 2022) "Recent advance in small molecules targeting RhlR of Pseudomonas aeruginosa", Antibiotics, 11, 274.</li>
-    <li>141. Park, J. S., Kim, B. J., Seo, B. G., Han, G. D., Park, K.-H., Koo, J., Park, H.-D., and Shim, J. H. (Feb. 2022) "Hetero-structured palladium-coated zinc oxide photocatalysts for sustainable water treatment, Journal of Water Process Engineering, 45: 102488.</li>
-    <li>140. Kim, N. K., Lee, S.-H., Kim, Y., and Park, H.-D. (Jan. 2022) "Current understanding and perspectives in anaerobic digestion based on genome-resolved metagenomic approaches", Bioresource Technology, 344(Part B): 126350.</li>
-    <li>139. Jeong, J.-Y., Lee, S.-H., Yun, M.-R., Oh, S.-E., Lee, K.-H., and  Park, H.-D. (Nov. 2021) "2-Methylisoborneol (2-MIB) excretion by Pseudanabaena yagii under low temperature, Microorganisms, 9(12): 2486. (Cover image)</li>
-    <li>138. Ham, S.-Y., Kim, H.-S., Jo, M. J., Lee, J.-H., Byun, Y., K., G.-J., and Park, H.-D. (Oct. 2021) "Combined treatment of 6-gingerol analogand tobramycin for inhibiting Pseudomonasaeruginosa infections", Microbiology Spectrum, 9(2): e00192-21.</li>
-    <li>137. Sun, P.-F., Yang, Z., Song, X., Lee, J. H., Tang, C., and Park, H.-D. (Oct. 2021) "Interlayered forward osmosis membranes with Ti3C2Tx MXene and carbon nanotubes for enhanced municipal wastewater concentration", Environmental Science &amp; Technology, 55(19): 13219-13230. (Cover Image).</li>
-    <li>136. Park, K.-H., Sun, P.-F. , Kang, E. H., Han, G. D., Kim, B. J., Jang, Y., Lee, S.-H., Shim, J. H., and Park, H.-D. (Oct. 2021) "Photocatalytic anti-biofouling performance of nanoporous ceramic membranes treated by atomic layer deposited ZnO", Separation and Purification Technology, 272: 118935.</li>
-    <li>135. Jang, Y., Kim, H.-S., Lee, J.-H., Ham, S.-Y., Park, J.-H., and Park, H.-D. (Oct. 2021) "Development of a new method to evaluate critical flux and system reliability based on particle properties in a membrane bioreactor", Chemosphere, 280: 130763.</li>
-    <li>134. Kim, N.-K., Lee, S.-H., Yoon, H., Jeong, G., Jung, Y.-J., Hur, M., Lee, B.-H., and Park, H.-D. ​(Sep. 2021) "Microbiome degrading linear alkylbenzene sulfonate in activated sludge", Journal of Hazardous Materials​, 418: 126365.</li>
-    <li>133. Sun, P.-F., Jang, Y., Ham, S.-Y., Park, J.-H., Ryoo, H., and Park, H.-D. (Sep. 2021) "Effects of reverse solute diffusion on membrane biofouling in pressure-retarded osmosis processes", Desalination, 512: 115145.</li>
-    <li>132. Hoang, P. T., Lee, S.-H., Jeong. G., Yoon, H., and Park, H.-D. ​(Aug. 2021) "Recent development of the mainstream anammox processes:challenges and opportunities", Journal of Environmental Chemical Engineering, 9(4): 105583.</li>
-    <li>131. Kang, H.-J., Lee, S.-H., Lim, T.-G., and Park, H.-D. (Jul. 2021) "Effect of microbial community structure in inoculum on the stimulation of direct interspecies electron transfer for methanogenesis", Bioresource Technology, 332: 125100.</li>
-    <li>130. Kim, N. P., Aditya, A., Kang, H.-J., and Park H.-D. (May 2021) "Unique approach of a telemedicine system forCBD-infused foods", Processes, 9: 936.</li>
-    <li>129. Jang, Y., Kim, H.-S., Ham, S.-Y., Park, J.-H., and Park, H.-D. (May 2021) "Investigation of critical sludge characteristics for membrane fouling in a submerged membrane bioreactor: Role of soluble microbial products and extracted extracellular polymeric substances", Chemosphere, 271: 129897.</li>
-    <li>128. Yang, Z., Wang, L., Rehman, D., Sun, P.-F., Deshmukh, A., Zhang, L., Han, Q., Yang, Z., Wang, Z., Park, H.-D., Lienhard, J., Tang, C. (Apr. 2021) “A novel positively-charged metal-coordinated nanofiltration membrane for lithium recovery” ACS Applied Materials &amp; Interfaces, 13: 16906-6915.</li>
-    <li>127. Ham, S.-Y., Kim, H.-S., Jang, Y., Ryoo, H.-S., Lee, J.-H., Park, J.-H., and Park, H.-D. (Apr. 2021) “Synergistic control of membrane biofouling using linoleic acid and sodium hypochlorite”, Chemosphere, 268: 128802.</li>
-    <li>126. Lee, S.-H., Kim, T.-S., and Park, H.-D. (Feb. 2021) "Transient rare bacterial taxa are assembled neutrally across temporal scales", Microbes and Environments, 36(1): ME20110.</li>
-    <li>125. Kang, H.-J., Lee, S.-H., Lim, T.-G., Park, J.-H., Kim, B., Buffiere, P., and Park, H.-D. (Feb. 2021) "Recent advances in methanogenesis through direct interspecies electron transfer via conductive materials: a molecular microbiological perspective", Bioresource Technology,322: 124587.</li>
-    <li>124. Kim, H.-S., Cha, E., Ham, S.-Y., Park, J.-H., Nam, S.-J., Kwon, H. Byun, Y., and Park, H.-D. (Jan. 2021) “Linoleic acid inhibits Pseudomonas aeruginosa biofilm formation by activating diffusible signal factor mediated quorum sensing”, Biotechnology and Bioengineering​,118(1): 82-93.</li>
-    <li>123. Kim, H.-S., Jang, Y., Ham, S.-Y., Park, J.-H., Kang,H.-J., Yun, E.-T., Shin, D.-H., Kim, K.-C., and and Park, H.-D. (Jan. 2021), “Effect of broad-spectrum biofilminhibitor raffinose, a plant galactoside, on the inhibition of co-culturebiofilm on the microfiltration membrane”, Journalof Hazardous Materials, 402, 123501.</li>
-    <li>122. Yang, Z., Sun, P.-F., Li, X., Gan, B., Wang, L., Song, X, Park, H.-D., Tang, C.-Y. (Dec. 2020) “A critical review on thin-film nanocomposite membranes with interlayered structure: mechanisms, recent developments, and environmental applications”, Environmental Science &amp; Technology, 54: 15563-15583.</li>
-    <li>121. Lee, S.-H., Kang, H.-J., Lim, T.-G., and Park, H.-D. (Dec. 2020) “Magnetite andgranular activated carbon improve methanogenesis via different metabolic routes”,Fuel, 281: 118768.</li>
-    <li>120. Lee, J.-H., Kim, H.-S., Yun, E.-T., Ham, S.-Y., Park,J.-H., Ahn, C.-H., Lee, S.-H., and Park,H.-D. (Oct. 2020) “Vertically aligned carbon nanotube membranes: water purificationand beyond”, Membranes, 10 (10): 273.</li>
-    <li>119. Nam, S.-J., Ham, S.-Y., Kwon, H., Kim, H.-S., Moon,S., Lee, J.-H., Lim, T., Son, S.-H., Park,H.-D., and Byun, Y. (Jul. 2020) “Discovery and characterization of pureRhlR antagonists against Pseudomonas aeruginosa infections”, Journal of Medicinal Chemistry, 63 (15): 8388-8407.</li>
-    <li>118. Jeong, J.-Y., Lee, S.-H., Yun, m.-R., Oh, S.-E., Kim, T.-H.,Yoon, M.-H., and Park, H.-D. (Jul.2020) Draft genome sequence of putative 2-methylisoborneol-producingPseudanabaena yagii strain GIHE-NHR1, Isolated from the North Han River inSouth Korea, Microbiology ResourceAnnouncements, 9 (27): e00431-20.</li>
-    <li>117. Park, J.-H., Park, J.-H., Lee, S.-H., Yoon, J.-J., Kim, S.-H., and Park,H.-D. (Jun. 2020) “Metabolic flux and functional potential of microbialcommunity in an acidogenic dynamic membrane bioreactor”, BioresourceTechnology, 305: 123060. (Cover Image).</li>
-    <li>116. Sun, P.-F., Kim, T.-S., Kim, H.-S., Ham, S.-Y., Jang, Y., Park, Y.-G. Park,Tang, C.-Y., and  Park, H.-D. (May2020) “Improved anti-biofouling performance of pressure retarded osmosis (PRO)by dosing with chlorhexidine gluconate”, Desalination, 481: 114376.</li>
-    <li>115. Yang, B., Park, H.-D., Hong, S. W., Lee, S.-Y., Park, J.-A., and Choi,J.-W. (Apr. 2020) “Photocatalytic degradation of microcystin-LR and anatoxin-awith presence of natural organic matter using UV-light emitting diodes/TiO2process” Journal of Water Process Engineering, 34: 101163.</li>
-    <li>114. Han, C.-H., Park, H.-D., Kim, S.-B., Yargeau, Y., Choi, J.-W., Lee,S.-Y., and Park, J.-A. (Apr. 2020) “Oxidation of tetracycline andoxytetracycline for the photo-Fenton process: Their transformation products andtoxicity assessment”, Water Research, 172: 115514.</li>
-    <li>113. Kim, J., Lee, H., Lee, J.-Y., Park, K.-H., Kim, W., Lee, J. H., Kang,H.-J., Hong, S. W., Park, H.-J., Lee, S., Lee, J.-H., Park, H.-D., Kim,J. Y., Jeong, Y. W., and Lee, J. (Mar. 2020) “Photosensitized production of singletoxygen via C60 fullerene covalently attached to functionalized silica-coated stainless-steelmesh: remote bacterial and viral inactivation”, Applied Catalysis B:Environmental, 270: 118862.</li>
-    <li>112. Jeong, J.-Y., Lee, S.-H., Yun, M.-R., Oh, S.-E., Hwang, C.-W., Yoon, M.-H.,and Park, H.-D. (Feb. 2020) “Draft Genome Sequence of Raphidiopsis raciborskii Strain GIHE 2018,Isolated from a Shallow Freshwater Pond in South Korea, MicrobiologyResource Announcements 9(6): e01545-19.</li>
-    <li>111. Kondaveeti, S., Lee, S.-H., Park, H-D., and Min, B. (Jan. 2020) "Specific enrichment of different Geobacter sp. in anode biofilm by varying interspatial distance of electrodes in air-cathode microbial fuel cell (MFC)", Electrochimica Acta, 331: 135388.</li>
-    <li>110. Kang, H.-J., Lee, S.-H., Lim, T.-G., and Park, H.-D. (Nov. 2019) "Effect of inoculum concentration on methanogenesis by direct interspecies electron transfer: performance and microbial community composition, Bioresouce Technology, 291: 121881. (Cover Image).</li>
-    <li>109. Park, K.-H., Han, G. D., Kim, B. J., Kang, E. H., Park, J. S., Shim, J. H. and Park, H.-D. (Oct. 2019) “Effects of atomic layer deposition conditions on the formation of thin ZnO films and their photocatalytic characteristics”, Ceramics International, 45(15): 18823-18830.</li>
-    <li>108. Park, J.-H., Kang, H.-J., Kim, H.-S., Wells, G. F., and Park, H.-D. (Oct. 2019) “Effects of alkali-treated sludge supplementation for enhanced biological phosphorus removal in a membrane bioreactor”, Fuel, 254: 115588.</li>
-    <li>107. Kim, H.-S., Lee, J.-Y., Jang, Y., Ham, S.-Y., Lee, J. H., Park, J.-H., and Park, H.-D. (Oct. 2019), “Effect of biofilm inhibitor on biofouling resistance in RO processes”, Fuel, 253: 823-832.</li>
-    <li>106. Kim, H.-S., Ham, S.-Y., Jang, Y., Sun, P.-F., Park, J.-H., Lee, J. S., Byun, Y., and Park, H.-D. (Oct. 2019) “Linoleic acid, a plant fatty acid, controls membrane biofouling via inhibition of biofilm formation”, Fuel, 253: 754-761.</li>
-    <li>105. Ham, S.-Y., Kim, H.-S., Jang, Y., Sun, P.-F., Park, J.-H., Lee, J. S., Byun, Y., and Park, H.-D. (Aug. 2019) "Control of membrane biofouling by 6-gingerol analogs: quorum sensing inhibition", Fuel, 250: 79-87.</li>
-    <li>104. Alayande, A. B. Park, H.-D., Vrouwenvelder, J. S., and Kim, I. S. (Jul. 2019) “Implications of chemical reduction using hydriodic acid on the antimicrobial properties of graphene oxide and reduced graphene oxide membranes”, Small, 15: 1901023.</li>
-    <li>103. Park, J.-H., Park, J.-H., Sim, Y.-B., Kim, S.-H., and Park H.-D. (Jun. 2019) "Formation of a dynamic membrane altered the microbial community and metabolic flux in fermentative hydrogen production, Bioresource Technology, 282: 63-68.</li>
-    <li>102. Park, J.-A., Yang, B., Jang, M., Kim, J.-H., Kim, S.-B., Park, H.-D., Park, H.-M., Lee, S.-H., and Choi, J.-W. (Jun. 2019) "Oxidation and molecular properties of microcystin-LR, microcystin-RR and anatoxin-a using UV-light-emitting diodes at 255 nm in combination with H2O2, Chemical Engineering Journal, 366: 423-432.</li>
-    <li>101. Park, J.-H., Kim, D.-H., Kim, H.-S., Wells, G. F., and Park, H.-D. (Jun. 2019) "Granular activated carbon supplementation alters the metabolic flux of Clostridium butyricum for enhanced biohydrogen production", Bioresource Technology, 281: 318-325.</li>
-    <li>100. Kim, H.-S., Cha, E. J., Kang, H.-J., Park, J.-H., Lee, J., and Park, H.-D. ​(May 2019) ​"Antibacterial application of covalently immobilized photosensitizers on a surface", Environmental Research, 172: 34-42.</li>
-    <li>99. Ranjan Dhar, B., Park, J.-H., Park, H.-D., and Lee, H.-S. (Mar. 2019) "Hydrogen-based syntrophy in an electrically conductive biofilm anode", Chemical Engineering Journal, 359: 208-216.</li>
-    <li>98. Garrido-Baserba, G., Asvapathanagul, P., Park, H.-D., Kim, T.-S., Baquero-Rodriguez, G., Olson, B. H., Rosso, D. (Oct. 2018) "Impact of fouling on the decline of aeration efficiency under different operational conditions at WRRFs", Science of  the Total Engineering, 639: 248-257.</li>
-    <li>97. Park, J. -A.  Yang, B. Kim, J.-H., Choi, J.-W., Park, H.-D., and Lee, S.-H. (Sep. 2018) "Removal of microcystin-LR using UV-assisted advanced oxidation processes and optimization of photo-Fenton-like process for treating Nak-Dong River water, South Korea", Chemical Engineering Journal, 348: 125-134.</li>
-    <li>96. Park, J.-H., Sim, Y.-B., Kumar, G., Parthiban, A., Park, J.-H., Park, H.-D., and Kim, S.-H. (Aug. 2018) "Kinetic modelling and microbial community analysis for high-rate biohydrogen production using dynamic membrane", Bioresource Technology, 262: 59-64.</li>
-    <li>95. Yun, E.-T., Lee, J. H., Kim, J., Park, H.-D., and Lee, J. (Jul. 2018) "Identifying the nonradical mechanism in the persulfate activation process: singlet oxygenation versus mediated electron transfer", Environmental Science &amp; Technology, 52(12): 7032-7042</li>
-    <li>94. Park, J.-H., Park, J.-H., Seong, H. J., Sul, W. J., Kang, H.-J., and Park, H.-D. (Jul. 2018) "Metagenomic insights into methanogenic reactors promoting direct interspecies electron transfer via granular activated carbon", Bioresource Technology, 259: 414-422.</li>
-    <li>93. Park, J.-H., Kim, D.-H., Kim, S.-H., Yoon, J.-J., and Park, H.-D. (Jun. 2018) "Effect of substrate concentration on the competition between Clostridium and Lactobacillus during biohydrogen productoin", International Journal of Hydrogen Energy, 43(25): 11460-11469.</li>
-    <li>92. Park, S.-H., Hwang, S. O., Kim, T.-S., Cho. A., Kwon, S. J., Kim, K. T., Park, H.-D. and Lee, J.-H. (Jun. 2018) "Triclosan-immobilized polyamide thin film composite membrane with enhanced biofouling resistance, Applied Surface Science, 443: 458-466.</li>
-    <li>91. Ham, S.-Y., Kim, H.-S., Cha, E., Park, J.-H., and Park, H.-D. (Jun. 2018) "Mitigation of membrane biofouling by a quorum qeunching bacterium for membrane bioreactors", Bioresource Technology, 258: 220-226.</li>
-    <li>90. Park, J.-H., Kang, H.-J., Park, K.-H., and Park, H.-D. (Apr. 2018) "Direct interspecies electron transfer via conductive materials: a perspective for anaerobic digestion applications", Bioresource Technology, 254: 300-311.</li>
-    <li>89. Lee, C.-H., Lee, Y.-K., Lee, E.-S., Park, H.-J., Park, H.-D., and Lim, D.-S. (Mar. 2018) "Boron-doped diamond nanowire array electrode with high mass transfer rates in flow-by operation", RSC Advances, 8(20): 11102-11108..</li>
-    <li>88. Kim, T.-S., Antoinette, M., and Park, H.-D. (Feb. 2018) "Combination of lauroyl arginate ethyl and nisin for biofouling control in reverse osmosis processes”, Desalination, 428(15): 12-20.</li>
-    <li>87. Park, J.-A., Yang, B., Lee, J., Kim, I. G., Kim, J.-H, Choi, J.-W., Park, H.-D., Nah, I. W., and Lee, S.-H. (Jan. 2018) "Ultrasonic spray pyrolysis synthesis of reduced graphene oxide/anatase TiO2 composite and its application in the photocatalytic degradation of methylene blue in water", Chemosphere, 191: 738-746.</li>
-    <li>86. Kim, H.-G., Kim, S.-H., Kim, T.-S., Park, W.-T., Won,R., Park, H.-D., Choi, S. A., and Jung, Y. J. (Dec. 2017) “Polyvinylidenefluoride alters inflammatory responses by activation-induced cell death in macrophages”,Immune Network, 17(6): 402-409.</li>
-    <li>85. Choi, H., Ham, S.-Y., Cha, E., Shin, Y., Kim, H.-S.,  Bang, J. K., Son, S.-H., Park, H.-D., Byun, Y. (Dec. 2017) "Structure-activity relationships of 6- and 8-gingerol analogs as anti-biofilm agents", Journal of Medicinal Chemistry, 60: 9821-9837.</li>
-    <li>84. Kim, T.-S., Sun, P., Park, Y.-G., and Park, H.-D. (Nov. 2017) "Effects of membrane and operational features on biofouling in a pressure retarded osmosis process”, Desalination and Water Treatment, 97: 79-86.</li>
-    <li>83. Park, J.-H., Anburanjan, P., Kumar, G., Park, H.-D., and Kim, S.-H. (Nov. 2017) "Biohydrogen production integrated with an external dynamic membrane: A novel approach, International Journal of Hydrogen Energy, 42(45): 27543-27549.</li>
-    <li>82. Park, K.-H., Han, G. D., Neoh, K. C., Kim, T.-S., Shim, J. H., and Park, H.-D. (Nov. 2017) "Antibacterial activity of the thin ZnO film formed by atomic layer deposition under UV-A light", Chemical Engineering Journal, 328: 988-996.</li>
-    <li>81. Lee, J.-Y., Park, J.-H., and Park, H.-D. (Oct. 2017) "Effects of applied voltage on direct interspecies electron transfer via conductive materials for methane production", Waste Management, 68: 165-172.​</li>
-    <li>80. Kim, T.-S., Ham, S.-Y., Park, B. B., Byun, Y., and Park, H.-D. (May 2017) "Lauroyl arginate ethyl blocks iron signals for Pseudomonas aeruginosa biofilm development", Frontiers in Microbiology, 8: 970.​</li>
-    <li>79. Park, J.-H., Kumar, G., Sivagurunathan, P., Lee, S.-H., Park, H.-D., and Kim, S.-H. (Feb 2017) "Microbial responses to various process disturbances in a continuous hydrogen reactor fed with galactose", Journal of Bioscience and Bioengineering, 123(2): 216-222.</li>
-    <li>78.  Sivagurunathan, P. Parthiban, A., Park, J.-H., Kumar, G., Park, H.-D., and Kim, S.-H. (Feb 2017) "Mesophilic biogenic H2 production using galactose in a fixed bed reactor, International Journal of Hydrogen Energy, 42(6): 3658-3666.</li>
-    <li>77. Lee, C.-H., Lee, E.-S., Lim, Y.-K., Park, K.-H., Park, H.-D., and Lim, D.-S. (Jan. 2017) "Enhanced electrochemical oxidation of phenol by boron-doped diamond nanowire electrode", RSC Advances, 7(11): 6229-6237.</li>
-    <li>76. Lee, K.-J. and Park, H.-D. (Nov. 2016) "Effect of transmembrane pressure, linear velocity, and temperature on permeate water flux of high-density vertically-aligned carbon nanotube membranes", Desalination and Water Treatment, 57: 26706-26717.</li>
-    <li>75. Lee, K.-J., Cha, E., and Park, H.-D. ​(Oct. 2016) "High antibiofouling property of vertically-aligned carbon nanotube membranes at a low cross-flow velocity operation in different bacterial solutions", Desalination and Water Treatment, 57: 23505-23515.</li>
-    <li>74. Park, S.-H., Kim, S. H., Park, S.-J., Ryoo, S., Park, S.-J., Woo, K., Lee, J. S., Kim, T.-S., Park, H.-D., Park, H., Park, Y.-I., Cho, J., and Lee, J.-H. (Sep. 2016) “Direct incorporation of silver nanoparticles onto reverse osmosis membranes via arc plasma deposition for enhanced antimicrobial and permeation performance”, Journal of Membrane Science, 513: 226-235.</li>
-    <li>73. Zhao, Y. Park, H.-D., Park, J.-H., Zhang, F.Chen, C., Li , X and Zhao, F. (Sep. 2016) "Effect ofdifferent salinity adaptation on the performance and microbial community in asequencing batch reactor", Bioresource Technology, 216:808-816.</li>
-    <li>72. Liu, Z., Yu, S., Park, H.-D., Yuan, Q., Liu, G., and Li, Q. (Aug. 2016) "Impact of titanium dioxide nanoparicels on the bacterial communities of biological activated carbon filter intended for drinking water treatment", Environmental Science and Pollution Research, 23(15): 15574-15583.</li>
-    <li>71. Wang, Y., Ma, X., Zhou, S., Lin, X., Ma, B., Park, H.-D., and Yuan, Y. (Jul. 2016) "Expression of the nirS, hzsA, and hdh grnes in response to nitrite shock and recovery in Candidatus Kuenenia stuttgartiensis", Environmental Science and Technology, 50(13): 6940-6947.</li>
-    <li>70. Noble, P. A., Park, H.-D., Asvapathanagul,P., Olson, B. H., Hunter, M. C., McCarthy, G. W., Garrido-Baserba,M., Lee, S.-H., and Rosso, D. (Jul. 2016) "A survey ofbiofilms on wastewater aeration diffusers suggests bacterial communitycomposition and function vary by substrate type and time", Applied Microbiologyand Biotechnology, 100(14): 6361-6373.</li>
-    <li>69. Liu, Z., Yu, S., Park, H.-D., Liu,G., and Yuan, Q. (Jun. 2016)  "Retention of titanium dioxidenanoparticles in biological activated carbon filters for drinking water and theimpact on ammonia reduction", Biodegradation, 27(2):95-106.</li>
-    <li>68. Ma, J., Wang, Z., Li, H., Park,H.-D., and Wu, Z. (Jun. 2016) "Metagenomes reveal microbialstructures, functional potentials, and biofouling related genes in a membranebioreactor", Applied Microbiology and Biotechnology, 100(11):5109-5121.</li>
-    <li>67. Kim, T.-S. and Park, H.-D. (Jun.2016) "Lauroyl arginate ethyl: an effective antibiofouling agentapplicable for reverse osmosis processes producing potable water" Journalof Membrane Science, 507: 24-33.</li>
-    <li>66. Kim, H.-S., Cha, E., Jeon, Y. H., Olson, B. H., Byun,Y., and Park, H.-D. (May 2016) "Raffinose, a plantgalactoside, inhibits Pseudomonas aeruginosa biofilm formationvia binding to LecA and decreasing cellular cyclic diguanylate levels", ScientificReports 6, 25318.</li>
-    <li>65. Kumar, G.,Sivagurunathan, P., Park, J.-H., Park, J.-H., Park, H.-D., Yoon,J.-J., and Kim, S.-H. (Apr. 2016) “HRT dependent performance and bacterialcommunity population of granular hydrogen-producing mixed cultures fed withgalactose”, Bioresource Technology, 206: 188-194.</li>
-    <li>64. Lee, J.-Y., Lee, S.-H., and Park, H.-D. (Apr. 2016)"Enrichment of specific electro-active microorganisms and enhancement ofmethane production by adding granular activated carbon in anaerobicreactors", Bioresource Technology, 205: 205-212.</li>
-    <li>63. Lee, K.-J. and Park, H.-D. (Apr.2016) "The effect of morphologies of carbon nanotube-based membranes andtheir leachates on antibacterial property", Desalination and WaterTreatment, 57(16): 7562-7573.</li>
-    <li>62. Garrido-Baserba, M., Asvapathanagul,P., McCarthy, G. W., Gocke, T. E., Olson, B. H., Park, H.-D., Al-Omari, A., Murthy, S., Bott, C. B., Wett, B. Smeraldi,J. D., Shaw, A. R., and Rosso, D. (Mar. 2016) "Linking biofilm growth to fouling and aeration performance of fine-pore diffuser in activated sludge", WaterResearch, 90: 317-328.</li>
-    <li>61. Lee, K.-J. and Park, H.-D. (Mar.2016) "The most densifiedvertically-aligned carbon nanotube membranes and their normalized waterpermeability and high pressure durability", Journal ofMembrane Science, 501: 144-151.</li>
-    <li>60. Sivagurunathan,P., Kumar. G., Park, J.-H., Park, J.-H., Park, H.-D., Yoon, J.-J.,and Kim, S.-H. (Feb 2016) "Feasibility of enriched mixedcultures obtained by repeated batch transfer in continuous hydrogenfermentation", International Journal of Hydrogen Energy,41(7): 4393-4403.</li>
-    <li>59. Park, J.-H., Lee, S.-H., Ju, H.-J.,Kim, S.-H.,Yoon, J.-J., and Park, H.-D. (Feb.2016) "Failure of biohydrogen production by low levelsof substrate and lactic acid accumulation", Renewable Energy 86:889-894.</li>
-    <li>58. Lee, H., Park, C., Kim, H.-S., Park,H.-D., and Hong, S. (Nov. 2015) "Role of transparent exopolymerparticles (TEP) in initial bacterial deposition and biofilm formation onreverse osmosis (RO) membrane", Journal of Membrane Science 494:25-31.</li>
-    <li>57. Li, Pan, Yang, Y., Song, Y., Yu, S., and Park,H.-D. (Oct. 2015) "The effect of hydrodynamic cavitation on Microcystisaeruginosa: Physical and chemical factors", Chemosphere 136:245-251.</li>
-    <li>56. Park, K.-H., Yu, S.-H., Kim, H.-S., and Park,H.-D. (2015) "Inhibition of biofouling by modification offorward osmosis membrane using quaternary ammonium cation", WaterScience and Technology 72(5): 738-745.</li>
-    <li>55. Kim, T.-S.and Park, H.-D. (Sep.2015) "Tributyl tetradecyl phosphonium chloride for biofoulingcontrol in reverse osmosis processes", Desalination 372: 39-46.</li>
-    <li>54. Zhao, F., Yu, Z., Park, H.-D.,Liang, X., Zhang, X., and Li, Z. (Aug.2015) "Polyvinylchloride ultrafiltration membranesmodified with different SiO2 particles and their antifoulingmechanism for oil extraction wastewater", Journal ofEnvironmental Engineering-ASCE, 141(8): 04015009.</li>
-    <li>53. Park, S., Kim, H.-S., Ok, K., Park, H.-D.,Byun, Y. (Aug. 2015) "Design, synthesis and biological evaluationof 4-(alkyloxy)-6-methyl-2H-pyran-2-one derivatives as quorumsensing inhibitors", Bioorganic &amp; Medicinal Chemistry Letters,25(15): 2913-2917.</li>
-    <li>52. Lee, S.-H., Park, J.-H., Kim, S.-H., Yu, B.J., Yoon, J.-J., and Park, H.-D. (Aug. 2015) "Evidence ofsyntrophic acetate oxidation by Spirochaetes during anaerobicmethane production", Bioresource Technology 190: 543-549.</li>
-    <li>51. Park, J.-H., Kumar, G., Park,J.-H., Kim, S.-H., and Park, H.-D. (Jul. 2015)  "Changesin performance and bacterial communities in response to various processdisturbances in a high-rate biohydrogen reactor fed with the galactose", BioresourceTechnology, 188: 109-116.</li>
-    <li>50. Kim, H. G., Yeon, S.-M., Kim, K. H. , Kim, H., Park,J.-I.,Kang, H.-J., Cha, E. J., Park, H.-D., Kang, H. J., Park,T. W., Jeon, Y.-H., Park, Y. I., Chang, K.-T., and Jung, Y. W. (Apr. 2015)"Estrogenic endocrine-disrupting chemicals modulate the production ofinflammatory mediators and cell viability of lipopolysaccharide-stimulatedmacrophages", Inflammation 38(2): 595-605.</li>
-    <li>49. Lee, S.-H., Kang, H.-J., and Park, H.-D. (Apr.2015) "Influence of influent wastewater communities on temporal variationof activated sludge communities", Water Research 73:132-144.</li>
-    <li>48. Kim, L. H., Jung, Y., Kim, S.-J.,Kim, C.-M., Yu, H.-W., Park, H.-D., and Kim, I. S.(Mar. 2015) "Use of rhamnolipid biosurfactant for membrane biofoulingprevention and cleaning", Biofouling 31(2): 211-220.</li>
-    <li>47. Kim, H.-S., Lee, S.-H., Byun, Y., and Park,H.-D. (Mar. 2015) "6-Gingerol reduces Pseudomonas aeruginosa biofilmformation and virulence via quorum sensing inhibition", ScientificReports 5, serp08656.</li>
-    <li>46. Kang, H.-J., Cha, E. J., and Park, H.-D.(Jan. 2015) "Protein immobilization onto various surfaces using apolymer-bound isocyanate", Applied Surface Science 324:198-204.</li>
-    <li>45. Delgado-Saborit, J. M., Park, H.-D., andCwiertny, D. M. (Jun. 2014) "Emerging investigators: challenges andopportunities for research independence and innovation", EnvironmentalSience: Processes &amp; Impacts 16(6): 1169-1170. (Editorial)</li>
-    <li>44. Kim, K. H., Yeon, S.-M., Kim, H.G., Choi, H. S., Kang, H., Park, H.-D., Park, T. W., Pack, S.P., Lee, E. H., Byun, Y., Choi, S.-E., Lee, K. S., Ha, U.-H., and Jung, Y.W., (Jun. 2014) "Diverse influences of androgen-disrupting chemicals onimmune responses mounted by macrophages", Inflamation 37(3): 649-656.</li>
-    <li>43. Park, J.-H., Kim, S.-H., Park,H.-D., Kim, J. S., and Yoon, J.-J. (May 2014) "Simultaneousutilization of galactose and glucose by Saccharomyces cerevisiae mutantstrain for ethanol production", Renewable Energy 65:213-218.</li>
-    <li>42. Park, J.-H., Lee, S.-H., Yoon, J.-J., Kim, S.H., and Park, H.-D. (Apr. 2014) "Predominanceof cluster I Clostridium in hydrogen fermentation of galactoseseeded with various heat-treated anaerobic sludges", BioresourceTechnology 157: 98-106.</li>
-    <li>41. Kondaveeti, S., Lee,S.-H., Park, H.-D., and Min, B. (Mar. 2014) "Bacterialcommunities in a bioelectrochemical denitrification system: the effects ofsupplemental electron acceptors", Water Research 51:25-36.</li>
-    <li>40. Lee, S.-H., Hong, T. I., Kim,B., Hong, S., and Park, H.-D. (Feb. 2014) "Comparisonof bacterial communities of biofilms formed on different membranesurfaces", World Journal of Microbiology and Biotechnology 30:777-782.</li>
-    <li>39. Lee,S.-H., Park, J.-H., Kang, H.-J., Lee, Y.-H., Lee, T.-J., and Park,H.-D.(Oct. 2013) "Distribution and abundance of Spirochaetes infull-scale anaerobic digesters", Bioresource Technology 145:25-32.</li>
-    <li>38. Kim, H.-S. and Park,H.-D.(Sep. 2013) "Ginger extract Inhibits biofilm formationby Pseudomonas aeruginosa PA14", Plos One,8(9): e76106.</li>
-    <li>37. Park, S., Yasin, M., Kim, D., Park,H.-D., Kang, C. M., Kim, D. J., and Chang, I. S. (Sep.2013) "Rapid enrichment of (homo)acetogenic consortia from animalfeces using a high mass-transfer gas-lift reactor fed with syngas", Journalof Industrial Microbiology and Biotechnology, 40(9): 995-1003.</li>
-    <li>36. Park, J.-H., Kim, S.-H., Park,H.-D., Lim, D. J., Yoon, J.-J. (Aug. 2013) "Feasibility ofanaerobic digestion from bioethanol fermentation residue", BioresourceTechnology, 141: 177-183.</li>
-    <li>35. Park, J.-H., Cheon, H.-C., Yoon, J.-J., Park,H.-D., and Kim, S.-H., (May 2013) "Optimization of batchdilute-acid hydrolysis for biohydrogen production from red algalbiomass", International Journal of Hydrogen Energy, 38(14):6130-6136.</li>
-    <li>34. Mun, E., Lee, S., Kim, I., Kwon, B., Park,H.-D., and Hong, S., (2013) "Measurements of assimilable organiccarbon (AOC) in high saline condition using P17", WaterScience and Technology: Water Supply, 13(2): 265-272.</li>
-    <li>33. Kim, J., Kim, H.-S., Han, S., Lee, J.-Y., Oh, J.-E.,Chung, S., and Park, H.-D. (May 2013) "Hydrodynamiceffects on bacterial biofilm development in a microfluidic environment", Labon a Chip, 13(10): 1846-1849.</li>
-    <li>32. Lee, S.-H., Kondaveeti,S. Min, B., and Park, H.-D. (Feb. 2013) "Enrichment of Clostridia during theoperation of an external-powered bio-electrochemical denitrificationsystem", Process Biochemistry, 48(2): 306-311.</li>
-    <li>31. Kim, T.-S., Jeong, J.-Y., Wells, G. F., and Park,H.-D. (Feb. 2013) "General and rare bacterial taxa demonstratingdifferent temporal dynamic patterns in an activated sludge bioreactor", Applied Microbiologyand Biotechnology, 97(4): 1755-1765.</li>
-    <li>30. Zhao, F., Qiu, F., Zhang,X., Yu, S., Kim, H.-S., Park, H.-D., Takizawa, S.(2012) "Preparation of single-walled carbon nanotubes/polyvinylchloride membrane and its antibacterial property", WaterScience and Technology, 66(11): 2275-2283.</li>
-    <li>29. Kim, M., Lee, S., Park, H.-D., Choi,S.-I., and Hong, S. (2012) "Biofouling control by quorum sensinginhibition and its dependence on membrane surface", Water Scienceand Technology, 66(7): 1424-1430.</li>
-    <li>28. Kim, J., Park, H.-D., Chung, S. (Aug.2012) "Microfluidic approaches to bacterial biofilm formation", Molecules,17(8): 9818-9834.</li>
-    <li>27. Lee, S.-H., Kang, H.-J., Lee, Y. H., Lee, T., Han,K., Choi, Y., and Park, H.-D. (Jul. 2012) "Monitoringbacterial community structure and variability in time scale in full-scaleanaerobic digesters", Journal of Environmental Monitoring,14(7): 1893-1905. (Emerginging Investigator)</li>
-    <li>26. Park, J.-H., Yoon, J.-J., Park,H.-D.,  Lim, D. J., and Kim,S.-H. (Jun. 2012) “Anaerobic digestibility of algal bioethanolresidue”, Bioresource Technology, 113: 78-82.</li>
-    <li>25. Wells, G. F., Park, H.-D., Eggleston,B., Francis, C. A., and Criddle, C. S. (Nov. 2011) "Fine-scalebacterial community dynamics and the taxa-time relationship within afull-scale activated sludge bioreactor", Water Research,45(17): 5476-5488.</li>
-    <li>24. Park, J.-H., Yoon, J.-J., Park, H.-D.,Kim, Y. J., Lim, D. J., and Kim, S.-H. (Oct. 2011) "Feasibility ofbiohydrogen production from Gelidium amansii", InternationalJournal of Hydrogen Energy, 36(21): 13997-14003.</li>
-    <li>23. Jeong, J.-Y., Park, H.-D., Lee,K.-H., Weon, H.-Y., and Ka, J. (Aug. 2011), "Microbial community analysisand identification of alternative host-specific fecal indicators in the fecaland river water samples using pyrosequencing", Journal ofMicrobiology, 49(4): 585-594.</li>
-    <li>22. Baek, J.-G., Park, J., Kim, T.-S., and Park,H.-D., (Aug. 2011) “Analysis of the time dependency ofammonia-oxidizing bacterial community dynamics in an activated sludgebioreactor”, Journal of Bioscience and Bioengineering, 112(2):166-169.</li>
-    <li>21. Park, B., Cho, E., Park, H.-D., and Khim,J., (Jul. 2011) "Sonophotocatalytic destruction of chloroform:comparisonof processes and synergistic effects", Japanese Journal of AppliedPhysics, 50(7): 07HE10.</li>
-    <li>20. Kwon, S., Moon, E., Kim, T.-S., Hong, S., and Park,H.-D., (Jun. 2011) “Pyrosequencing demonstrated complex microbialcommunities in a membrane filtration system for drinking water treatmentplant”, Microbes and Environments, 26(2): 149-155.</li>
-    <li>19. Kim, T.-S., Kim, H.-S., Kwon, S. and Park,H.-D. (Mar. 2011) “Nitrifying bacterial community structure of afull-scale integrated fixed-film activated sludge process as investigated bypyrosequencing”, Journal of Microbiology and Biotechnology, 21(3):293-298.</li>
-    <li>18. Hiena, T. T., Park, H.-D., Jo, H. Y., Yun,S.-T., and Minh, N. T. (Feb. 2011) “Influence of different substrates inwetland soils on denitrification”, Water, Air, &amp; Soil Pollution, 215(1-4):549-560.</li>
-    <li>17. Kwon, S., Kim, T.-S., Yu, G.-H., Jung, J.-H., Park,H.-D. (Dec. 2010) “Bacterial community composition and diversity of afull-scale integrated fixed-film activated sludge system as investigated bypyrosequencing”, Journal of Microbiology and Biotechnology, 20(12):1717-1723.</li>
-    <li>16. Jeong, J.-Y., Park, H.-D., Lee, K.-H.,Hwang, J.-H., Ka, J.-O. (Feb. 2010) “Quantitative analysis of human andcow-specific 16S rRNA gene markers for assessment of fecal pollution in riverwaters by real-time PCR”, Journal of Microbiology and Biotechnology, 20(2):245-253.</li>
-    <li>15. Park, H.-D., Lee, Y. H., Kim, H.-B., Ahn,C.-H., Kim, K.-T., and Kang, M.-S. (Feb. 2010) "Reduction of membranefouling by simultaneous upward and downward membrane air sparging in apilot-scale submerged membrane bioreactor treating municipal wastewater", Desalination, 251(1-3):75-82.</li>
-    <li>14. Moon, J., Kang, M.-S., Lim, J.-L., Kim, C.-H., and Park,H.-D. (Oct. 2009) “Evaluation of a low-pressure membrane filtrationfor drinking water treatment: pretreatment by coagulation/sedimentation for MFmembrane”, Desalination, 247(1-3): 271-284.</li>
-    <li>13. Wells, G. F.*, Park, H.-D.*,Yeung, C. H.,Eggleston, B., Francis, C. A., and Criddle, C. S. (Sep. 2009)“Ammonia-oxidizing communities in a highly aerated full-scale activated sludgebioreactor: betaproteobacterial dynamics and low relative abundance ofCrenarchaea”, Environmental Microbiology, 11(9): 2310-2328.(*Co-first authors)</li>
-    <li>12. Park, H.-D., Lee, S.-Y., and Hwang, S.(Apr. 2009) "Redundancy analysis demonstrated the relevance of temperatureto ammonia-oxidizing bacterial community compositions in a full-scalenitrifying bioreactor treating saline wastewater", Journal ofMicrobiology and Biotechnology, 19(4): 346-350.</li>
-    <li>11. Park, H.-D. and Noguera, D. R. (Aug.2008) "Nitrospira community composition in nitrifying reactorsoperated with two different dissolved oxygen levels", Journal ofMicrobiology and Biotechnology, 18(8): 1470-1474.</li>
-    <li>10. Ahn, C. H., Park, H.-D., Lee, Y. O.,and Park, J. K. (May 2008) “Appearance of novel G-bacteria belongingto Acidobacteria in a deteriorated enhanced biological phosphorus removalbioreactor”, Environmental Technology, 29(5): 497-504.</li>
-    <li>9. Chae, K.-J., Kim, S.-M., Park, H.-D., Yim,S.-H., Kim, I.-S. (Mar. 2008) "Development of pseudo-ampoteric spongemedia using polyalkylene oxide-modified polydimethylsiloxane (PDMS) for rapidstartup of wastewater treatment plant", Chemosphere, 71(5): 962-969.</li>
-    <li>8. Ahn, C. H., Park, H.-D., and Park,J. K. (Oct. 2007) “Enhanced biological phosphorus removal performanceand microbial population changes at high organic loadingrates”, Journal of Environmental Engineering ASCE, 133(10):962-969.</li>
-    <li>7. Park, H.-D.and Noguera, D. R. (May 2007)“Characterization of two ammonia-oxidizing bacteria isolated from reactorsoperated with low dissolved oxygen concentrations”, Journal of AppliedMicrobiology, 102(5): 1401-1417.</li>
-    <li>6. Park, H.-D., Wells, G. W., Bae, H.,Criddle, C. S., Francis, C. A. (Aug. 2006) “Occurrence of ammonia-oxidizingarchaea in wastewater treatment plant bioreactors”, Applied andEnvironmental Microbiology, 72(8): 5643-5647.</li>
-    <li>5. Park, H.-D., Whang, L.-M., Reusser, S., andNoguera, D. R. (Jun. 2006) “Taking advantage of aerated-anoxic operation in afull-scale University of Cape Town process”, Water Environment Research,78(6): 637-642.</li>
-    <li>4. Park, H.-D. and Noguera, D. R. (Aug. 2004)“Evaluating the effect of dissolved oxygen on ammonia-oxidizing bacterialcommunities in activated sludge”, Water Research, 38(14-15):3275-3286.</li>
-    <li>3. Regan, J. M., Oldenburg, P. S., Park, H.-D.,Harrington, G. W., and Noguera, D. R. (2003) “Simultaneous determinationof bacterial viability and identity in biofilms using ethidium monoazide andfluorescent in situ hybridization”, Water Science and Technology,47(5): 123-128.</li>
-    <li>2. Park, H.-D., Regan, J. M., and Noguera, D.R. (2002) “Molecular analysis of ammonia-oxidizing bacterial populations inaerated-anoxic Orbal process”, Water Science and Technology,46(1-2): 273-280.</li>
-    <li>1. Park, H.-D., Park, J.-K., Lee, J.-S., Sim,W.-S. (1995) "Construction of binary vectors for the rice transformationusing a rice actin promoter and replication origin of pTi12", Journalof Plant Biology, 38(4): 365-371.</li>
-  </ul>
+  <a class="card" href="publications_papers.html">
+    <h2>논문 · 특허</h2>
+    <p>SCI(E) 논문, 국내논문, 특허 목록</p>
+  </a>
 
-  <h2>2. 국내논문 (Domestic Journals)</h2>
-  <ul>
-    <li>5. 강현진, 김택승, 이영행, 이택준, 한금석, 최영준, 박희등 (Sep.2011) "454 Pyrosequencing을 이용한 혐기성 소화조의 아케아 군집구조 분석", 미생물학회지 47(3),209-217.</li>
-    <li>4. 김택승, 김한신, 권순동, 박희등 (Dec. 2010) "16S rRNA 유전자 기반의Pyrosequencing을 이용한 하수처리시설 생물반응기의 세균군집구조 분석", 미생물학회지 46(4): 352-358.</li>
-    <li>3. 박희등 (Jun. 2009) “실규모 하수처리 생물반응기에서 발견되는 암모니아산화균 군집조성 및 특징”, 미생물학회지 45(2): 112-118.</li>
-    <li>2. 김선형, 박희등, 임성균, 최광호 (Sep. 1998) “폴리우레탄담체를 이용한 합성폐수 및 피혁폐수의 생물학적 처리”, 한국물환경학회지 14(3): 251-258.</li>
-    <li>1. 박희등, 김선형, 임성균, 최광호, 박찬혁, 황규대 (Apr. 1998) “다공성 폴리우레탄 담체를 이용한 도시하수의 영양염류 제거”, 대한환경공학회지 20(4): 489-498.</li>
-  </ul>
+  <a class="card" href="publications_confs.html">
+    <h2>학회 발표</h2>
+    <p>국내·국제 학회 발표 자료</p>
+  </a>
 
-  <hr>
-
-  <h1>2-2) 학회 발표 목록 (Conference Presentations)</h1>
-
-  <h2>1. 국제학회 (International Conferences)</h2>
-  <ul>
-    <li>Park, H.-D. (Aug. 2014) "Explanining the temporal dynamics of bacterial communities in activated sludge bioreactor", ISME 15, Seoul, Korea.</li>
-    <li>Lee, S.-H., Kang, H.-J., and Park, H.-D. (Sep. 2013) "Effect of immigration on bacterial community dynamics in activated sludge bioreactors", The 5th IWA-ASPIRE Conference &amp; Exhibition, Daejeon, Korea.</li>
-    <li>Kim, T.-S., Park, K.-H., and Park H.-D. (Sep. 2013) "Fabriciation of a novel nano-porous membrane using V2O5 nanowire", The 5th IWA-ASPIRE Conference &amp; Exhibition, Daejeon, Korea.</li>
-    <li>Lee, S.-H.. Kim, T.-﻿S., Jeong, J.-Y.,and Park, H.-D. (Jul. 2013) "Temporal variation of rare bacterial taxa in an activated sludge bioreactor", KMB's 40th Anniversary 2013 International Symposium &amp; Annual Meeting, Pyeonchang, Korea.</li>
-    <li>Lee, S.-H.. Kim, H.-J., Kang, Y. H. Lee, T. Lee, and Park, H.-D. (Jun. 2013) "Spirochates in anaerobic digesters: evidences of syntrophic acetate oxidation", The 2nd International Workshop on Resource Recovery Wastewater/Biosolids, Seoul, Korea.</li>
-    <li>Kim, H.-S. and Park, H.-D. (May 2013) "Alterd gene expression in Pseuomonas aeruginosa PA14 by ginger extract", ASM 2013, Denver, USA.</li>
-    <li>Lee, S.-H.. Kim, T.-S., Jeong, J.-Y., Park, H.-D. (May 2013) "Distribution of general and rare bacterial taxa in an activated sludge bioreactor", ASM 2013, Denver, USA.</li>
-    <li>Lee, J.-Y., Park, H.-D., and Lee, K.-J. (Mar. 2013) "The effect of biofilm formation on the fouling resistance in RO process", 第47回 日本水環境學會年會, Osaka, Japan.</li>
-    <li>Cha, E.-J., Park, H.-D., and Kang, H.-J. (Mar. 2013) "Efficient immobilization of antibody using silane couplers reacting with antibody", 第47回 日本水環境學會年會, Osaka, Japan.</li>
-    <li>Kang, H.-J., Cha, E.-J., and Park, H.-D. (Mar. 2013) "Immobilization of antibody using polymer-bound functional groups", 第47回 日本水環境學會年會, Osaka, Japan.</li>
-    <li>Park, H.-D., (Feb. 2013) "Inhibition of biofilm formation by ginger extract: application to membrane process", International Workshop on MBR for the Next Generation, Buyeo, Korea.</li>
-    <li>Park, H.-D., (Jan. 2013) "Dynamics of ammonia-oxidizing bacterial community in a full-scale wastewater treatment bioreactor", 2nd Symposium on biological nitrogen removal mechanisms and process analysis, Hsinchu, Taiwan.</li>
-    <li>Lee, S.-H., Kang, H.-J., Lee, Y.-H., Lee, T., and Park, H.-D. (Sep. 2012) "Distribution and abundance of Spirochaetes in full-scale anaerobic digesters", IBS 2012, Daegu, Korea.</li>
-    <li>Park, J.-H., Park, H.-D.,Kim, S.-H., Lee, J. C., and Yoon, J.-J. (Sep. 2012) "Use of Gelidium amansii as a promising resource for bioethanol: simultaneous utilization of galactose and glucose derived from Gelidium amansii", IBS 2012, Daegu, Korea.</li>
-    <li>Lee, K.-J. and Park, H.-D. (Jun. 2012) "Fabrication of high density, void-free, vertically-aligned carbon nanotube membranes and their application to water treatment", NT12, Brisbane, Australia.</li>
-    <li>Kim, T.-S., Jeong, J.-Y., and Park, H.-D. (Oct. 2011) "A few bacterial taxa constituted a majority of bacterial community assembly and showed oscillatory behavior in an activated sludge bioreactor", 4th IWA-ASPIRE Conference &amp; Exhibition, Tokyo, Japan.</li>
-    <li>Kim, H.-S., Kim, Y.-S., Lee, T., Ju, Y., Hong, S., and Park, H.-D. (Oct. 2011) "Biofouling control by a natural quorum sensing inhibitor in a reverses osmosis system", 4th IWA-ASPIRE Conference &amp; Exhibition, Tokyo, Japan.</li>
-    <li>Zhao, F., Qiu, F., Zhang, X., Kim, H.-S., Yu, S., Park, H.-D., and Takizawa, S. (Oct. 2011) "Preparation of single-walled carbon nanotubes/PVC membrane and its antibacterial property", 4th IWA-ASPIRE Conference &amp; Exhibition, Tokyo, Japan.</li>
-    <li>Park, H.-D. (Aug. 2011) "Biofouling control using natural compounds in reverse osmosis process", 2nd International Reunion Conference on Environmental Engineering, Madison, WI, USA.</li>
-    <li>Park, H.-D. (Aug. 2011) "Control of biofouling using inhibitors for biofilm formation in reverse osmosis process", 7th  International Conference on Sustainable Water Environment, Taipei, Taiwan.</li>
-    <li>Park, H.-D. (Feb. 2010) "Bacterial community composition and diversity of a full-scale integrated fixed-film activated sludge system as investigated by pyrosequencing", The 1stInternational Symposium on Environmental &amp; Renewable Energy, Pusan, Korea.</li>
-    <li>Park, H.-D., Noguera, D. R., Francis, C. A., Criddle, C. S. (2008) "Nitrification under low dissolved oxygen level: A possible contribution by ammonia-oxidizing archaea", The 4th symposium of environmental biotechnology, Tainan, Taiwan.</li>
-    <li>Wells, G. F., Pérez, E. X., Park, H.-D., Sepúlveda-Torres, L. C., Eggleston, B., Brodie, E. L., DeSantis, T. Z.,  Andersen, G. L., Hazen, T. C., Francis, C. A., Criddle, C. S., Massol-Deyá, A. A.(2007) “Application of high-density oligonucleotide microarrays to the study of Crenarchaeotacommunity structure and dynamics in an aerated activated sludge wastewater treatment plant”, 107th ASM general meeting, Toronto, CA.</li>
-    <li>Kim, Y.-H., Park, H.-D., Chae,K.-J.,Kim, G.-T., Kang, M.-S., Ahn, C.-H., Yim, S.-K.(2007) “Retrofit of a full-scale activated sludge treatment plant using moving-bed porous carriers for efficient nutrient control”, IWA Efficient 2007, Jeju, Korea.</li>
-    <li>Park, H.-D., Wells, G. W., Yeung, C. H., Lee, S.-Y., Francis, C. A., Criddle, C. S. (2006) “Dynamics of Ammonia-Oxidizing Bacterial Populations in a Nitrifying Activated Sludge Wastewater Treatment Plant”, 106th ASM general meeting, Orlando, FL, USA.</li>
-    <li>Whang, L.-M., Park, H.-D., Reusser, S. and Noguera, D. R. (2004) "Combining aerated-anoxic and UCT processes for biological nutrient removal – lessons from a full-scale study", WEFTEC 2004, New Orleans, LA, USA.</li>
-    <li>Park, H.-D. and Noguera, D. R. (2004) “Isolation and characterization of chemolithotrophic ammonia-oxidizing bacteria adapted to low dissolved oxygen habitats”, 104th ASM general meeting, New Orleans, LA, USA.</li>
-    <li>Ahn, C.-H., Park, H.-D., Lee, Y.-O., and Park, J.-K. (2003) "Occurrence of tetrad cocci microorganisms in dairy wastewater treatment plants", 103rd General Meeting,Washington, D.C., USA.</li>
-    <li>Park, H.-D. and Noguera, D. R. (2002) “Effect of dissolved oxygen on ammonia-oxidizing bacterial communities”, WEFTEC 2002, Chicago, IL, USA.</li>
-    <li>Park, H.-D., Regan, J. M., and Noguera, D. R. (2001) “Molecular analysis of ammonia-oxidizing bacterial populations in aerated-anoxic Orbal process”, 3rd IWA international specialized conference on microorganisms in activated sludge and biofilm process, Rome, Italy.</li>
-    <li>Park, H.-D., Regan, J. M., and Noguera, D. R. (2001) “The comparison of nitrifying bacterial populations between the two wastewater treatment plants differently operated in dissolved oxygen concentration”, 101st ASM general meeting, Orlando, FL, USA.</li>
-    <li>Park, H.-D., Choi, K.-H., Choi, S.-I., Son, S.-S. (1996) "A study on nutrient removal of municipal wastewater by the NPR (Nitrogen &amp; Phosphorus Removal) process", IAWQ 18th biennial conference, Singapore.</li>
-  </ul>
-
-  <h2>2. 국내 학회 (Domestic Conferences)</h2>
-  <ul>
-    <li>강현진, 한금석, 김금철, 최영준, 이택준, 이영행, 박희등 (2011) "고형물 농도를 유입변수로 이용한 혐기소화모델에 관한 연구", 2011년도 대한환경공학회 학술대회, 부산.</li>
-    <li>김택승, 김한신, 김용수, 이승용, 황석환, 박희등 (2011) "시간 변화에 따른 하수처리장의 활성슬러지 세균군집의 다양성과 역동성에 관한 연구", 2011년도 대한환경공학회 학술대회, 부산.</li>
-    <li>김용수, 김한신, 김택승, 문정기, 남해욱, 김관엽, 박희등 (2011) "정밀여과 공정의 파울링 유발 인자 분석을 위한 기수호 성상분석 및 응집 침전 반응", 2011년도 대한환경공학회 학술대회, 부산.</li>
-    <li>김한신, 김택승, 김용수, 강현진, 이정훈, 박희등 (2011) "생물막 형성 저해제를 이용한 역삼투 분리막 오염 저감에 관한 연구", 2011년도 대한환경공학회 학술대회, 부산.</li>
-    <li>박정훈, 김상현, 박희등, 김용진, 윤정준 (2011) "홍조류를 이용한 Biohydrogen생산 타당성 연구", 2011년도 대한환경공학회 학술대회, 부산.</li>
-    <li>이정훈, 김택승, 김한신, 김용수, 박희등 (2011) "배양법을 이용한 하수처리장 활성슬러지 미생물의 군집 분석", 2011년도 대한환경공학회 학술대회, 부산.</li>
-    <li>김택승, 권순동, 김한신, 이승용, 황석환, 박희등 (2010) “하수처리장 활성슬러지 내의 미생물 군집구조와 역동성 분석”, 한국물환경학회 추계발표회, 일산.</li>
-    <li>김한신, 권순동, 박희등 (2010) “미생물의 생물막 형성 저해제를 이용한 분리막 수처리 공정 바이오파울링의 제어”, 한국물환경학회 추계발표회, 일산.</li>
-    <li>박진호, 권순동, 김택승, 조석규, 박희등 (2010) “소화액을 이용한pH 제어 및2상 고온혐기성 소화방식의 음식물쓰레기 음폐수처리기술”, 한국물환경학회 춘계발표회, 대전.</li>
-    <li>권순동, 김택승, 박진호, 한양수, 이영행, 박희등 (2010) “Pyrosequencing을 이용한 하수처리MBR의 미생물 다양성 분석”, 한국물환경학회 춘계발표회, 대전.</li>
-    <li>김택승, 권순동, 박진호, 남해욱, 박희등 (2010) “배양법, Cloning, Pyrosequencing 방법으로 얻은 하수처리장 활성슬러지 미생물 군집의 비교 분석” 한국물환경학회 춘계발표회, 대전.</li>
-    <li>권순동, 유기현, 정준홍, 박희등 (2009) “Pyrosequencing을 이용한 고정상 생물막 하수처리 생물반응기의Bacteria 다양성 분석” 한국물환경학회 추계발표회, 인천.</li>
-  </ul>
-
-  <hr>
-
-  <h1>2-3) 저서 (Books)</h1>
-
-  <h2>1. 국외저서 (International Book)</h2>
-  <ul>
-    <li>Park, H.-D., Chang, I.-S., and Lee, K.-J. (Apr. 2015) "Principles of membrane bioreactors for wastewater treatment", CRC Press, ISBN-10: 1466590378.</li>
-  </ul>
-
-  <h2>2. 국내저서 (Domestic Book)</h2>
-  <ul>
-    <li>박희등, 장인성, 이광진 (Oct. 2018) "하폐수처리를 위한 MBR[분리막생물반응기] 이론과 실무", KSCE Press, ISBN-9791196090012(1196090017). (2019년 대한민국 학술원 우수도서 선정)</li>
-  </ul>
+  <a class="card" href="publications_books.html">
+    <h2>저서</h2>
+    <p>저서 및 참여 도서 목록</p>
+  </a>
 
 </div>
 
 <div class="footer">
-  © Environmental Biotechnology Laboratory, Korea University · contact@yourlab.ac.kr
+  © Environmental Biotechnology Laboratory, Korea University<br>
+  Address: Korea University, Seoul, Korea | Email: nocont2xt@korea.ac.kr
 </div>
 
 </body>
