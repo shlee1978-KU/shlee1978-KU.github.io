@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>공지사항 | Environmental Biotechnology Laboratory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root{
+      --ku-main:#8C1D18;
+      --ku-dark:#701414;
+      --ku-hover:#A32620;
+      --bg-gray:#f5f2f2;
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg-gray);
+      color:#333;
+    }
+
+    /* 상단바 */
+    .navbar{
+      background:var(--ku-main);
+      color:#fff;
+      padding:10px 40px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .navbar-left img{
+      height:48px;
+    }
+    .navbar-right a{
+      color:#fff;
+      margin-left:18px;
+      text-decoration:none;
+      font-weight:bold;
+      font-size:14px;
+      transition:.2s;
+    }
+    .navbar-right a:hover{
+      color:#ffe6e5;
+      border-bottom:2px solid #ffe6e5;
+      padding-bottom:2px;
+    }
+
+    /* 본문 박스 */
+    .content{
+      width:90%;
+      max-width:900px;
+      margin:40px auto 60px auto;
+      background:#fff;
+      padding:30px;
+      border-radius:10px;
+      box-shadow:0 8px 18px rgba(0,0,0,0.08);
+    }
+    h1{
+      margin-top:0;
+      color:var(--ku-main);
+    }
+    ul{
+      list-style:none;
+      padding-left:0;
+      margin-top:20px;
+    }
+    ul li{
+      padding:10px 0;
+      border-bottom:1px solid #eee;
+      font-size:14px;
+    }
+
+    /* 푸터 */
+    .footer{
+      background:var(--ku-dark);
+      color:#fff;
+      text-align:center;
+      padding:18px;
+      font-size:13px;
+    }
+
+    @media(max-width:768px){
+      .navbar{ padding:10px 16px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="navbar">
+  <div class="navbar-left">
+    <img src="img/ku_logo.png" alt="Korea University">
+  </div>
+  <div class="navbar-right">
+    <a href="index.html">Home</a>
+    <a href="notice.html">Notice</a>
+    <a href="people.html">People</a>
+    <a href="research.html">Research</a>
+    <a href="publications.html">Publications</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</div>
+
+<div class="content">
+  <h1>공지사항</h1>
+  <ul>
+    <li>[2025-01-10] 2025년도 신입 대학원생 모집 안내</li>
+    <li>[2024-12-05] 실험실 워크숍 개최 안내</li>
+    <li>[2024-11-20] 논문 세미나 일정 공지</li>
+  </ul>
+</div>
+
+<div class="footer">
+  © Environmental Biotechnology Laboratory, Korea University · contact@yourlab.ac.kr
+</div>
+
+</body>
+</html>

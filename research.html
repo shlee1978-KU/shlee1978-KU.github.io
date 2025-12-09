@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>연구분야 | 환경생명공학연구실</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root{
+      /* ================== ① 색상 바꾸는 곳 ==================
+         - 전체 사이트 포인트 색을 바꾸고 싶으면 아래 세 값을 수정하세요.
+         ---------------------------------------------- */
+      --ku-main:#8C1D18;   /* 기본 상단바/제목 색 */
+      --ku-dark:#701414;   /* 푸터 등 진한 색 */
+      --ku-hover:#A32620;  /* 마우스 올렸을 때 색 */
+      --bg-gray:#f5f2f2;   /* 페이지 배경색 */
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif;
+      background:var(--bg-gray);
+      color:#333;
+    }
+
+    /* ================= NAVBAR (상단 메뉴바) ================= */
+    .navbar{
+      background:var(--ku-main);
+      color:#fff;
+      padding:10px 40px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .navbar-left img{
+      height:48px;
+    }
+
+    .navbar-right ul{
+      list-style:none;
+      margin:0;
+      padding:0;
+    }
+
+    /* 메인 메뉴( Home / Notice / People / Research ... ) */
+    .navbar-right .main-menu{
+      display:flex;
+      gap:24px;
+      align-items:center;
+    }
+
+    .main-menu > li{
+      position:relative;
+    }
+
+    .navbar-right a{
+      color:#fff;
+      text-decoration:none;
+      font-weight:bold;
+      font-size:14px;
+      padding:4px 0;
+      display:inline-block;
+    }
+
+    .navbar-right a:hover{
+      color:#ffe6e5;
+      border-bottom:2px solid #ffe6e5;
+    }
+
+    /* 드롭다운 표시용 화살표 */
+    .has-sub > a::after{
+      content:" ▾";
+      font-size:11px;
+    }
+
+    /* 드롭다운 메뉴(서브메뉴) 기본 숨김 */
+    .sub-menu{
+      position:absolute;
+      top:100%;
+      left:0;
+      background:var(--ku-main);
+      padding:8px 0;
+      min-width:180px;
+      display:none;
+      box-shadow:0 6px 16px rgba(0,0,0,0.25);
+      z-index:1000;
+    }
+
+    /* People / Research 위에 마우스를 올렸을 때 서브메뉴 보이기 */
+    .has-sub:hover .sub-menu{
+      display:block;
+    }
+
+    .sub-menu li{
+      width:100%;
+    }
+
+    .sub-menu a{
+      display:block;
+      padding:8px 14px;
+      font-size:13px;
+      border-bottom:1px solid rgba(255,255,255,0.12);
+    }
+
+    .sub-menu a:hover{
+      background:var(--ku-hover);
+      border-bottom-color:transparent;
+    }
+
+    /* ================ PAGE WRAPPER (본문 박스) ================ */
+    .wrapper{
+      width:90%;
+      max-width:1200px;
+      margin:40px auto 60px;
+      background:#fff;
+      border-radius:12px;
+      padding:30px;
+      box-shadow:0 8px 18px rgba(0,0,0,0.08);
+    }
+
+    h1,h2{
+      color:var(--ku-main);
+      margin-top:0;
+    }
+
+    .section{
+      margin-bottom:40px;
+    }
+
+    .section p{
+      line-height:1.6;
+    }
+
+    /* ================ ② 연구 사진 격자 ================= */
+    .img-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:16px;
+      margin-top:14px;
+    }
+
+    .img-grid figure{
+      margin:0;
+      background:#fafafa;
+      border-radius:8px;
+      padding:8px;
+      border:1px solid #e0d3d3;
+      text-align:center;
+    }
+
+    .img-grid img{
+      width:100%;
+      height:140px;   /* 카드 안에서 높이 고정 (조절 가능) */
+      object-fit:cover;
+      border-radius:6px;
+      display:block;
+      margin-bottom:6px;
+    }
+
+    .img-grid figcaption{
+      font-size:12px;
+      color:#555;
+    }
+
+    /* footer */
+    .footer{
+      background:var(--ku-dark);
+      color:#fff;
+      text-align:center;
+      padding:16px;
+      font-size:13px;
+    }
+
+    @media (max-width:768px){
+      .navbar{
+        padding:10px 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ================ NAVBAR (상단 메뉴 영역) ================ -->
+<div class="navbar">
+  <div class="navbar-left">
+    <!-- ③ 왼쪽 로고 이미지 경로 수정 가능 -->
+    <img src="img/ku_logo.png" alt="Korea University">
+  </div>
+
+  <div class="navbar-right">
+    <ul class="main-menu">
+      <!-- ④ 메인 메뉴 항목 수정/추가/삭제 -->
+      <li><a href="index.html">Home</a></li>
+      <li><a href="notice.html">Notice</a></li>
+
+      <!-- People 드롭다운 : 링크(people_*.html)를 변경하면 됨 -->
+      <li class="has-sub">
+        <a href="people.html">People</a>
+        <ul class="sub-menu">
+          <li><a href="people_prof.html">지도교수</a></li>
+          <li><a href="people_members.html">연구원 및 대학원생</a></li>
+          <li><a href="people_former.html">Former Members</a></li>
+        </ul>
+      </li>
+
+      <!-- Research 드롭다운 : 필요에 따라 항목 이름/링크 수정 -->
+      <li class="has-sub">
+        <a href="research.html">Research</a>
+        <ul class="sub-menu">
+          <li><a href="research_nitrogen.html">Nitrogen Cycle</a></li>
+          <li><a href="research_diet.html">DIET Research</a></li>
+          <li><a href="research_other.html">Other Research</a></li>
+        </ul>
+      </li>
+
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================ ⑤ 메인 내용 (글/사진 바꾸는 곳) ================ -->
+<div class="wrapper">
+  <h1>연구분야 (Research)</h1>
+  <!-- 연구 소개 문단: 자유롭게 수정 -->
+  <p>
+    환경생명공학연구실에서는 질소순환(Nitrogen cycle), Direct Interspecies Electron Transfer(DIET)를 활용한 메탄생성,
+    그리고 멤브레인·바이오필름·미생물군집 해석 등 다양한 환경생명공학 연구를 수행하고 있습니다.
+  </p>
+
+  <!-- ⑤-1 Nitrogen Cycle 섹션 -->
+  <div class="section">
+    <h2>1. Nitrogen Cycle 연구</h2>
+    <p>
+      아나목스(anammox), 탈질, DNRA 등 질소 순환과 관련된 핵심 미생물 군집과 기능을 메타지놈·메타트랜스크립톰 분석으로 규명하고,
+      반응기 설계 및 운전에 적용하는 연구를 수행합니다.
+    </p>
+
+    <!-- ⑥ Nitrogen Cycle 관련 이미지 카드: src, 캡션 수정해서 사용 -->
+    <div class="img-grid">
+      <figure>
+        <img src="img/research_n_cycle1.png" alt="Nitrogen cycle reactor">
+        <figcaption>Nitrogen cycle 반응기 모식도</figcaption>
+      </figure>
+      <figure>
+        <img src="img/research_n_cycle2.png" alt="Anammox granule">
+        <figcaption>Anammox 과립 슬러지</figcaption>
+      </figure>
+      <figure>
+        <img src="img/research_n_cycle3.png" alt="Genome analysis">
+        <figcaption>질소 관련 유전자/게놈 분석</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- ⑤-2 DIET 섹션 -->
+  <div class="section">
+    <h2>2. DIET (Direct Interspecies Electron Transfer) 연구</h2>
+    <p>
+      전도성 물질을 이용한 이종간 직접 전자전달(DIET)을 통해 메탄생성 효율을 향상시키는 연구를 수행합니다.
+      전도성 물질의 종류, 크기 및 표면 특성에 따른 미생물 상호작용과 메탄생성 성능을 평가합니다.
+    </p>
+
+    <!-- DIET 관련 이미지 카드들 -->
+    <div class="img-grid">
+      <figure>
+        <img src="img/research_diet1.png" alt="DIET schematic">
+        <figcaption>DIET 메커니즘 모식도</figcaption>
+      </figure>
+      <figure>
+        <img src="img/research_diet2.png" alt="GAC reactor">
+        <figcaption>GAC/자성체 보강 혐기소화조</figcaption>
+      </figure>
+      <figure>
+        <img src="img/research_diet3.png" alt="Electroactive microbes">
+        <figcaption>전기활성 미생물 군집 분석</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- ⑤-3 기타 연구 섹션 -->
+  <div class="section">
+    <h2>3. 기타 연구 (Other Research)</h2>
+    <p>
+      멤브레인 공정의 바이오파울링 제어, 나노복합 멤브레인 개발, 환경 미생물 군집의 장·단기 동역학, 항생제 내성 유전자(ARG) 분포 등
+      다양한 환경생명공학 관련 주제를 함께 연구합니다.
+    </p>
+
+    <!-- 기타 연구 이미지 카드: 원하시는 만큼 figure 추가/삭제 가능 -->
+    <div class="img-grid">
+      <figure>
+        <img src="img/research_other1.png" alt="Membrane fouling">
+        <figcaption>멤브레인 바이오파울링 관찰</figcaption>
+      </figure>
+      <figure>
+        <img src="img/research_other2.png" alt="Biofilm inhibitor">
+        <figcaption>생물막 저해제 적용 실험</figcaption>
+      </figure>
+      <figure>
+        <img src="img/research_other3.png" alt="ARG map">
+        <figcaption>환경 중 ARG 분포 분석</figcaption>
+      </figure>
+      <figure>
+        <img src="img/research_other4.png" alt="Microbiome network">
+        <figcaption>미생물 네트워크/모델링 연구</figcaption>
+      </figure>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  © 환경생명공학연구실 · 고려대학교
+</div>
+
+</body>
+</html>

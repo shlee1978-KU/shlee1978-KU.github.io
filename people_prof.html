@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>연구원 및 대학원생 | 환경생명공학연구실</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --ku-main:#8C1D18;
+  --ku-dark:#701414;
+  --ku-hover:#A32620;
+  --bg-gray:#f5f2f2;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--bg-gray);
+  color:#333;
+}
+
+/* NAVBAR – 공통 */
+.navbar{
+  background:var(--ku-main);
+  padding:10px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:#fff;
+}
+.navbar-left img{height:48px;}
+.navbar-right{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+.navbar-right > a,
+.has-dropdown > a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:14px;
+  padding:4px 0;
+}
+.navbar-right > a:hover,
+.has-dropdown > a:hover{
+  color:#ffe6e5;
+  border-bottom:2px solid #ffe6e5;
+}
+.has-dropdown{position:relative;}
+.dropdown{
+  position:absolute;
+  left:0;
+  top:100%;
+  background:var(--ku-main);
+  min-width:180px;
+  padding:6px 0;
+  border-radius:0 0 8px 8px;
+  box-shadow:0 8px 16px rgba(0,0,0,0.3);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  transition:0.2s;
+}
+.has-dropdown:hover .dropdown{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+.dropdown a{
+  display:block;
+  padding:8px 18px;
+  font-size:13px;
+  color:#fff;
+  text-decoration:none;
+}
+.dropdown a:hover{background:var(--ku-hover);}
+
+/* 내용 */
+.wrapper{
+  width:90%;
+  max-width:1100px;
+  margin:40px auto 60px;
+  background:#fff;
+  border-radius:12px;
+  padding:30px;
+  box-shadow:0 8px 18px rgba(0,0,0,0.08);
+}
+h1{color:var(--ku-main);margin-top:0;}
+.section{margin-top:20px;}
+.section h2{color:var(--ku-main);margin-bottom:12px;}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);  /* 1줄에 4명 */
+  gap:20px;
+}
+.person-card{
+  background:#fff6f6;
+  border:1px solid #e3c5c5;
+  border-radius:10px;
+  padding:14px;
+  font-size:13px;
+}
+.person-photo{
+  text-align:center;
+  margin-bottom:8px;
+}
+.person-photo img{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  object-fit:cover;
+  box-shadow:0 3px 6px rgba(0,0,0,0.25);
+}
+.person-name{
+  font-weight:bold;
+  color:var(--ku-main);
+  margin-bottom:2px;
+  text-align:center;
+}
+.person-role{
+  font-size:12px;
+  margin-bottom:4px;
+  text-align:center;
+}
+.person-contact{
+  font-size:12px;
+  color:#444;
+}
+
+.footer{
+  background:var(--ku-dark);
+  color:#fff;
+  text-align:center;
+  padding:16px;
+  font-size:13px;
+}
+
+@media(max-width:900px){
+  .info-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:600px){
+  .info-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <div class="navbar-left">
+    <img src="img/ku_logo.png" alt="Korea University">
+  </div>
+  <div class="navbar-right">
+    <a href="index.html">Home</a>
+    <a href="notice.html">Notice</a>
+
+    <div class="has-dropdown">
+      <a href="people.html">People ▾</a>
+      <div class="dropdown">
+        <a href="people_prof.html">지도교수</a>
+        <a href="people_members.html">연구원 및 대학원생</a>
+        <a href="people_former.html">Former Members</a>
+      </div>
+    </div>
+
+    <a href="research.html">Research</a>
+    <a href="publications.html">Publications</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</div>
+
+
+<!-- CONTENT -->
+<div class="wrapper">
+  <h1>지도 교수</h1>
+
+  <!-- 지도교수 -->
+  <div class="section">
+    <strong>박 희등 교수 (Hee-Deung Park)</strong>
+
+    <div class="professor-photo">
+      <img src="img/Prof_heedeungpark (2).png" alt="박희등 교수">
+    </div>
+
+    <div class="youtube">
+      🔗 <a href="https://www.youtube.com/watch?v=EZPPR00Fy-4" target="_blank">
+        관련 강연 YouTube 링크
+      </a>
+    </div>
+  </div>
+
+  <h3>1. 연락정보 (Contact Information)</h3>
+  <ul>
+    <li>주소: 02841 서울특별시 성북구 안암로 자연계캠퍼스 공과대학 건축사회환경공학부</li>
+    <li>전화: 02-3290-4861</li>
+    <li>Fax: 02-3290-5999</li>
+    <li>E-mail: heedeung@korea.ac.kr</li>
+  </ul>
+
+  <h3>2. 교육경력 (Education)</h3>
+  <ul>
+    <li>박사 (Ph.D.): 위스콘신주립대학교 토목환경공학과 (2000–2005)</li>
+    <li>석사 (M.S.): 고려대학교 생물학과 (1992–1994)</li>
+    <li>학사 (B.S.): 고려대학교 생물학과 (1988–1992)</li>
+  </ul>
+
+  <h3>3. 전문경력 (Professional Experiences)</h3>
+  <ul>
+    <li>일반회원: 한국공학한림원 (2025–현재)</li>
+    <li>전문위원: 한국연구재단 에너지/환경 분야 - 수질오염관리 (2025–현재)</li>
+    <li>단장: 에코업혁신융합대학사업 단장 (2023–현재)</li>
+    <li>처장: 고려대학교 총무처 (2022–2023)</li>
+    <li>처장: 고려대학교 기획예산처 (2019–2020)</li>
+    <li>단장: 고려대학교 대학혁신지원사업단 (2019–2020)</li>
+    <li>교수: 고려대학교 건축사회환경공학부 (2015–현재)</li>
+    <li>부교수: 고려대학교 건축사회환경공학부 (2010–2015)</li>
+    <li>조교수: 고려대학교 건축사회환경공학부 (2009–2010)</li>
+    <li>방문교수: 캘리포니아(어바인)주립대학교 (2015–2016)</li>
+    <li>연구팀장: 코오롱건설 기술연구소 환경연구팀 (1994–2009)</li>
+    <li>겸임교수: 한림대학교 환경생명공학과 (2008)</li>
+    <li>박사후연구원: 스탠퍼드대학교 (2005–2006)</li>
+  </ul>
+
+  <h3>4. 학회활동 (Academic Activities)</h3>
+  <ul>
+    <li>Editorial Board, Scientific Reports (2015–현재)</li>
+    <li>Editorial Board, Applied and Environmental Microbiology (2015–현재)</li>
+    <li>Associate Editor, Sustainable Environment Research (2015–현재)</li>
+    <li>Editorial Board, Journal of Microbiology and Biotechnology (2013–현재)</li>
+    <li>대한상하수도학회 부회장 (편집위원장) (2024–현재)</li>
+    <li>대한상하수도학회 부회장 (기획위원장) (2022–2023)</li>
+    <li>한국물환경학회 이사 (2013–현재)</li>
+    <li>대한환경공학회 이사 (2022–현재)</li>
+    <li>대한토목학회 국문지 편집위원 (2013–현재)</li>
+    <li>한국미생물학회 기획위원 (2008–2011)</li>
+    <li>미국미생물학회(ASM) 평회원 (2000–현재)</li>
+    <li>국제물환경학회(IWA) 평회원 (2009–현재)</li>
+  </ul>
+
+  <h3>5. 봉사활동 (Outreach Activities)</h3>
+  <ul>
+    <li>한국환경공단 설계자문위원 (2012.5–2015.4)</li>
+    <li>서울시 도시안전정책자문단 (2011–현재)</li>
+    <li>서울시 상수도연구원 자문위원 (2011–현재)</li>
+  </ul>
+</div>
+
+<div class="footer">
+© 환경생명공학연구실 · 고려대학교
+</div>
+
+</body>
+</html>

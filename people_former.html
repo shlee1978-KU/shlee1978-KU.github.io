@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>연구원 및 대학원생 | 환경생명공학연구실</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --ku-main:#8C1D18;
+  --ku-dark:#701414;
+  --ku-hover:#A32620;
+  --bg-gray:#f5f2f2;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--bg-gray);
+  color:#333;
+}
+
+/* NAVBAR – 공통 */
+.navbar{
+  background:var(--ku-main);
+  padding:10px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:#fff;
+}
+.navbar-left img{height:48px;}
+.navbar-right{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+.navbar-right > a,
+.has-dropdown > a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:14px;
+  padding:4px 0;
+}
+.navbar-right > a:hover,
+.has-dropdown > a:hover{
+  color:#ffe6e5;
+  border-bottom:2px solid #ffe6e5;
+}
+.has-dropdown{position:relative;}
+.dropdown{
+  position:absolute;
+  left:0;
+  top:100%;
+  background:var(--ku-main);
+  min-width:180px;
+  padding:6px 0;
+  border-radius:0 0 8px 8px;
+  box-shadow:0 8px 16px rgba(0,0,0,0.3);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  transition:0.2s;
+}
+.has-dropdown:hover .dropdown{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+.dropdown a{
+  display:block;
+  padding:8px 18px;
+  font-size:13px;
+  color:#fff;
+  text-decoration:none;
+}
+.dropdown a:hover{background:var(--ku-hover);}
+
+/* 내용 */
+.wrapper{
+  width:90%;
+  max-width:1100px;
+  margin:40px auto 60px;
+  background:#fff;
+  border-radius:12px;
+  padding:30px;
+  box-shadow:0 8px 18px rgba(0,0,0,0.08);
+}
+h1{color:var(--ku-main);margin-top:0;}
+.section{margin-top:20px;}
+.section h2{color:var(--ku-main);margin-bottom:12px;}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);  /* 1줄에 4명 */
+  gap:20px;
+}
+.person-card{
+  background:#fff6f6;
+  border:1px solid #e3c5c5;
+  border-radius:10px;
+  padding:14px;
+  font-size:13px;
+  text-align:left;          /* ✅ 카드 기본 좌측 정렬 */
+}
+.person-photo{
+  text-align:center;
+  margin-bottom:8px;
+}
+.person-photo img{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  object-fit:cover;
+  box-shadow:0 3px 6px rgba(0,0,0,0.25);
+}
+.person-name{
+  font-weight:bold;
+  color:var(--ku-main);
+  margin-bottom:2px;
+  text-align:center;        /* ✅ 중앙 정렬 */
+}
+
+.person-role{
+  font-size:12px;
+  margin-bottom:4px;
+  text-align:left;       /* ✅ 왼쪽 정렬 */
+}
+.person-contact{
+  font-size:12px;
+  color:#444;
+}
+
+.footer{
+  background:var(--ku-dark);
+  color:#fff;
+  text-align:center;
+  padding:16px;
+  font-size:13px;
+}
+
+@media(max-width:900px){
+  .info-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:600px){
+  .info-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <div class="navbar-left">
+    <img src="img/ku_logo.png" alt="Korea University">
+  </div>
+  <div class="navbar-right">
+    <a href="index.html">Home</a>
+    <a href="notice.html">Notice</a>
+
+    <div class="has-dropdown">
+      <a href="people.html">People ▾</a>
+      <div class="dropdown">
+        <a href="people_prof.html">지도교수</a>
+        <a href="people_members.html">연구원 및 대학원생</a>
+        <a href="people_former.html">Former Members</a>
+      </div>
+    </div>
+
+    <a href="research.html">Research</a>
+    <a href="publications.html">Publications</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</div>
+
+<div class="wrapper">
+  <h1>졸업생 · Former Members</h1>
+
+  <!-- 박사후 연구원 -->
+  <div class="section">
+    <h2>Post-Doc</h2>
+    <div class="info-grid">
+
+
+       <!--권순동 박사 -->
+      <div class="person-card">
+        <div class="person-photo">
+          <img src="img/KSD.png" alt="Dr. Kwon, Soon-Dong">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          권순동 박사 (2009.11-2010.11)<br>
+          <span class="ename">(Dr. Kwon, Soon-Dong)</span>
+        </div>
+   
+        <div class="person-role">- 광해관리공단</div>
+        <div class="person-role">- Ph.D. at the University of Texas-Austin (2008)</div>
+        <div class="person-contact">
+          이메일: sdkwon@gmail.com <br>
+        </div>
+      </div>
+
+        <!--이정렬 박사 -->
+     <div class="person-card">
+        <div class="person-photo">
+          <img src="img/JYLEE.png" alt="Dr. Lee, Jung-Yeol">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          이정렬 박사 (2014.07-2017.03)<br>
+          <span class="ename">(Dr. Lee, Jung-Yeol)</span>
+        </div>
+   
+        <div class="person-role">- 혐기성 소화 연구</div>
+        <div class="person-contact">
+          이메일:  jyree@korea.ac.kr <br>
+        </div>
+      </div>
+
+       <!--김나경 박사 -->
+      <div class="person-card">
+        <div class="person-photo">
+          <img src="img/NKK.png" alt="Dr. Kim, Na-Kyung">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          김나경 박사 (2020.12-2024.03)<br>
+          <span class="ename">(Dr. Kim, Na-Kyung)</span>
+        </div>
+   
+        <div class="person-role">- (현) Post-Doc, University of Illinois</div>
+        <div class="person-role">- 바이오인포메틱스</div>
+        <div class="person-contact">
+          이메일:  nkwellnaci627@gmail.com<br>
+        </div>
+      </div>
+
+        </div>
+      </div>
+
+  <!-- 박사 졸업생 -->
+  <div class="section">
+    <h2>Ph.D. 졸업생</h2>
+    <div class="info-grid">
+
+       <!--김한신 박사 -->
+      <div class="person-card">
+        <div class="person-photo">
+          <img src="img/HSK.png" alt="Dr. Kim, Han-Shin">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          김한신 박사 (2010.09-2015.02)<br>
+          <span class="ename">(Dr. Kim, Han-Shin)</span>
+        </div>
+   
+        <div class="person-role">- (현) 전북대학교 조교수</div>
+        <div class="person-role">- 한국건설기술연구원 선임연구원</div>
+        <div class="person-role">- Michigan State University 박사후연구원</div>
+        <div class="person-role">- 논문주제: 생강으로 부터 생물막저해제 스크린 및 저해 메커니즘 규명</div>
+        <div class="person-contact">
+          이메일: jeong <br>
+        </div>
+      </div>
+
+        <!--이광진 박사 -->
+     <div class="person-card">
+        <div class="person-photo">
+          <img src="img/KJL.png" alt="Dr. Lee, Kwang-Jin">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          이광진 박사 (2011.09-2016.02)<br>
+          <span class="ename">(Dr. Lee, Kwang-Jin)</span>
+        </div>
+   
+        <div class="person-role">- (현) 3DMem 대표 (CEO)</div>
+        <div class="person-role">- 코오롱중앙연구소 수석연구원</div>
+        <div class="person-role">- 논문주제: CNT 분리막 합성</div>
+        <div class="person-contact">
+          이메일: illdo4u@daum.net <br>
+        </div>
+      </div>
+
+        <!--박정훈 박사 -->
+     <div class="person-card">
+        <div class="person-photo">
+          <img src="img/JHPark.png" alt="Dr. Park, Jeong-Hoon">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          박정훈 박사 (201x0.9-201x.02)<br>
+          <span class="ename">(Dr. Park, Jeong-Hoon)</span>
+        </div>
+   
+        <div class="person-role">- (현) 한국생산기술연구원, 제주분원 수석연구원</div>
+        <div class="person-role">- Northwestern University 박사후연구원</div>
+        <div class="person-role">- 논문주제: 바이오수소 미생물군집 연구</div>
+        <div class="person-contact">
+          이메일: jeonghoon@kitech.re.kr <br>
+        </div>
+      </div>
+
+       <!--김택승 박사 -->
+      <div class="person-card">
+        <div class="person-photo">
+          <img src="img/TSK.png" alt="Dr. Kim, Taek-Seung">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          김택승 박사 (201x.09-201x.02)<br>
+          <span class="ename">(Dr. Kim, Taek-Seung)</span>
+        </div>
+   
+        <div class="person-role">- (현) 한국기초과학연구원 선임연구원</div>
+        <div class="person-role">- 논문주제: 바이오파울링 저해제 연구</div>
+        <div class="person-contact">
+          이메일: byebus@gmail.com <br>
+        </div>
+      </div>
+
+        <!--박강희 박사 -->
+     <div class="person-card">
+        <div class="person-photo">
+          <img src="img/KHPark.png" alt="Dr. Park, Kang-Hee">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          박강희 박사 (2013.03-201x.2)<br>
+          <span class="ename">(Dr. Park, Kang-Hee)</span>
+        </div>
+   
+        <div class="person-role">- (현) 삼성전자 프로</div>
+        <div class="person-role">- 논문주제: 살균 표면 연구</div>
+        <div class="person-contact">
+          이메일: newpkh@korea.ac.kr <br>
+        </div>
+      </div>
+
+       <!--함소영 박사-->
+      <div class="person-card">
+        <div class="person-photo">
+          <img src="img/SYHAM.png" alt="Dr. Ham, Soyoung">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          함소영 박사 (2013.09-2020.08)<br>
+          <span class="ename">(Dr. Ham, Soyoung)</span>
+        </div>
+   
+        <div class="person-role">- University of Tübingen 박사후연구원</div>
+        <div class="person-role">- 논문주제: 바이오필름 저해제 연구</div>
+        <div class="person-contact">
+          이메일: syham1225@gmail.com <br>
+        </div>
+      </div>
+
+        <!--박종훈 박사 -->
+     <div class="person-card">
+        <div class="person-photo">
+          <img src="img/JongHP.png" alt="Dr. Park, Jong-Hoon">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          박종훈 박사 (2013.03-201x.02)<br>
+          <span class="ename">(Dr. Park, Jong-Hoon)</span>
+        </div>
+   
+        <div class="person-role">- (현) 삼성 E&A 프로</div>
+        <div class="person-role">- 논문주제: 바이오수소 연구</div>
+        <div class="person-contact">
+          이메일: ko990215@gmail.com <br>
+        </div>
+      </div>
+
+        <!--손붕비 박사 -->
+     <div class="person-card">
+        <div class="person-photo">
+          <img src="img/PFS.png" alt="Dr. Sun, Pengfei">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          Sun, Pengfei 박사 (201x.09-201x.02)<br>
+          <span class="ename">(Dr. Sun, Pengfei)</span>
+        </div>
+   
+        <div class="person-role">- (현) University of Science and Technology of China 조교수</div>
+        <div class="person-role">- University of Hong Kong 박사후연구원</div>
+        <div class="person-role">- 논문주제: PRO 분리막 제조 및 파울링 연구</div>
+        <div class="person-contact">
+          이메일: pengfei_sun91@163.com <br>
+        </div>
+      </div>
+
+       <!--양보람 박사 -->
+      <div class="person-card">
+        <div class="person-photo">
+          <img src="img/YBR.png" alt="Dr. Yang, Boram">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          양보람 박사 (201x.09-201x.02)<br>
+          <span class="ename">(Dr. Yang, Boram)</span>
+        </div>
+   
+        <div class="person-role">- (현) 한국과학기술원 박사후연구원</div>
+        <div class="person-role">- 논문주제: 조류독성물질 제거 연구</div>
+        <div class="person-contact">
+          이메일: 090872@kist.re.kr<br>
+        </div>
+      </div>
+
+       <!--이정훈 박사 -->
+      <div class="person-card">
+        <div class="person-photo">
+          <img src="img/JHLEE.png" alt="Dr. Lee, Jeong-Hoon">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          이정훈 박사 (2013.03-201x.02)<br>
+          <span class="ename">(Dr. Lee, Jeong-Hoon)</span>
+        </div>
+   
+        <div class="person-role">- (현) 삼성전자 프로</div>
+        <div class="person-role">- SK에코플렌트 선임연구원</div>
+        <div class="person-role">- 논문주제: CNT 분리막 연구</div>
+        <div class="person-contact">
+          이메일: yojhlee@korea.ac.kr <br>
+        </div>
+      </div>
+
+       <!--강현진 박사 -->
+      <div class="person-card">
+        <div class="person-photo">
+          <img src="img/HJK.png" alt="Dr. Kang, Hyun-Jin">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          강현진 박사 (2013.03-2022.02)<br>
+          <span class="ename">(Dr. Kang, Hyun-Jin)</span>
+        </div>
+   
+        <div class="person-role">- (현) Biocraft 연구원</div>
+        <div class="person-role">- 한국생산기술연구원 박사후연구원</div>
+        <div class="person-role">- 에코비트 선임연구원</div>
+        <div class="person-role">- 논문주제: 바이오메탄 연구</div>
+        <div class="person-contact">
+          이메일: kanghj84@gmail.com <br>
+        </div>
+      </div>
+
+       <!--장용선 박사 -->
+      <div class="person-card">
+        <div class="person-photo">
+          <img src="img/YSJ.png" alt="Dr. Jang, Yongsun">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          장용선 박사 (2013.03-201x.02)<br>
+          <span class="ename">(Dr. Jang, Yongsun)</span>
+        </div>
+   
+        <div class="person-role">- (현) 삼성 E&A 프로</div>
+        <div class="person-role">- 논문주제: MBfR 연구</div>
+        <div class="person-contact">
+          이메일: jjayo0907@gmail.com<br>
+        </div>
+      </div>
+
+       <!--빅터 -->
+      <div class="person-card">
+        <div class="person-photo">
+          <img src="img/VP.png" alt="Viktor Pauer">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          Viktor Pauer (201x.9 - 201x.2)<br>
+          <span class="ename">(Viktor Pauer)</span>
+        </div>
+   
+        <div class="person-role">- 박사 수료</div>
+        <div class="person-role">- 논문주제: 하수처리 모델링 연구</div>
+        <div class="person-contact">
+          이메일: pauer.viktor@gmail.com<br>
+        </div>
+      </div>
+
+        <!--차은지 -->
+     <div class="person-card">
+        <div class="person-photo">
+          <img src="img/EJC.png" alt="Dr. Jang, Yongsun">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          차은지 (201x.9 - 201x.2)<br>
+          <span class="ename">(Cha, Eunji)</span>
+        </div>
+
+        <div class="person-role">- 박사 수료</div>
+        <div class="person-role">- 경기도보건환경연구원 연구원</div>
+        <div class="person-role">- 논문주제: 바이오필름 저해제 연구</div>
+        <div class="person-contact">
+          이메일: toto7608@gmail.com<br>
+        </div>
+      </div>
+
+        </div>
+      </div>
+
+  <!-- 석사 졸업생 -->
+  <div class="section">
+    <h2>MS. 졸업생</h2>
+    <div class="info-grid">
+
+       <!--김용수 -->
+      <div class="person-card">
+        <div class="person-photo">
+          <img src="img/YSK.png" alt="Kim, Yongsoo">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+         김용수 (2010.02-2013.08)<br>
+          <span class="ename">(Kim, Yongsoo)</span>
+        </div>
+
+        <div class="person-role">- (현) 해양수산부 사무관</div>
+        <div class="person-role">- 동우엔지니어링 연구원</div>
+        <div class="person-role">- 논문주제: 정밀여과 막오염의 염의 영향 연구</div>
+        <div class="person-contact">
+          이메일: yongsoo656@naver.com<br>
+        </div>
+      </div>
+
+       <!--이지윤 -->
+      <div class="person-card">
+        <div class="person-photo">
+          <img src="img/JYLEE-for.png" alt="Lee, Ji-Yun">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          이지윤 (2010.09-2013.08)<br>
+          <span class="ename">(Lee, Ji-Yun)</span>
+        </div>
+
+        <div class="person-role">- 코오롱중앙연구원 선임연구원</div>
+        <div class="person-role">- 논문주제: 역삼투공정의 생물막형성 저해제 평가 연구</div>
+        <div class="person-contact">
+          이메일: scolpion32@korea.ac.kr<br>
+        </div>
+      </div>
+
+        <!--테드홍 -->
+     <div class="person-card">
+        <div class="person-photo">
+          <img src="img/TIH.png" alt="Hong, Ted Inpyo">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+         Ted Hong (2011.09-2014.08)<br>
+          <span class="ename">(Hong, Ted Inpyo)</span>
+        </div>
+
+        <div class="person-role">- 충남대학교 박사과정</div>
+        <div class="person-role">- 논문주제: 천연물 유래 생물막 저해제 탐색 연구</div>
+        <div class="person-contact">
+          이메일: tihong10@gmail.com<br>
+        </div>
+      </div>
+
+       <!--미카엘라 -->
+      <div class="person-card">
+        <div class="person-photo">
+          <img src="img/MA.png" alt="Mikaela Antoinette">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          ​Mikaela Antoinette (2016.03-2018.02)<br>
+          <span class="ename">(Mikaela Antoinette)</span>
+        </div>
+
+        <div class="person-role">- 논문주제: ZnO 표면의 Antibiofilm 연구</div>
+        <div class="person-contact">
+          이메일: mikaela.antoinette@gmail.com<br>
+        </div>
+      </div>
+
+       <!--김범준 -->
+      <div class="person-card">
+        <div class="person-photo">
+          <img src="img/BJK.png" alt="Kim, Beom Joon">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          김범준 (201x.9-201x.2)<br>
+          <span class="ename">(Kim, Beom Joon)</span>
+        </div>
+
+        <div class="person-role">-서울대학교 화공생명공학과 박사과정</div>
+        <div class="person-role">- 논문주제: ZnO 표면 살균 연구</div>
+        <div class="person-contact">
+          이메일: goodmaner778@naver.com<br>
+        </div>
+      </div>
+
+       <!--신동협 -->
+      <div class="person-card">
+        <div class="person-photo">
+          <img src="img/DYS.png" alt="Shin, Dong Hyup">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          신동협 (2020.09-2023.02)<br>
+          <span class="ename">(Shin, Dong Hyup)</span>
+        </div>
+
+        <div class="person-role">- (현) Bio-X 과장</div>
+        <div class="person-role">- 논문주제: MABR 연구</div>
+        <div class="person-contact">
+          이메일: s.donghyup@gmail.com<br>
+        </div>
+      </div>
+
+        <!--김용훈 -->
+     <div class="person-card">
+        <div class="person-photo">
+          <img src="img/YHK.png" alt="Kim, Yonghoon">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          김용훈 (2021.03-2023.02)<br>
+          <span class="ename">(Kim, Yonghoon)</span>
+        </div>
+
+        <div class="person-role">- (현) 테크로스 엔지니어</div>
+        <div class="person-role">- 논문주제: 이종간 직접 전자전달 연구</div>
+        <div class="person-contact">
+          이메일: kkyyhh914@naver.com<br>
+        </div>
+      </div>
+
+       <!--이지윤 -->
+      <div class="person-card">
+        <div class="person-photo">
+          <img src="img/LJY-LG.png" alt="Lee, Jiyoon">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          이지윤 (2022.03-2024.02)<br>
+          <span class="ename">(Lee, Jiyoon)</span>
+        </div>
+
+        <div class="person-role">- (현) LG 디스플레이 연구소 연구원</div>
+        <div class="person-role">- 논문주제: MBR 바이오필름 연구</div>
+        <div class="person-contact">
+          이메일: wldbs6561@naver.com<br>
+        </div>
+      </div>
+
+       <!--좌연재 -->
+      <div class="person-card">
+        <div class="person-photo">
+          <img src="img/JWAYJ.png" alt="Jwa, Yeonjae">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          좌연재 (2022.09-2025.02)<br>
+          <span class="ename">(Jwa, Yeonjae)</span>
+        </div>
+
+        <div class="person-role">- (현) 쿠리타한수 연구원</div>
+        <div class="person-role">- 논문주제: MBfR을 이용한 메탄산화 연구</div>
+        <div class="person-contact">
+          이메일: jwayeonjae@naver.com<br>
+        </div>
+      </div>
+
+       <!--이해민 -->
+     <div class="person-card">
+        <div class="person-photo">
+          <img src="img/HML.png" alt="Lee, Haemin">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          이해민<br>
+          <span class="ename">(Lee, Haemin)</span>
+        </div>
+   
+        <div class="person-role">- (현)고려대학교 건사환 석사연구원</div>
+        <div class="person-role">- 논문주제: 머신러닝을 이용한 바이오메탄 증산 연구</div>
+        <div class="person-contact">
+          이메일: Ihm11o1@naver.com<br>
+        </div>
+      </div>
+
+        </div>
+      </div>
+
+  <!-- 학연과정 -->
+  <div class="section">
+    <h2>학연과정 졸업생</h2>
+    <div class="info-grid">
+
+       <!--심보미 -->
+     <div class="person-card">
+        <div class="person-photo">
+          <img src="img/BMSIM.png" alt="Sim, Bomi">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          심보미 (2014.03-2016.02)<br>
+          <span class="ename">(Sim, Bomi)</span>
+        </div>
+   
+        <div class="person-role">- 논문주제: 가축매몰지 미생물 군집 연구</div>
+        <div class="person-contact">
+          이메일: deep0909@hanmail.net <br>
+        </div>
+      </div>
+
+       <!--남혜림 -->
+     <div class="person-card">
+        <div class="person-photo">
+          <img src="img/NHR.png" alt="Nam, Hyerim">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          남혜림 (20xx.xx-20xx.xx)<br>
+          <span class="ename">(Nam, Hyerim)</span>
+        </div>
+   
+        <div class="person-role">- (현) FITI 시험연구원 연구원</div>
+        <div class="person-role">- 논문주제: 신규오염물질 탐지 연구</div>
+        <div class="person-contact">
+          이메일: hyelimworld@naver.com<br>
+        </div>
+      </div>
+
+       <!--한치헌 -->
+     <div class="person-card">
+        <div class="person-photo">
+          <img src="img/HCH.png" alt="Han, Chi Hun">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          한치헌 (20xx.xx-20xx.xx)<br>
+          <span class="ename">(Han, Chi Hun)</span>
+        </div>
+   
+        <div class="person-role">- (현) 서울대학교 건설환경공학부 박사과정</div>
+        <div class="person-role">- 논문주제: 신규오염물질 탐지 연구</div>
+        <div class="person-contact">
+          이메일: cyscysl0509@naver.com<br>
+        </div>
+      </div>
+
+        </div>
+      </div>
+
+  <!-- 학부 연구원 -->
+  <div class="section">
+    <h2>학부연구원 졸업생</h2>
+    <div class="info-grid">
+
+       <!--박진호 -->
+     <div class="person-card">
+        <div class="person-photo">
+          <img src="img/PJHPJH.png" alt="Park, Jin-Ho">
+        </div>
+
+        <!-- ✅ 이름 줄 분리 -->
+        <div class="person-name">
+          박진호 (2009.10-2010.08)<br>
+          <span class="ename">(Park, Jin-Ho)</span>
+        </div>
+   
+        <div class="person-role">- 고려대학교 건축사회환경공학부 석박사과정</div>
+        <div class="person-contact">
+          이메일: - <br>
+        </div>
+      </div>
+
+</div>
+</div>
+
+<div class="footer">
+© 환경생명공학연구실 · 고려대학교
+</div>
+
+</body>
+</html>

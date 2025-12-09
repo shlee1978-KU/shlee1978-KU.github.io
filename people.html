@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>People | 환경생명공학연구실</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+  --ku-main:#8C1D18;
+  --ku-dark:#701414;
+  --ku-hover:#A32620;
+  --bg-gray:#f5f2f2;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--bg-gray);
+  color:#333;
+}
+
+/* NAVBAR 공통 */
+.navbar{
+  background:var(--ku-main);
+  padding:10px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:#fff;
+}
+.navbar-left img{height:48px;}
+
+.navbar-right{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+/* 상단 1차 메뉴 */
+.navbar-right > a,
+.has-dropdown > a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:14px;
+  padding:4px 0;
+}
+.navbar-right > a:hover,
+.has-dropdown > a:hover{
+  color:#ffe6e5;
+  border-bottom:2px solid #ffe6e5;
+}
+
+/* 드롭다운 */
+.has-dropdown{
+  position:relative;
+}
+.dropdown{
+  position:absolute;
+  left:0;
+  top:100%;
+  background:var(--ku-main);
+  min-width:180px;
+  padding:6px 0;
+  border-radius:0 0 8px 8px;
+  box-shadow:0 8px 16px rgba(0,0,0,0.3);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  transition:0.2s;
+}
+.has-dropdown:hover .dropdown{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+.dropdown a{
+  display:block;
+  padding:8px 18px;
+  font-size:13px;
+  color:#fff;
+  text-decoration:none;
+}
+.dropdown a:hover{
+  background:var(--ku-hover);
+}
+
+/* 본문 */
+.wrapper{
+  width:90%;
+  max-width:900px;
+  margin:40px auto 60px;
+  background:#fff;
+  border-radius:12px;
+  padding:30px;
+  box-shadow:0 8px 18px rgba(0,0,0,0.08);
+  text-align:center;
+}
+h1{
+  margin:0 0 20px;
+  color:var(--ku-main);
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+.card{
+  background:#fff6f6;
+  border:1px solid #e3c5c5;
+  border-radius:12px;
+  padding:22px;
+  text-decoration:none;
+  color:#333;
+  transition:0.25s;
+}
+.card:hover{
+  transform:translateY(-4px);
+  border-color:var(--ku-main);
+}
+.card-title{
+  font-weight:bold;
+  color:var(--ku-main);
+  font-size:17px;
+}
+.card-desc{
+  margin-top:8px;
+  font-size:13px;
+  color:#555;
+}
+
+.footer{
+  background:var(--ku-dark);
+  color:#fff;
+  text-align:center;
+  padding:16px;
+  font-size:13px;
+}
+
+@media(max-width:800px){
+  .navbar{padding:10px 16px;}
+  .wrapper{padding:22px;}
+  .grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <div class="navbar-left">
+    <img src="img/ku_logo.png" alt="Korea University">
+  </div>
+  <div class="navbar-right">
+    <a href="index.html">Home</a>
+    <a href="notice.html">Notice</a>
+
+    <div class="has-dropdown">
+      <a href="people.html">People ▾</a>
+      <div class="dropdown">
+        <a href="people_prof.html">지도교수</a>
+        <a href="people_members.html">연구원 및 대학원생</a>
+        <a href="people_former.html">Former Members</a>
+      </div>
+    </div>
+
+    <a href="research.html">Research</a>
+    <a href="publications.html">Publications</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</div>
+
+<div class="wrapper">
+  <h1>구성원 (People)</h1>
+
+  <div class="grid">
+    <a class="card" href="people_prof.html">
+      <div class="card-title">지도교수</div>
+      <div class="card-desc">박희등 교수님의 소개 및 경력</div>
+    </a>
+
+    <a class="card" href="people_members.html">
+      <div class="card-title">연구원 및 대학원생</div>
+      <div class="card-desc">연구교수, 박사후연구원 및 학생 소개</div>
+    </a>
+
+    <a class="card" href="people_former.html">
+      <div class="card-title">Former Members</div>
+      <div class="card-desc">졸업생 및 이전 구성원</div>
+    </a>
+  </div>
+</div>
+
+<div class="footer">
+  © 환경생명공학연구실 · 고려대학교
+</div>
+
+</body>
+</html>
