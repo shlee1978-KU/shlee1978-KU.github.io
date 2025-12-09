@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>연구원 및 대학원생 | 환경생명공학연구실</title>
+<title>People | 환경생명공학연구실</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -12,72 +12,119 @@
   --ku-hover:#A32620;
   --bg-gray:#f5f2f2;
 }
+
 *{box-sizing:border-box;}
+
 body{
   margin:0;
-  font-family:Arial, Helvetica, sans-serif;
   background:var(--bg-gray);
   color:#333;
+  font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif;
 }
 
-/* NAVBAR – 공통 */
+/* NAVBAR */
 .navbar{
   background:var(--ku-main);
-  padding:10px 40px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
   color:#fff;
-}
-.navbar-left img{height:48px;}
-.navbar-right{
+  padding:10px 36px;
   display:flex;
   align-items:center;
-  gap:18px;
+  gap:20px;
 }
-.navbar-right > a,
-.has-dropdown > a{
+.navbar-left img{
+  height:48px;
+  display:block;
+}
+.navbar-right{
+  margin-left:auto; 
+}
+.main-menu{
+  list-style:none;
+  display:flex;
+  gap:22px;
+  margin:0;
+  padding:0;
+}
+.main-menu > li{
+  position:relative;
+}
+.main-menu a{
   color:#fff;
   text-decoration:none;
-  font-weight:bold;
+  font-weight:600;
   font-size:14px;
-  padding:4px 0;
+  padding:6px 0;
 }
-.navbar-right > a:hover,
-.has-dropdown > a:hover{
+.main-menu a:hover{
   color:#ffe6e5;
   border-bottom:2px solid #ffe6e5;
 }
-.has-dropdown{position:relative;}
-.dropdown{
+
+/* 드롭다운 화살표 */
+.has-sub > a::after{
+  content:" ▾";
+  font-size:11px;
+  margin-left:4px;
+  opacity:0.9;
+}
+
+/* 드롭다운 (서브메뉴) — 글씨체 통일 + 점 제거 */
+.sub-menu,
+.sub-menu li{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.sub-menu{
   position:absolute;
-  left:0;
-  top:100%;
+  top:calc(100% + 8px);
+  left:50%;
+  transform:translateX(-50%);
   background:var(--ku-main);
-  min-width:180px;
+  min-width:160px;
   padding:6px 0;
-  border-radius:0 0 8px 8px;
-  box-shadow:0 8px 16px rgba(0,0,0,0.3);
-  opacity:0;
-  visibility:hidden;
-  transform:translateY(10px);
-  transition:0.2s;
+  border-radius:6px;
+  display:none;
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
+  z-index:1200;
+  white-space:nowrap;
 }
-.has-dropdown:hover .dropdown{
-  opacity:1;
-  visibility:visible;
-  transform:translateY(0);
-}
-.dropdown a{
+
+.has-sub:hover .sub-menu{
   display:block;
-  padding:8px 18px;
-  font-size:13px;
-  color:#fff;
+}
+
+.sub-menu a{
+  display:block;
+  padding:8px 14px;
+  font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif !important;
+  font-size:12.5px !important;
+  font-weight:400 !important; /* 볼드 제거 */
+  letter-spacing:-0.2px !important;
+  color:white;
+  border-bottom:1px solid rgba(255,255,255,0.12);
   text-decoration:none;
 }
-.dropdown a:hover{background:var(--ku-hover);}
+.sub-menu a:hover{
+  background:var(--ku-hover);
+  border-bottom-color:transparent;
+}
 
-/* 내용 */
+/* HERO */
+.hero{
+  background:var(--ku-main);
+  text-align:center;
+  padding:60px 20px 45px;
+}
+.hero h1{
+  color:#fff;
+  font-size:36px;
+  margin:0;
+  text-shadow:0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* CONTENT */
 .wrapper{
   width:90%;
   max-width:1100px;
@@ -93,7 +140,7 @@ h1{color:var(--ku-main);margin-top:0;}
 
 .info-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);  /* 1줄에 4명 */
+  grid-template-columns:repeat(4,1fr);
   gap:20px;
 }
 .person-card{
@@ -102,7 +149,7 @@ h1{color:var(--ku-main);margin-top:0;}
   border-radius:10px;
   padding:14px;
   font-size:13px;
-  text-align:left;          /* ✅ 카드 기본 좌측 정렬 */
+  text-align:left;
 }
 .person-photo{
   text-align:center;
@@ -119,17 +166,23 @@ h1{color:var(--ku-main);margin-top:0;}
   font-weight:bold;
   color:var(--ku-main);
   margin-bottom:2px;
-  text-align:center;        /* ✅ 중앙 정렬 */
+  text-align:center;
 }
 
 .person-role{
-  font-size:12px;
+  font-size:11px; /* 글자 크기 줄임 */
   margin-bottom:4px;
-  text-align:left;       /* ✅ 왼쪽 정렬 */
+  text-align:left;
+  font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif !important;
+  font-weight:400 !important; /* 볼드 제거 */
+  letter-spacing:-0.2px !important;
 }
 .person-contact{
-  font-size:12px;
+  font-size:11px; /* 글자 크기 줄임 */
   color:#444;
+  font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif !important;
+  font-weight:400 !important; /* 볼드 제거 */
+  letter-spacing:-0.2px !important;
 }
 
 .footer{
@@ -148,32 +201,58 @@ h1{color:var(--ku-main);margin-top:0;}
 }
 </style>
 </head>
+
 <body>
 
+<!-- NAVBAR -->
 <div class="navbar">
   <div class="navbar-left">
     <img src="img/ku_logo.png" alt="Korea University">
   </div>
   <div class="navbar-right">
-    <a href="index.html">Home</a>
-    <a href="notice.html">Notice</a>
+    <ul class="main-menu">
 
-    <div class="has-dropdown">
-      <a href="people.html">People ▾</a>
-      <div class="dropdown">
-        <a href="people_prof.html">지도교수</a>
-        <a href="people_members.html">연구원 및 대학원생</a>
-        <a href="people_former.html">Former Members</a>
-      </div>
-    </div>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="notice.html">Notice</a></li>
 
-    <a href="research.html">Research</a>
-    <a href="publications.html">Publications</a>
-    <a href="contact.html">Contact</a>
+      <li class="has-sub">
+        <a href="people.html">People</a>
+        <ul class="sub-menu">
+          <li><a href="people_prof.html">지도교수</a></li>
+          <li><a href="people_members.html">연구원 및 대학원생</a></li>
+          <li><a href="people_former.html">Former Members</a></li>
+        </ul>
+      </li>
+
+      <li class="has-sub">
+        <a href="research.html">Research</a>
+        <ul class="sub-menu">
+          <li><a href="research_nitrogen.html">Nitrogen Cycle</a></li>
+          <li><a href="research_diet.html">DIET Research</a></li>
+          <li><a href="research_other.html">Other Research</a></li>
+        </ul>
+      </li>
+
+      <li class="has-sub">
+        <a href="publications.html">Publications</a>
+        <ul class="sub-menu">
+          <li><a href="publications_papers.html">논문·특허</a></li>
+          <li><a href="publications_confs.html">학회 발표</a></li>
+          <li><a href="publications_books.html">저서</a></li>
+        </ul>
+      </li>
+
+      <li><a href="contact.html">Contact</a></li>
+
+    </ul>
   </div>
 </div>
 
+
+<!-- 페이지 내용 -->
 <div class="wrapper">
+  <h1>연구원 및 대학원생</h1>
+
   <h1>졸업생 · Former Members</h1>
 
   <!-- 박사후 연구원 -->
