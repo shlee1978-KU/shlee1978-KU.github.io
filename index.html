@@ -307,6 +307,7 @@ footer{
   <div class="lab-photo-caption">
     환경생명공학연구실 활동 모습 (여러 사진이 4초 간격으로 순환합니다)
   </div>
+  
 </div>
 
 <!-- ================== CARDS ================== -->
@@ -344,15 +345,26 @@ footer{
 
 <!-- ================== 슬라이드 전환 스크립트 ================== -->
 <script>
-  const slides = document.querySelectorAll('.slide');
-  let currentSlide = 0;
+  // 단순 이미지 슬라이드 (4초 간격)
+  document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.slideshow .slide');
+    if (!slides.length) return;
 
-  setInterval(() => {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add('active');
-  }, 4000); // 4초 간격
+    let current = 0;
+
+    setInterval(function () {
+      // 현재 슬라이드 숨기기
+      slides[current].classList.remove('active');
+
+      // 다음 슬라이드 인덱스
+      current = (current + 1) % slides.length;
+
+      // 다음 슬라이드 보이기
+      slides[current].classList.add('active');
+    }, 4000); // 4000ms = 4초
+  });
 </script>
+
 
 </body>
 </html>
