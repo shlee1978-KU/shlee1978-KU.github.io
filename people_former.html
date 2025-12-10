@@ -59,23 +59,18 @@ body{
   color:#ffe6e5;
   border-bottom:2px solid #ffe6e5;
 }
-
-/* 드롭다운 화살표 */
 .has-sub > a::after{
   content:" ▾";
   font-size:11px;
   margin-left:4px;
   opacity:0.9;
 }
-
-/* 드롭다운 (서브메뉴) — 글씨체 통일 + 점 제거 */
 .sub-menu,
 .sub-menu li{
   list-style:none;
   margin:0;
   padding:0;
 }
-
 .sub-menu{
   position:absolute;
   top:calc(100% + 8px);
@@ -90,17 +85,15 @@ body{
   z-index:1200;
   white-space:nowrap;
 }
-
 .has-sub:hover .sub-menu{
   display:block;
 }
-
 .sub-menu a{
   display:block;
   padding:8px 14px;
   font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif !important;
   font-size:12.5px !important;
-  font-weight:400 !important; /* 볼드 제거 */
+  font-weight:400 !important;
   letter-spacing:-0.2px !important;
   color:white;
   border-bottom:1px solid rgba(255,255,255,0.12);
@@ -128,7 +121,7 @@ body{
 .wrapper{
   width:90%;
   max-width:1100px;
-  margin:40px auto 60px;
+  margin:40px auto;
   background:#fff;
   border-radius:12px;
   padding:30px;
@@ -168,23 +161,23 @@ h1{color:var(--ku-main);margin-top:0;}
   margin-bottom:2px;
   text-align:center;
 }
-
 .person-role{
-  font-size:11px; /* 글자 크기 줄임 */
+  font-size:11px;
   margin-bottom:4px;
   text-align:left;
   font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif !important;
-  font-weight:400 !important; /* 볼드 제거 */
+  font-weight:400 !important;
   letter-spacing:-0.2px !important;
 }
 .person-contact{
-  font-size:11px; /* 글자 크기 줄임 */
+  font-size:11px;
   color:#444;
   font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif !important;
-  font-weight:400 !important; /* 볼드 제거 */
+  font-weight:400 !important;
   letter-spacing:-0.2px !important;
 }
 
+/* FOOTER - 흰색 박스 밖으로 이동 */
 .footer{
   background:var(--ku-dark);
   color:#fff;
@@ -193,6 +186,7 @@ h1{color:var(--ku-main);margin-top:0;}
   font-size:13px;
 }
 
+/* RESPONSIVE */
 @media(max-width:900px){
   .info-grid{grid-template-columns:repeat(2,1fr);}
 }
@@ -211,10 +205,8 @@ h1{color:var(--ku-main);margin-top:0;}
   </div>
   <div class="navbar-right">
     <ul class="main-menu">
-
       <li><a href="index.html">Home</a></li>
       <li><a href="notice.html">Notice</a></li>
-
       <li class="has-sub">
         <a href="people.html">People</a>
         <ul class="sub-menu">
@@ -223,7 +215,6 @@ h1{color:var(--ku-main);margin-top:0;}
           <li><a href="people_former.html">Former Members</a></li>
         </ul>
       </li>
-
       <li class="has-sub">
         <a href="research.html">Research</a>
         <ul class="sub-menu">
@@ -232,7 +223,6 @@ h1{color:var(--ku-main);margin-top:0;}
           <li><a href="research_other.html">Other Research</a></li>
         </ul>
       </li>
-
       <li class="has-sub">
         <a href="publications.html">Publications</a>
         <ul class="sub-menu">
@@ -251,7 +241,8 @@ h1{color:var(--ku-main);margin-top:0;}
 
 <!-- 페이지 내용 -->
 <div class="wrapper">
-  <h1>연구원 및 대학원생</h1>
+
+<h1>연구원 및 대학원생</h1>
 
   <h1>졸업생 · Former Members</h1>
 
@@ -277,28 +268,6 @@ h1{color:var(--ku-main);margin-top:0;}
         <div class="person-role">- Ph.D. at the University of Texas-Austin (2008)</div>
         <div class="person-contact">
           이메일: sdkwon@gmail.com <br>
-        </div>
-      </div>
-
-      <!-- 이상훈 박사 -->
-      <div class="person-card">
-        <div class="person-photo">
-          <img src="img/SHLEE (2).png" alt="이상훈 박사">
-        </div>
-
-        <!-- ✅ 이름 줄 분리 -->
-        <div class="person-name">
-          이상훈 박사 (2011.09-2016.10)<br>
-          <span class="ename">(Dr. Lee, Sang-Hoon)</span>
-        </div>
-
-        <div class="person-role">- (현) 고려대학교 연구교수</div>
-        <div class="person-role">- University of Toledo 박사후연구원</div>
-        <div class="person-role">- Michigan State University 박사후연구원</div>
-        <div class="person-role">- 환경미생물생태학, 바이오인포메틱스</div>
-
-        <div class="person-contact">
-          이메일: bfox2@korea.ac.kr<br>
         </div>
       </div>
 
@@ -396,7 +365,7 @@ h1{color:var(--ku-main);margin-top:0;}
 
         <!-- ✅ 이름 줄 분리 -->
         <div class="person-name">
-          박정훈 박사 (201x0.09-201x.02)<br>
+          박정훈 박사 (201x0.9-201x.02)<br>
           <span class="ename">(Dr. Park, Jeong-Hoon)</span>
         </div>
    
@@ -468,7 +437,7 @@ h1{color:var(--ku-main);margin-top:0;}
         <!--박종훈 박사 -->
      <div class="person-card">
         <div class="person-photo">
-          <img src="img/JONGHP-1.png" alt="Dr. Park, Jong-Hoon">
+          <img src="img/PJHJH.png" alt="Dr. Park, Jong-Hoon">
         </div>
 
         <!-- ✅ 이름 줄 분리 -->
@@ -492,7 +461,7 @@ h1{color:var(--ku-main);margin-top:0;}
 
         <!-- ✅ 이름 줄 분리 -->
         <div class="person-name">
-          Dr. Sun, Pengfei (201x.09-201x.02)<br>
+          Sun, Pengfei 박사 (201x.09-201x.02)<br>
           <span class="ename">(Dr. Sun, Pengfei)</span>
         </div>
    
@@ -531,7 +500,7 @@ h1{color:var(--ku-main);margin-top:0;}
 
         <!-- ✅ 이름 줄 분리 -->
         <div class="person-name">
-          이정훈 박사 (2018.03-201x.02)<br>
+          이정훈 박사 (2013.03-201x.02)<br>
           <span class="ename">(Dr. Lee, Jeong-Hoon)</span>
         </div>
    
@@ -572,7 +541,7 @@ h1{color:var(--ku-main);margin-top:0;}
 
         <!-- ✅ 이름 줄 분리 -->
         <div class="person-name">
-          장용선 박사 (2018.03-2023.08)<br>
+          장용선 박사 (2013.03-201x.02)<br>
           <span class="ename">(Dr. Jang, Yongsun)</span>
         </div>
    
@@ -591,7 +560,7 @@ h1{color:var(--ku-main);margin-top:0;}
 
         <!-- ✅ 이름 줄 분리 -->
         <div class="person-name">
-          Viktor Pauer (201x.09-201x.2)<br>
+          Viktor Pauer (201x.9 - 201x.2)<br>
           <span class="ename">(Viktor Pauer)</span>
         </div>
    
@@ -610,7 +579,7 @@ h1{color:var(--ku-main);margin-top:0;}
 
         <!-- ✅ 이름 줄 분리 -->
         <div class="person-name">
-          차은지 (201x.09-201x.2)<br>
+          차은지 (201x.9 - 201x.2)<br>
           <span class="ename">(Cha, Eunji)</span>
         </div>
 
@@ -809,7 +778,7 @@ h1{color:var(--ku-main);margin-top:0;}
 
         <!-- ✅ 이름 줄 분리 -->
         <div class="person-name">
-          이해민 (201x0.09-2026.02)<br>
+          이해민<br>
           <span class="ename">(Lee, Haemin)</span>
         </div>
    
@@ -910,7 +879,10 @@ h1{color:var(--ku-main);margin-top:0;}
         </div>
       </div>
 
-</div>
+    </div>
+  </div>
+
+
 </div>
 
 <div class="footer">
