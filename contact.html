@@ -4,44 +4,65 @@
 <meta charset="UTF-8">
 <title>연락처 | 환경생명공학연구실</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
 :root{
   --ku-main:#8C1D18;
   --ku-dark:#701414;
+  --ku-hover:#A32620;
   --bg-gray:#f5f2f2;
 }
-
 *{box-sizing:border-box;}
-
 body{
   margin:0;
   font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif;
   background:var(--bg-gray);
   color:#333;
 }
-
 /* NAVBAR */
 .navbar{
   background:var(--ku-main);
-  padding:10px 40px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
   color:#fff;
+  padding:10px 36px;
+  display:flex;
+  align-items:center;
+  gap:20px;
 }
 .navbar-left img{height:48px;}
-.navbar-right a{
+.navbar-right{margin-left:auto;}
+.main-menu{list-style:none; display:flex; gap:22px; margin:0; padding:0;}
+.main-menu > li{position:relative;}
+.main-menu a{
   color:#fff;
-  margin-left:18px;
   text-decoration:none;
-  font-weight:bold;
+  font-weight:600;
   font-size:14px;
+  padding:6px 0;
 }
-.navbar-right a:hover{
-  color:#ffe6e5;
-  border-bottom:2px solid #ffe6e5;
+.main-menu a:hover{color:#ffe6e5; border-bottom:2px solid #ffe6e5;}
+.has-sub > a::after{content:" ▾"; font-size:11px; margin-left:4px; opacity:0.9;}
+.sub-menu,.sub-menu li{list-style:none; margin:0; padding:0;}
+.sub-menu{
+  position:absolute;
+  top:calc(100% + 8px);
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--ku-main);
+  min-width:160px;
+  padding:6px 0;
+  border-radius:6px;
+  display:none;
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
 }
+.has-sub:hover .sub-menu{display:block;}
+.sub-menu a{
+  display:block;
+  padding:8px 14px;
+  font-size:12.5px;
+  color:white;
+  border-bottom:1px solid rgba(255,255,255,0.12);
+  text-decoration:none;
+}
+.sub-menu a:hover{background:var(--ku-hover); border-bottom-color:transparent;}
 
 /* CONTENT WRAPPER */
 .wrapper{
@@ -53,7 +74,6 @@ body{
   padding:30px 26px 36px;
   box-shadow:0 8px 18px rgba(0,0,0,0.08);
 }
-
 h1{
   margin-top:0;
   color:var(--ku-main);
@@ -62,7 +82,6 @@ h2{
   color:var(--ku-main);
   margin-bottom:8px;
 }
-
 .section{
   margin-bottom:26px;
 }
@@ -125,20 +144,43 @@ h2{
 <!-- 상단 네비게이션 -->
 <div class="navbar">
   <div class="navbar-left">
-    <img src="img/ku_logo.png" alt="Korea University">
+    <a href="index.html" style="display:inline-block;">
+      <img src="img/ku_logo.png" alt="Korea University" style="height:48px; display:block;">
+    </a>
   </div>
+
   <div class="navbar-right">
-    <a href="index.html">Home</a>
-    <a href="notice.html">Notice</a>
-    <a href="people.html">People</a>
-    <a href="research.html">Research</a>
-    <a href="publications.html">Publications</a>
-    <a href="contact.html">Contact</a>
+    <ul class="main-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="notice.html">Notice</a></li>
+      <li class="has-sub"><a href="people.html">People</a>
+        <ul class="sub-menu">
+          <li><a href="people_prof.html">지도교수</a></li>
+          <li><a href="people_members.html">연구원 및 대학원생</a></li>
+          <li><a href="people_former.html">Former Members</a></li>
+        </ul>
+      </li>
+      <li class="has-sub"><a href="research.html">Research</a>
+        <ul class="sub-menu">
+          <li><a href="research_nitrogen.html">Nitrogen Cycle</a></li>
+          <li><a href="research_diet.html">DIET Research</a></li>
+          <li><a href="research_other.html">Other Research</a></li>
+        </ul>
+      </li>
+      <li class="has-sub"><a href="publications.html">Publications</a>
+        <ul class="sub-menu">
+          <li><a href="publications_papers.html">논문·특허</a></li>
+          <li><a href="publications_confs.html">학회 발표</a></li>
+          <li><a href="publications_books.html">저서</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
   </div>
 </div>
 
 <div class="wrapper">
-  <h1>연락처 (Contact)</h1>
+  <h1>연락처 (Contact Us)</h1>
 
   <div class="section">
     <h2>연구실</h2>
@@ -146,10 +188,22 @@ h2{
       서울특별시 성북구 안암로 145<br>
       고려대학교 공학관 232호
     </p>
+  </div> 
+
+  <!-- 🔼 오시는 길을 위로 이동 -->
+  <div class="section">
+    <h2>오시는 길</h2>
+    <p>고려대학교 안암캠퍼스 공학관 위치 안내입니다.</p>
+    <div class="map-section">
+      <img src="img/ku_map.png" alt="고려대학교 안암캠퍼스 지도">
+      <div class="map-caption">
+        고려대학교 안암캠퍼스 공학관 위치 (안암역 인근)
+      </div>
+    </div>
   </div>
 
   <div class="section">
-    <h2>행정 담당자</h2>
+    <h2>담당자</h2>
     <table class="info-table">
       <thead>
         <tr>
@@ -160,6 +214,11 @@ h2{
       </thead>
       <tbody>
         <tr>
+          <td style="text-align:center;">박희등</td>
+          <td style="text-align:center;">heedeung@korea.ac.kr</td>
+          <td style="text-align:center;">연구책임자</td>
+        </tr>
+        <tr>
           <td style="text-align:center;">이경민</td>
           <td style="text-align:center;">nocont2xt@korea.ac.kr</td>
           <td style="text-align:center;">각종 행정 담당</td>
@@ -168,25 +227,15 @@ h2{
     </table>
   </div>
 
-  <div class="section">
-    <h2>오시는 길</h2>
-    <p>고려대학교 안암캠퍼스 공학관 위치 안내입니다.</p>
-    <div class="map-section">
-      <!-- 지도를 img 폴더에 ku_map.png 로 저장했다고 가정 -->
-      <img src="img/ku_map.png" alt="고려대학교 안암캠퍼스 지도">
-      <div class="map-caption">
-        고려대학교 안암캠퍼스 공학관 위치 (안암역 인근)
-      </div>
-    </div>
-  </div>
+
 </div>
 
 <div class="footer">
-  <div class="footer-logo">
-    <img src="img/korea_engineering_logo.png" alt="Korea University Engineering">
-  </div>
-  © 환경생명공학연구실 · 고려대학교
+  © Environmental Biotechnology Laboratory, Korea University<br>
+  Address: Korea University, Seoul, Korea | Email: nocont2xt@korea.ac.kr
 </div>
 
 </body>
 </html>
+
+
