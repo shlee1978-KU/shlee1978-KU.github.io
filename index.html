@@ -79,6 +79,10 @@ body{
   transform:translateY(10px);
   transition:.2s ease;
   z-index:999;
+
+  list-style:none; /* ★ 점 제거 */
+  margin:0;        /* 기본 여백 제거 */
+  padding:0;       /* 기본 여백 제거 */
 }
 
 .has-dropdown:hover .dropdown{
@@ -98,6 +102,7 @@ body{
 .dropdown a:hover{
   background:var(--ku-hover);
 }
+
 
 /* ================== 메인 타이틀 ================== */
 .hero{
@@ -127,10 +132,7 @@ body{
   border-radius:14px;
   overflow:hidden;
   box-shadow:0 6px 16px rgba(0,0,0,0.25);
-
-  /* ✅ 여기 한 줄 추가 */
-  height:320px;          /* 필요하면 280~380px 정도로 조절 가능 */
-  /* 또는 height 대신 aspect-ratio: 4 / 3; 도 괜찮습니다 */
+  height:320px;
 }
 
 /* 각 슬라이드 */
@@ -143,8 +145,8 @@ body{
 
 .slide img{
   width:100%;
-  height:100%;           /* 추가 */
-  object-fit:cover;      /* 추가 */
+  height:100%;
+  object-fit:cover;
   display:block;
 }
 
@@ -246,7 +248,7 @@ footer{
 
     <!-- People 드롭다운 -->
     <div class="has-dropdown">
-      <a href="people.html">People ▾</a>
+      <a href="people.html" class="parent-link">People ▾</a>
       <div class="dropdown">
         <a href="people_prof.html">지도교수</a>
         <a href="people_members.html">연구원 및 대학원생</a>
@@ -256,7 +258,7 @@ footer{
 
     <!-- Research 드롭다운 -->
     <div class="has-dropdown">
-      <a href="research.html">Research ▾</a>
+      <a href="research.html" class="parent-link">Research ▾</a>
       <div class="dropdown">
         <a href="research_nitrogen.html">Nitrogen Cycle</a>
         <a href="research_diet.html">DIET Research</a>
@@ -265,14 +267,14 @@ footer{
     </div>
 
     <!-- Publications 드롭다운 -->
-    <div class="has-dropdown">
-      <a href="publications.html">Publications ▾</a>
-      <div class="dropdown">
-        <a href="pub_papers.html">논문 · 특허</a>
-        <a href="pub_conference.html">학회 발표</a>
-        <a href="pub_books.html">저서</a>
-      </div>
-    </div>
+<div class="has-dropdown">
+  <a href="publications.html" class="parent-link">Publications ▾</a>
+  <ul class="dropdown">
+    <li><a href="publications_papers.html">논문·특허</a></li>
+    <li><a href="publications_confs.html">학회 발표</a></li>
+    <li><a href="publications_books.html">저서</a></li>
+  </ul>
+</div>
 
     <a href="contact.html">Contact</a>
   </div>
@@ -292,36 +294,25 @@ footer{
 <div class="lab-photo-section">
 
   <div class="slideshow">
-    <!-- 슬라이드 1 -->
     <div class="slide active">
       <img src="img/lab_group_2024 (2).png" alt="Lab group 2024">
     </div>
-
-    <!-- 슬라이드 2 (원하시면 다른 파일명으로 교체) -->
     <div class="slide">
       <img src="img/KU-enter.png" alt="Lab event 1">
     </div>
-
-    <!-- 슬라이드 3 (원하시면 다른 파일명으로 교체) -->
     <div class="slide">
       <img src="img/main_building.png" alt="Lab event 2">
     </div>
-
-      <!-- 슬라이드 4 (원하시면 다른 파일명으로 교체) -->
     <div class="slide">
       <img src="img/engineering_logo.png" alt="Lab event 2">
     </div>
-
-      <!-- 슬라이드 5 (원하시면 다른 파일명으로 교체) -->
     <div class="slide">
       <img src="img/DIET.png" alt="Lab event 2">
     </div>
-
-      <!-- 슬라이드 3 (원하시면 다른 파일명으로 교체) -->
     <div class="slide">
       <img src="img/MABR.png" alt="Lab event 2">
     </div>
-      </div>
+  </div>
 
   <div class="lab-photo-caption">
     환경생명공학연구실 활동 모습 (여러 사진이 4초 간격으로 순환합니다)
@@ -331,27 +322,22 @@ footer{
 
 <!-- ================== CARDS ================== -->
 <div class="card-container">
-
   <a class="card" href="notice.html">
     <h2>공지사항</h2>
     <p>연구실 최신 소식 및 공지사항</p>
   </a>
-
   <a class="card" href="people.html">
     <h2>구성원</h2>
     <p>지도교수, 연구원, 학생 소개</p>
   </a>
-
   <a class="card" href="research.html">
     <h2>연구분야</h2>
     <p>하수처리공정, DIET, 환경미생물생태 연구</p>
   </a>
-
   <a class="card" href="publications.html">
     <h2>연구성과</h2>
     <p>논문, 특허, 프로젝트 실적</p>
   </a>
-
 </div>
 
 <footer>
@@ -362,28 +348,31 @@ footer{
   Address: Korea University, Seoul, Korea | Email: nocont2xt@korea.ac.kr
 </footer>
 
-<!-- ================== 슬라이드 전환 스크립트 ================== -->
+<!-- ================== 슬라이드 전환 & 드롭다운 클릭 스크립트 ================== -->
 <script>
-  // 단순 이미지 슬라이드 (4초 간격)
-  document.addEventListener('DOMContentLoaded', function () {
-    const slides = document.querySelectorAll('.slideshow .slide');
-    if (!slides.length) return;
-
+document.addEventListener('DOMContentLoaded', function () {
+  // 이미지 슬라이드
+  const slides = document.querySelectorAll('.slideshow .slide');
+  if (slides.length) {
     let current = 0;
-
-    setInterval(function () {
-      // 현재 슬라이드 숨기기
+    setInterval(() => {
       slides[current].classList.remove('active');
-
-      // 다음 슬라이드 인덱스
       current = (current + 1) % slides.length;
-
-      // 다음 슬라이드 보이기
       slides[current].classList.add('active');
-    }, 4000); // 4000ms = 4초
-  });
-</script>
+    }, 4000);
+  }
 
+  // 드롭다운 부모 메뉴 클릭 시 이동
+  const parentLinks = document.querySelectorAll('.parent-link');
+  parentLinks.forEach(link => {
+    link.addEventListener('click', function(e){
+      // 클릭 시 바로 이동
+      window.location.href = link.href;
+    });
+  });
+});
+</script>
 
 </body>
 </html>
+
