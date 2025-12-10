@@ -1,203 +1,266 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>연구분야 | 환경생명공학연구실</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>People | 환경생명공학연구실</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root{
-      /* ================== ① 색상 바꾸는 곳 ==================
-         - 전체 사이트 포인트 색을 바꾸고 싶으면 아래 세 값을 수정하세요.
-         ---------------------------------------------- */
-      --ku-main:#8C1D18;   /* 기본 상단바/제목 색 */
-      --ku-dark:#701414;   /* 푸터 등 진한 색 */
-      --ku-hover:#A32620;  /* 마우스 올렸을 때 색 */
-      --bg-gray:#f5f2f2;   /* 페이지 배경색 */
-    }
+<style>
+:root{
+  --ku-main:#8C1D18;
+  --ku-dark:#701414;
+  --ku-hover:#A32620;
+  --bg-gray:#f5f2f2;
+}
 
-    *{ box-sizing:border-box; }
+*{box-sizing:border-box;}
 
-    body{
-      margin:0;
-      font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif;
-      background:var(--bg-gray);
-      color:#333;
-    }
+body{
+  margin:0;
+  background:var(--bg-gray);
+  color:#333;
+  font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif;
+}
 
-    /* ================= NAVBAR (상단 메뉴바) ================= */
-    .navbar{
-      background:var(--ku-main);
-      color:#fff;
-      padding:10px 40px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
+/* NAVBAR */
+.navbar{
+  background:var(--ku-main);
+  color:#fff;
+  padding:10px 36px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+.navbar-left img{
+  height:48px;
+  display:block;
+}
+.navbar-right{
+  margin-left:auto; 
+}
+.main-menu{
+  list-style:none;
+  display:flex;
+  gap:22px;
+  margin:0;
+  padding:0;
+}
+.main-menu > li{
+  position:relative;
+}
+.main-menu a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:14px;
+  padding:6px 0;
+}
+.main-menu a:hover{
+  color:#ffe6e5;
+  border-bottom:2px solid #ffe6e5;
+}
 
-    .navbar-left img{
-      height:48px;
-    }
+/* 드롭다운 화살표 */
+.has-sub > a::after{
+  content:" ▾";
+  font-size:11px;
+  margin-left:4px;
+  opacity:0.9;
+}
 
-    .navbar-right ul{
-      list-style:none;
-      margin:0;
-      padding:0;
-    }
+/* 드롭다운 (서브메뉴) — 글씨체 통일 + 점 제거 */
+.sub-menu,
+.sub-menu li{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
 
-    /* 메인 메뉴( Home / Notice / People / Research ... ) */
-    .navbar-right .main-menu{
-      display:flex;
-      gap:24px;
-      align-items:center;
-    }
+.sub-menu{
+  position:absolute;
+  top:calc(100% + 8px);
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--ku-main);
+  min-width:160px;
+  padding:6px 0;
+  border-radius:6px;
+  display:none;
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
+  z-index:1200;
+  white-space:nowrap;
+}
 
-    .main-menu > li{
-      position:relative;
-    }
+.has-sub:hover .sub-menu{
+  display:block;
+}
 
-    .navbar-right a{
-      color:#fff;
-      text-decoration:none;
-      font-weight:bold;
-      font-size:14px;
-      padding:4px 0;
-      display:inline-block;
-    }
+.sub-menu a{
+  display:block;
+  padding:8px 14px;
+  font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif !important;
+  font-size:12.5px !important;
+  font-weight:400 !important;
+  letter-spacing:-0.2px !important;
+  color:white;
+  border-bottom:1px solid rgba(255,255,255,0.12);
+  text-decoration:none;
+}
+.sub-menu a:hover{
+  background:var(--ku-hover);
+  border-bottom-color:transparent;
+}
 
-    .navbar-right a:hover{
-      color:#ffe6e5;
-      border-bottom:2px solid #ffe6e5;
-    }
+/* HERO */
+.hero{
+  background:var(--ku-main);
+  text-align:center;
+  padding:60px 20px 45px;
+}
+.hero h1{
+  color:#fff;
+  font-size:36px;
+  margin:0;
+  text-shadow:0 2px 4px rgba(0,0,0,0.3);
+}
 
-    /* 드롭다운 표시용 화살표 */
-    .has-sub > a::after{
-      content:" ▾";
-      font-size:11px;
-    }
+/* CONTENT */
+.wrapper{
+  width:90%;
+  max-width:1100px;
+  margin:40px auto 60px;
+  background:#fff;
+  border-radius:12px;
+  padding:30px;
+  box-shadow:0 8px 18px rgba(0,0,0,0.08);
+}
+h1{color:var(--ku-main);margin-top:0;}
+.section{margin-top:20px;}
+.section h2{color:var(--ku-main);margin-bottom:12px;}
 
-    /* 드롭다운 메뉴(서브메뉴) 기본 숨김 */
-    .sub-menu{
-      position:absolute;
-      top:100%;
-      left:0;
-      background:var(--ku-main);
-      padding:8px 0;
-      min-width:180px;
-      display:none;
-      box-shadow:0 6px 16px rgba(0,0,0,0.25);
-      z-index:1000;
-    }
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.person-card{
+  background:#fff6f6;
+  border:1px solid #e3c5c5;
+  border-radius:10px;
+  padding:14px;
+  font-size:13px;
+  text-align:left;
+}
+.person-photo{
+  text-align:center;
+  margin-bottom:8px;
+}
+.person-photo img{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  object-fit:cover;
+  box-shadow:0 3px 6px rgba(0,0,0,0.25);
+}
+.person-name{
+  font-weight:bold;
+  color:var(--ku-main);
+  margin-bottom:2px;
+  text-align:center;
+}
 
-    /* People / Research 위에 마우스를 올렸을 때 서브메뉴 보이기 */
-    .has-sub:hover .sub-menu{
-      display:block;
-    }
+.person-role{
+  font-size:11px;
+  margin-bottom:4px;
+  text-align:left;
+  font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif !important;
+  font-weight:400 !important;
+  letter-spacing:-0.2px !important;
+}
+.person-contact{
+  font-size:11px;
+  color:#444;
+  font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif !important;
+  font-weight:400 !important;
+  letter-spacing:-0.2px !important;
+}
 
-    .sub-menu li{
-      width:100%;
-    }
+/* FOOTER */
+.footer{
+  background:var(--ku-dark);
+  color:#fff;
+  text-align:center;
+  padding:16px;
+  font-size:13px;
+}
 
-    .sub-menu a{
-      display:block;
-      padding:8px 14px;
-      font-size:13px;
-      border-bottom:1px solid rgba(255,255,255,0.12);
-    }
+/* 카드형 연구 레이아웃 추가 */
+.research-card-container{
+  display:flex;
+  flex-direction:column;
+  gap:28px;
+  margin-top:30px;
+}
 
-    .sub-menu a:hover{
-      background:var(--ku-hover);
-      border-bottom-color:transparent;
-    }
+.research-card{
+  background:#fff6f6;
+  border:1px solid #e3c5c5;
+  border-radius:12px;
+  padding:22px 24px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.07);
+}
 
-    /* ================ PAGE WRAPPER (본문 박스) ================ */
-    .wrapper{
-      width:90%;
-      max-width:1200px;
-      margin:40px auto 60px;
-      background:#fff;
-      border-radius:12px;
-      padding:30px;
-      box-shadow:0 8px 18px rgba(0,0,0,0.08);
-    }
+.research-card h3{
+  margin:0 0 10px;
+  color:var(--ku-main);
+  font-size:20px;
+}
 
-    h1,h2{
-      color:var(--ku-main);
-      margin-top:0;
-    }
+.research-card p{
+  font-size:14px;
+  color:#444;
+  margin-bottom:14px;
+}
 
-    .section{
-      margin-bottom:40px;
-    }
+.card-imgs{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px;
+}
 
-    .section p{
-      line-height:1.6;
-    }
+.card-imgs img{
+  width:100%;
+  height:150px;
+  object-fit:cover;
+  border-radius:8px;
+  background:#eee;
+}
 
-    /* ================ ② 연구 사진 격자 ================= */
-    .img-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-      gap:16px;
-      margin-top:14px;
-    }
-
-    .img-grid figure{
-      margin:0;
-      background:#fafafa;
-      border-radius:8px;
-      padding:8px;
-      border:1px solid #e0d3d3;
-      text-align:center;
-    }
-
-    .img-grid img{
-      width:100%;
-      height:140px;   /* 카드 안에서 높이 고정 (조절 가능) */
-      object-fit:cover;
-      border-radius:6px;
-      display:block;
-      margin-bottom:6px;
-    }
-
-    .img-grid figcaption{
-      font-size:12px;
-      color:#555;
-    }
-
-    /* footer */
-    .footer{
-      background:var(--ku-dark);
-      color:#fff;
-      text-align:center;
-      padding:16px;
-      font-size:13px;
-    }
-
-    @media (max-width:768px){
-      .navbar{
-        padding:10px 16px;
-      }
-    }
-  </style>
+@media(max-width:900px){
+  .info-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:600px){
+  .info-grid{grid-template-columns:1fr;}
+}
+</style>
 </head>
 
 <body>
 
-<!-- ================ NAVBAR (상단 메뉴 영역) ================ -->
+<!-- NAVBAR -->
 <div class="navbar">
   <div class="navbar-left">
-    <!-- ③ 왼쪽 로고 이미지 경로 수정 가능 -->
-    <img src="img/ku_logo.png" alt="Korea University">
+    <a href="index.html" style="display:inline-block;">
+      <img src="img/ku_logo.png" alt="Korea University" style="height:48px; display:block;">
+    </a>
   </div>
 
   <div class="navbar-right">
     <ul class="main-menu">
-      <!-- ④ 메인 메뉴 항목 수정/추가/삭제 -->
+
       <li><a href="index.html">Home</a></li>
       <li><a href="notice.html">Notice</a></li>
 
-      <!-- People 드롭다운 : 링크(people_*.html)를 변경하면 됨 -->
       <li class="has-sub">
         <a href="people.html">People</a>
         <ul class="sub-menu">
@@ -207,7 +270,6 @@
         </ul>
       </li>
 
-      <!-- Research 드롭다운 : 필요에 따라 항목 이름/링크 수정 -->
       <li class="has-sub">
         <a href="research.html">Research</a>
         <ul class="sub-menu">
@@ -217,103 +279,83 @@
         </ul>
       </li>
 
-      <li><a href="publications.html">Publications</a></li>
+      <li class="has-sub">
+        <a href="publications.html">Publications</a>
+        <ul class="sub-menu">
+          <li><a href="publications_papers.html">논문·특허</a></li>
+          <li><a href="publications_confs.html">학회 발표</a></li>
+          <li><a href="publications_books.html">저서</a></li>
+        </ul>
+      </li>
+
       <li><a href="contact.html">Contact</a></li>
+
     </ul>
   </div>
 </div>
 
-<!-- ================ ⑤ 메인 내용 (글/사진 바꾸는 곳) ================ -->
+
+
+<!-- CONTENT (카드형으로 전체 교체 완료) -->
 <div class="wrapper">
+
   <h1>연구분야 (Research)</h1>
-  <!-- 연구 소개 문단: 자유롭게 수정 -->
   <p>
     환경생명공학연구실에서는 질소순환(Nitrogen cycle), Direct Interspecies Electron Transfer(DIET)를 활용한 메탄생성,
-    그리고 멤브레인·바이오필름·미생물군집 해석 등 다양한 환경생명공학 연구를 수행하고 있습니다.
+    멤브레인·바이오필름·미생물군집 해석 등 다양한 주제를 연구합니다.
   </p>
 
-  <!-- ⑤-1 Nitrogen Cycle 섹션 -->
-  <div class="section">
-    <h2>1. Nitrogen Cycle 연구</h2>
-    <p>
-      아나목스(anammox), 탈질, DNRA 등 질소 순환과 관련된 핵심 미생물 군집과 기능을 메타지놈·메타트랜스크립톰 분석으로 규명하고,
-      반응기 설계 및 운전에 적용하는 연구를 수행합니다.
-    </p>
+  <div class="research-card-container">
 
-    <!-- ⑥ Nitrogen Cycle 관련 이미지 카드: src, 캡션 수정해서 사용 -->
-    <div class="img-grid">
-      <figure>
-        <img src="img/research_n_cycle1.png" alt="Nitrogen cycle reactor">
-        <figcaption>Nitrogen cycle 반응기 모식도</figcaption>
-      </figure>
-      <figure>
-        <img src="img/research_n_cycle2.png" alt="Anammox granule">
-        <figcaption>Anammox 과립 슬러지</figcaption>
-      </figure>
-      <figure>
-        <img src="img/research_n_cycle3.png" alt="Genome analysis">
-        <figcaption>질소 관련 유전자/게놈 분석</figcaption>
-      </figure>
+    <!-- 카드 1 -->
+    <div class="research-card">
+      <h3>1. Nitrogen Cycle 연구</h3>
+      <p>
+        아나목스(anammox), DNRA, 탈질 등 관련 미생물군집과 기능을 메타게놈/메타트랜스크립톰으로 규명하고,
+        반응기 설계에 적용합니다.
+      </p>
+      <div class="card-imgs">
+        <img src="img/research_n_cycle1.png" alt="">
+        <img src="img/research_n_cycle2.png" alt="">
+        <img src="img/research_n_cycle3.png" alt="">
+      </div>
     </div>
+
+    <!-- 카드 2 -->
+    <div class="research-card">
+      <h3>2. DIET 연구</h3>
+      <p>
+        전도성 물질을 통한 직접 전자전달(DIET)으로 메탄생성 효율을 개선하는 연구를 수행합니다.
+      </p>
+      <div class="card-imgs">
+        <img src="img/research_diet1.png" alt="">
+        <img src="img/research_diet2.png" alt="">
+        <img src="img/research_diet3.png" alt="">
+      </div>
+    </div>
+
+    <!-- 카드 3 -->
+    <div class="research-card">
+      <h3>3. 기타 연구</h3>
+      <p>
+        멤브레인 바이오파울링 제어, 나노복합 멤브레인 개발, 항생제 내성 유전자(ARG) 분포 분석 등
+      </p>
+      <div class="card-imgs">
+        <img src="img/research_other1.png" alt="">
+        <img src="img/research_other2.png" alt="">
+        <img src="img/research_other3.png" alt="">
+        <img src="img/research_other4.png" alt="">
+      </div>
+    </div>
+
   </div>
 
-  <!-- ⑤-2 DIET 섹션 -->
-  <div class="section">
-    <h2>2. DIET (Direct Interspecies Electron Transfer) 연구</h2>
-    <p>
-      전도성 물질을 이용한 이종간 직접 전자전달(DIET)을 통해 메탄생성 효율을 향상시키는 연구를 수행합니다.
-      전도성 물질의 종류, 크기 및 표면 특성에 따른 미생물 상호작용과 메탄생성 성능을 평가합니다.
-    </p>
-
-    <!-- DIET 관련 이미지 카드들 -->
-    <div class="img-grid">
-      <figure>
-        <img src="img/research_diet1.png" alt="DIET schematic">
-        <figcaption>DIET 메커니즘 모식도</figcaption>
-      </figure>
-      <figure>
-        <img src="img/research_diet2.png" alt="GAC reactor">
-        <figcaption>GAC/자성체 보강 혐기소화조</figcaption>
-      </figure>
-      <figure>
-        <img src="img/research_diet3.png" alt="Electroactive microbes">
-        <figcaption>전기활성 미생물 군집 분석</figcaption>
-      </figure>
-    </div>
-  </div>
-
-  <!-- ⑤-3 기타 연구 섹션 -->
-  <div class="section">
-    <h2>3. 기타 연구 (Other Research)</h2>
-    <p>
-      멤브레인 공정의 바이오파울링 제어, 나노복합 멤브레인 개발, 환경 미생물 군집의 장·단기 동역학, 항생제 내성 유전자(ARG) 분포 등
-      다양한 환경생명공학 관련 주제를 함께 연구합니다.
-    </p>
-
-    <!-- 기타 연구 이미지 카드: 원하시는 만큼 figure 추가/삭제 가능 -->
-    <div class="img-grid">
-      <figure>
-        <img src="img/research_other1.png" alt="Membrane fouling">
-        <figcaption>멤브레인 바이오파울링 관찰</figcaption>
-      </figure>
-      <figure>
-        <img src="img/research_other2.png" alt="Biofilm inhibitor">
-        <figcaption>생물막 저해제 적용 실험</figcaption>
-      </figure>
-      <figure>
-        <img src="img/research_other3.png" alt="ARG map">
-        <figcaption>환경 중 ARG 분포 분석</figcaption>
-      </figure>
-      <figure>
-        <img src="img/research_other4.png" alt="Microbiome network">
-        <figcaption>미생물 네트워크/모델링 연구</figcaption>
-      </figure>
-    </div>
-  </div>
 </div>
+<!-- END CONTENT -->
 
 <div class="footer">
-  © 환경생명공학연구실 · 고려대학교
+  © Environmental Biotechnology Laboratory, Korea University<br>
+  Address: Korea University, Seoul, Korea | Email: nocont2xt@korea.ac.kr
 </div>
 
 </body>
