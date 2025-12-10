@@ -59,23 +59,13 @@ body{
   color:#ffe6e5;
   border-bottom:2px solid #ffe6e5;
 }
-
-/* 드롭다운 화살표 */
 .has-sub > a::after{
   content:" ▾";
   font-size:11px;
   margin-left:4px;
   opacity:0.9;
 }
-
-/* 드롭다운 (서브메뉴) — 글씨체 통일 + 점 제거 */
-.sub-menu,
-.sub-menu li{
-  list-style:none;
-  margin:0;
-  padding:0;
-}
-
+.sub-menu,.sub-menu li{list-style:none;margin:0;padding:0;}
 .sub-menu{
   position:absolute;
   top:calc(100% + 8px);
@@ -90,14 +80,9 @@ body{
   z-index:1200;
   white-space:nowrap;
 }
-
-.has-sub:hover .sub-menu{
-  display:block;
-}
-
+.has-sub:hover .sub-menu{display:block;}
 .sub-menu a{
   display:block;
-  padding:8px 14px;
   font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif !important;
   font-size:12.5px !important;
   font-weight:400 !important;
@@ -105,6 +90,7 @@ body{
   color:white;
   border-bottom:1px solid rgba(255,255,255,0.12);
   text-decoration:none;
+  padding:8px 14px;
 }
 .sub-menu a:hover{
   background:var(--ku-hover);
@@ -138,54 +124,7 @@ h1{color:var(--ku-main);margin-top:0;}
 .section{margin-top:20px;}
 .section h2{color:var(--ku-main);margin-bottom:12px;}
 
-.info-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-}
-.person-card{
-  background:#fff6f6;
-  border:1px solid #e3c5c5;
-  border-radius:10px;
-  padding:14px;
-  font-size:13px;
-  text-align:left;
-}
-.person-photo{
-  text-align:center;
-  margin-bottom:8px;
-}
-.person-photo img{
-  width:90px;
-  height:90px;
-  border-radius:50%;
-  object-fit:cover;
-  box-shadow:0 3px 6px rgba(0,0,0,0.25);
-}
-.person-name{
-  font-weight:bold;
-  color:var(--ku-main);
-  margin-bottom:2px;
-  text-align:center;
-}
-
-.person-role{
-  font-size:11px;
-  margin-bottom:4px;
-  text-align:left;
-  font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif !important;
-  font-weight:400 !important;
-  letter-spacing:-0.2px !important;
-}
-.person-contact{
-  font-size:11px;
-  color:#444;
-  font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif !important;
-  font-weight:400 !important;
-  letter-spacing:-0.2px !important;
-}
-
-/* 카드형 연구 레이아웃 추가 */
+/* 카드형 연구 레이아웃 */
 .research-card-container{
   display:flex;
   flex-direction:column;
@@ -213,24 +152,28 @@ h1{color:var(--ku-main);margin-top:0;}
   margin-bottom:14px;
 }
 
+/* 카드 안 이미지 (모든 사진 동일 크기, 중앙 정렬) */
 .card-imgs{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:12px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* 가로 중앙 */
+  align-items: center;     /* 세로 중앙 */
+  gap: 12px;
+  min-height: 180px;
 }
 
-.card-imgs img{
-  width:100%;
-  height:150px;
-  object-fit:cover;
-  border-radius:8px;
-  background:#eee;
+.card-imgs img {
+  width: 200px;      /* 정방형 가로 */
+  height: 200px;     /* 정방형 세로 */
+  object-fit: cover; /* 중앙 기준으로 자르면서 비율 유지 */
+  border-radius: 8px;
+  display: block;
 }
 
-/* 연구 소개 이미지 (유튜브 대체) */
+/* 연구 소개 이미지 */
 .research-intro-image-wrap {
   width:100%;
-  max-width:720px;     /* 필요하면 조정 */
+  max-width:720px;
   margin:18px 0 28px;
 }
 .research-intro-image-wrap img {
@@ -250,12 +193,10 @@ h1{color:var(--ku-main);margin-top:0;}
 }
 
 @media(max-width:900px){
-  .info-grid{grid-template-columns:repeat(2,1fr);}
-  .card-imgs{grid-template-columns:repeat(2,1fr);}
+  .card-imgs{justify-content:center;}
 }
 @media(max-width:600px){
-  .info-grid{grid-template-columns:1fr;}
-  .card-imgs{grid-template-columns:1fr;}
+  .card-imgs{flex-direction:column; align-items:center;}
 }
 </style>
 </head>
@@ -272,10 +213,8 @@ h1{color:var(--ku-main);margin-top:0;}
 
   <div class="navbar-right">
     <ul class="main-menu">
-
       <li><a href="index.html">Home</a></li>
       <li><a href="notice.html">Notice</a></li>
-
       <li class="has-sub">
         <a href="people.html">People</a>
         <ul class="sub-menu">
@@ -284,7 +223,6 @@ h1{color:var(--ku-main);margin-top:0;}
           <li><a href="people_former.html">Former Members</a></li>
         </ul>
       </li>
-
       <li class="has-sub">
         <a href="research.html">Research</a>
         <ul class="sub-menu">
@@ -293,7 +231,6 @@ h1{color:var(--ku-main);margin-top:0;}
           <li><a href="research_other.html">Other Research</a></li>
         </ul>
       </li>
-
       <li class="has-sub">
         <a href="publications.html">Publications</a>
         <ul class="sub-menu">
@@ -302,34 +239,28 @@ h1{color:var(--ku-main);margin-top:0;}
           <li><a href="publications_books.html">저서</a></li>
         </ul>
       </li>
-
-      <li><a href="contact.html">Contact Us</a></li>
-
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 </div>
 
-
-
-<!-- CONTENT (카드형으로 전체 교체 완료) -->
+<!-- CONTENT -->
 <div class="wrapper">
-
   <h1>연구분야 (Research)</h1>
   <p>
     환경생명공학연구실에서는 질소순환(Nitrogen cycle), Direct Interspecies Electron Transfer(DIET)를 활용한 메탄생성,
     멤브레인·바이오필름·미생물군집 해석 등 다양한 주제를 연구합니다.
   </p>
 
-  <!-- 여기에 유튜브 대신 이미지 삽입 -->
-<div style="text-align:center; margin:30px 0;">
+  <!-- 유튜브 대체 이미지 -->
+  <div style="text-align:center; margin:30px 0;">
     <img src="img/youtube.png" style="width:100%; max-width:600px;" />
     <p style="margin-top:10px;">
         <a href="https://www.youtube.com/watch?v=EZPPR00Fy-4" target="_blank">
             ▶ 유튜브 영상 보러가기
         </a>
     </p>
-</div>
-
+  </div>
 
   <div class="research-card-container">
 
@@ -370,14 +301,12 @@ h1{color:var(--ku-main);margin-top:0;}
         <img src="img/research_other1.png" alt="">
         <img src="img/research_other2.png" alt="">
         <img src="img/research_other3.png" alt="">
-        <img src="img/research_other4.png" alt="">
+        <img src="img/research_other4.png" alt=""> <!-- 마지막 사진도 동일 크기 -->
       </div>
     </div>
 
   </div>
-
 </div>
-<!-- END CONTENT -->
 
 <div class="footer">
   © Environmental Biotechnology Laboratory, Korea University<br>
@@ -386,3 +315,4 @@ h1{color:var(--ku-main);margin-top:0;}
 
 </body>
 </html>
+
