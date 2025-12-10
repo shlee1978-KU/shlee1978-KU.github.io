@@ -1,120 +1,250 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>공지사항 | Environmental Biotechnology Laboratory</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<title>공지사항 | 환경생명공학연구실</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+:root{
+  --ku-main:#8C1D18;
+  --ku-dark:#701414;
+  --ku-hover:#A32620;
+  --bg-gray:#f5f2f2;
+}
 
-  <style>
-    :root{
-      --ku-main:#8C1D18;
-      --ku-dark:#701414;
-      --ku-hover:#A32620;
-      --bg-gray:#f5f2f2;
-    }
+*{box-sizing:border-box;}
 
-    *{ box-sizing:border-box; }
+body{
+  margin:0;
+  font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif;
+  background:var(--bg-gray);
+  color:#333;
+}
 
-    body{
-      margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      background:var(--bg-gray);
-      color:#333;
-    }
+/* NAVBAR */
+.navbar{
+  background:var(--ku-main);
+  color:#fff;
+  padding:10px 36px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
 
-    /* 상단바 */
-    .navbar{
-      background:var(--ku-main);
-      color:#fff;
-      padding:10px 40px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-    .navbar-left img{
-      height:48px;
-    }
-    .navbar-right a{
-      color:#fff;
-      margin-left:18px;
-      text-decoration:none;
-      font-weight:bold;
-      font-size:14px;
-      transition:.2s;
-    }
-    .navbar-right a:hover{
-      color:#ffe6e5;
-      border-bottom:2px solid #ffe6e5;
-      padding-bottom:2px;
-    }
+.navbar-left img{ height:48px; display:block; }
 
-    /* 본문 박스 */
-    .content{
-      width:90%;
-      max-width:900px;
-      margin:40px auto 60px auto;
-      background:#fff;
-      padding:30px;
-      border-radius:10px;
-      box-shadow:0 8px 18px rgba(0,0,0,0.08);
-    }
-    h1{
-      margin-top:0;
-      color:var(--ku-main);
-    }
-    ul{
-      list-style:none;
-      padding-left:0;
-      margin-top:20px;
-    }
-    ul li{
-      padding:10px 0;
-      border-bottom:1px solid #eee;
-      font-size:14px;
-    }
+.navbar-right{ margin-left:auto; }
 
-    /* 푸터 */
-    .footer{
-      background:var(--ku-dark);
-      color:#fff;
-      text-align:center;
-      padding:18px;
-      font-size:13px;
-    }
+.navbar-right .main-menu{
+  display:flex;
+  gap:22px;
+  align-items:center;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
 
-    @media(max-width:768px){
-      .navbar{ padding:10px 16px; }
-    }
-  </style>
+.main-menu > li{ position:relative; }
+.main-menu a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:14px;
+  padding:6px 0;
+}
+.main-menu a:hover{ color:#ffe6e5; border-bottom:2px solid #ffe6e5; }
+
+.has-sub > a::after{
+  content:" ▾";
+  font-size:11px;
+  margin-left:6px;
+  opacity:0.95;
+}
+
+/* 서브 메뉴 */
+.sub-menu,
+.sub-menu li{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.sub-menu{
+  position:absolute;
+  top:calc(100% + 8px);
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--ku-main);
+  padding:6px 0;
+  min-width:180px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
+  border-radius:6px;
+  display:none;
+  z-index:1200;
+  white-space:nowrap;
+}
+
+.main-menu > li:hover .sub-menu{ display:block; }
+
+.sub-menu a{
+  display:block;
+  color:#fff;
+  padding:8px 14px;
+  font-size:12.5px;
+  font-weight:400;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  text-decoration:none;
+}
+.sub-menu a:hover{
+  background:var(--ku-hover);
+  border-bottom-color:transparent;
+}
+
+/* NOTICE WRAPPER */
+.wrapper{
+  width:90%;
+  max-width:900px;
+  margin:40px auto 60px;
+  background:#fff;
+  border-radius:12px;
+  padding:30px 26px 36px;
+  box-shadow:0 8px 18px rgba(0,0,0,0.08);
+}
+
+h1{
+  margin-top:0;
+  color:var(--ku-main);
+  font-size:30px;
+  font-weight:700;
+  margin-bottom:24px;
+}
+
+/* Notice list */
+.notice-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.notice-list li{
+  padding:14px 10px;
+  border-bottom:1px solid #e6e6e6;
+}
+
+.notice-list li:last-child{
+  border-bottom:none;
+}
+
+.notice-list a{
+  text-decoration:none;
+  color:#333;
+  font-size:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  transition:0.2s ease;
+}
+
+.notice-list a:hover{
+  color:var(--ku-main);
+  padding-left:6px;
+}
+
+.notice-date{
+  font-size:13px;
+  color:#777;
+}
+
+/* FOOTER */
+.footer{
+  margin-top:30px;
+  background:var(--ku-dark);
+  color:#fff;
+  text-align:center;
+  padding:16px;
+  font-size:13px;
+}
+</style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <div class="navbar">
   <div class="navbar-left">
-    <img src="img/ku_logo.png" alt="Korea University">
-  </div>
+  <a href="index.html" style="display:inline-block;">
+    <img src="img/ku_logo.png" alt="Korea University" style="height:48px; display:block;">
+  </a>
+</div>
   <div class="navbar-right">
-    <a href="index.html">Home</a>
-    <a href="notice.html">Notice</a>
-    <a href="people.html">People</a>
-    <a href="research.html">Research</a>
-    <a href="publications.html">Publications</a>
-    <a href="contact.html">Contact</a>
+    <ul class="main-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="notice.html">Notice</a></li>
+
+      <li class="has-sub">
+        <a href="people.html">People</a>
+        <ul class="sub-menu">
+          <li><a href="people_prof.html">지도교수</a></li>
+          <li><a href="people_members.html">연구원 및 대학원생</a></li>
+          <li><a href="people_former.html">Former Members</a></li>
+        </ul>
+      </li>
+
+      <li class="has-sub">
+        <a href="research.html">Research</a>
+        <ul class="sub-menu">
+          <li><a href="research_nitrogen.html">Nitrogen Cycle</a></li>
+          <li><a href="research_diet.html">DIET Research</a></li>
+          <li><a href="research_other.html">Other Research</a></li>
+        </ul>
+      </li>
+
+      <li class="has-sub">
+        <a href="publications.html">Publications</a>
+        <ul class="sub-menu">
+          <li><a href="publications_papers.html">논문·특허</a></li>
+          <li><a href="publications_confs.html">학회 발표</a></li>
+          <li><a href="publications_books.html">저서</a></li>
+        </ul>
+      </li>
+
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
   </div>
 </div>
 
-<div class="content">
+<!-- CONTENT -->
+<div class="wrapper">
   <h1>공지사항</h1>
-  <ul>
-    <li>[2025-01-10] 2025년도 신입 대학원생 모집 안내</li>
-    <li>[2024-12-05] 실험실 워크숍 개최 안내</li>
-    <li>[2024-11-20] 논문 세미나 일정 공지</li>
+
+  <ul class="notice-list">
+    <li>
+      <a href="notice_20250110.html">
+        <span>[2025-01-10] 2025년도 신입 대학원생 모집 안내</span>
+        <span class="notice-date">2025.01.10</span>
+      </a>
+    </li>
+
+    <li>
+      <a href="notice_20241205.html">
+        <span>[2024-12-05] 실험실 워크숍 개최 안내</span>
+        <span class="notice-date">2024.12.05</span>
+      </a>
+    </li>
+
+    <li>
+      <a href="notice_20241120.html">
+        <span>[2024-11-20] 논문 세미나 일정 공지</span>
+        <span class="notice-date">2024.11.20</span>
+      </a>
+    </li>
   </ul>
 </div>
 
+<!-- FOOTER -->
 <div class="footer">
-  © Environmental Biotechnology Laboratory, Korea University · contact@yourlab.ac.kr
+  © Environmental Biotechnology Laboratory, Korea University<br>
+  Address: Korea University, Seoul, Korea | Email: nocont2xt@korea.ac.kr
 </div>
 
 </body>
