@@ -41,7 +41,7 @@ body{
 }
 
 .navbar img{
-  height:60px;
+  height:70px;
 }
 
 /* 상단 메뉴 텍스트 */
@@ -80,9 +80,9 @@ body{
   transition:.2s ease;
   z-index:999;
 
-  list-style:none; /* ★ 점 제거 */
-  margin:0;        /* 기본 여백 제거 */
-  padding:0;       /* 기본 여백 제거 */
+  list-style:none;
+  margin:0;
+  padding:0;
 }
 
 .has-dropdown:hover .dropdown{
@@ -117,13 +117,12 @@ body{
   margin:0;
 }
 
-/* ================== 사진 슬라이드 섹션 ================== */
+/* ================== 슬라이드쇼 (좌→우 이동 버전) ================== */
 .lab-photo-section{
   text-align:center;
   margin:40px auto 55px;
 }
 
-/* 슬라이드 전체 박스 */
 .slideshow{
   position:relative;
   max-width:520px;
@@ -135,31 +134,30 @@ body{
   height:320px;
 }
 
-/* 각 슬라이드 */
+/* 좌→우로 이동하는 구조 */
 .slide{
   position:absolute;
-  inset:0;
-  opacity:0;
-  transition:opacity 1s ease-in-out;
+  width:100%;
+  height:100%;
+  left:100%;
+  top:0;
+  transition:left 0.8s ease-in-out;
 }
 
 .slide img{
   width:100%;
   height:100%;
   object-fit:cover;
-  display:block;
 }
 
-/* 보이는 슬라이드 */
+/* 현재 슬라이드 */
 .slide.active{
-  opacity:1;
+  left:0;
 }
 
-/* 사진 캡션 */
-.lab-photo-caption{
-  margin-top:10px;
-  font-size:14px;
-  color:#555;
+/* 이전 슬라이드 (왼쪽으로 사라짐) */
+.slide.prev{
+  left:-100%;
 }
 
 /* ================== 카드 ================== */
@@ -207,9 +205,6 @@ footer{
   font-size:13px;
 }
 
-.footer-logo{
-  margin-bottom:6px;
-}
 .footer-logo img{
   height:48px;
 }
@@ -244,12 +239,11 @@ footer{
   </a>
 </div>
 
-
   <div class="nav-center">
     <a href="index.html">Home</a>
     <a href="notice.html">Notice</a>
 
-    <!-- People 드롭다운 -->
+    <!-- People -->
     <div class="has-dropdown">
       <a href="people.html" class="parent-link">People ▾</a>
       <div class="dropdown">
@@ -259,7 +253,7 @@ footer{
       </div>
     </div>
 
-    <!-- Research 드롭다운 -->
+    <!-- Research -->
     <div class="has-dropdown">
       <a href="research.html" class="parent-link">Research ▾</a>
       <div class="dropdown">
@@ -269,15 +263,15 @@ footer{
       </div>
     </div>
 
-    <!-- Publications 드롭다운 -->
-<div class="has-dropdown">
-  <a href="publications.html" class="parent-link">Publications ▾</a>
-  <ul class="dropdown">
-    <li><a href="publications_papers.html">논문·특허</a></li>
-    <li><a href="publications_confs.html">학회 발표</a></li>
-    <li><a href="publications_books.html">저서</a></li>
-  </ul>
-</div>
+    <!-- Publications -->
+    <div class="has-dropdown">
+      <a href="publications.html" class="parent-link">Publications ▾</a>
+      <ul class="dropdown">
+        <li><a href="publications_papers.html">논문·특허</a></li>
+        <li><a href="publications_confs.html">학회 발표</a></li>
+        <li><a href="publications_books.html">저서</a></li>
+      </ul>
+    </div>
 
     <a href="contact.html">Contact Us</a>
   </div>
@@ -287,7 +281,6 @@ footer{
     <img src="img/hemmlogo.png" alt="Engineering Logo">
   </a>
 </div>
-
 
 </div>
 
@@ -301,29 +294,32 @@ footer{
 
   <div class="slideshow">
     <div class="slide active">
-      <img src="img/lab_group_2024 (2).png" alt="Lab group 2024">
+      <img src="img/lab_group_2024 (2).png">
     </div>
     <div class="slide">
-      <img src="img/KU-enter.png" alt="Lab event 1">
+      <img src="img/KU-enter.png">
     </div>
     <div class="slide">
-      <img src="img/main_building.png" alt="Lab event 2">
+      <img src="img/main3.png">
     </div>
     <div class="slide">
-      <img src="img/engineering_logo.png" alt="Lab event 2">
+      <img src="img/main1.png">
     </div>
     <div class="slide">
-      <img src="img/DIET.png" alt="Lab event 2">
+      <img src="img/DIET.png">
     </div>
     <div class="slide">
-      <img src="img/MABR.png" alt="Lab event 2">
+      <img src="img/MABR.png">
+    </div>
+    <div class="slide">
+      <img src="img/main2.png">
     </div>
   </div>
 
   <div class="lab-photo-caption">
     환경생명공학연구실 활동 모습 (여러 사진이 4초 간격으로 순환합니다)
   </div>
-  
+
 </div>
 
 <!-- ================== CARDS ================== -->
@@ -348,36 +344,36 @@ footer{
 
 <footer>
   <div class="footer-logo">
-    <img src="img/hemm_logo.png" alt="Hemm Lab">
+    <img src="img/hemm_logo.png">
   </div>
   © Environmental Biotechnology Laboratory, Korea University<br>
   Address: Korea University, Seoul, Korea | Email: nocont2xt@korea.ac.kr
 </footer>
 
-<!-- ================== 슬라이드 전환 & 드롭다운 클릭 스크립트 ================== -->
+<!-- ================== 좌→우 이동 슬라이드 스크립트 ================== -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  // 이미지 슬라이드
+
   const slides = document.querySelectorAll('.slideshow .slide');
-  if (slides.length) {
-    let current = 0;
-    setInterval(() => {
-      slides[current].classList.remove('active');
-      current = (current + 1) % slides.length;
-      slides[current].classList.add('active');
-    }, 4000);
+  let index = 0;
+
+  function slideMove() {
+
+    slides.forEach(s => s.className = "slide");
+
+    slides[index].classList.add("prev");
+
+    index = (index + 1) % slides.length;
+
+    slides[index].classList.add("active");
   }
 
-  // 드롭다운 부모 메뉴 클릭 시 이동
-  const parentLinks = document.querySelectorAll('.parent-link');
-  parentLinks.forEach(link => {
-    link.addEventListener('click', function(e){
-      // 클릭 시 바로 이동
-      window.location.href = link.href;
-    });
-  });
+setInterval(slideMove, 4000);
+
 });
 </script>
 
 </body>
 </html>
+
+
