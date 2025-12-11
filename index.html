@@ -283,6 +283,7 @@ footer{background:var(--ku-dark); color:white; padding:18px 15px 28px; text-alig
 }
 
 /* ================== HOVER EFFECT ================== */
+/* ================== HOVER EFFECT ================== */
 .card:hover{
   background-image: var(--bg-img); /* 이미지 적용 */
   background-size:cover;
@@ -295,9 +296,12 @@ footer{background:var(--ku-dark); color:white; padding:18px 15px 28px; text-alig
   opacity:1;
 }
 
+/* 글씨 색상 변경 + 그림자 적용 */
 .card:hover h2, .card:hover p{
   color:white;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6); /* 그림자 추가 */
 }
+
 
 /* ================== 반응형 ================== */
 @media(max-width:900px){.card-container{grid-template-columns:repeat(2,1fr);}}
@@ -327,6 +331,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
 </body>
 </html>
-
 
 
