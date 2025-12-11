@@ -45,7 +45,7 @@ body{margin:0; font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif; backgroun
 .hero h1{font-size:36px; color:white; text-shadow:0 2px 5px rgba(0,0,0,.5); margin:0;}
 
 /* ================== 슬라이드쇼 ================== */
-.lab-photo-section{text-align:center; margin:40px auto 20px;}
+.lab-photo-section{text-align:center; margin:60px auto 20px;}
 .slideshow{position:relative; max-width:520px; width:90%; margin:0 auto; border-radius:14px; overflow:hidden; box-shadow:0 6px 16px rgba(0,0,0,0.25); height:320px;}
 .slide{position:absolute; width:100%; height:100%; left:100%; top:0; transition:left 0.8s ease-in-out;}
 .slide img{width:100%; height:100%; object-fit:cover; display:block;}
@@ -60,14 +60,83 @@ body{margin:0; font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif; backgroun
   line-height:1.4;
   text-align:center;
 }
+.slideshow{
+  position: relative;
+  max-width:520px;
+  width:90%;
+  margin:0 auto;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 6px 16px rgba(0,0,0,0.25);
+  height:320px;
+}
 
+.slide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  opacity:0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.slide.active{
+  opacity:1;
+  z-index:2;
+}
+
+.lab-photo-caption {
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+  margin-top: 30px; /* 썸네일과 캡션 사이 간격 확보 */
+  line-height: 1.4;
+}
+
+/* ================== THUMBNAILS ================== */
+.thumbnail-container{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:15px;
+  flex-wrap:wrap;
+}
+
+.thumbnail-container .thumb {
+  width: 60px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.8;               /* 기본 투명도 */
+  border: 2px solid transparent;
+  transition: opacity 0.2s ease, border-color 0.2s ease; /* 필요한 효과만 */
+}
+
+/* hover 시 효과 */
+.thumbnail-container .thumb:hover,
+.thumbnail-container .thumb.active {
+  opacity: 1;                  /* 살짝 강조 */
+  border-color: #8C1D18;       /* 고려대 빨강 테두리 */
+  transform: none;             /* 확대나 이동 제거 */
+}
 /* ================== 카드 (동그랗고 흐린 이미지 + 흰색 글씨) ================== */
-.card-container{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(200px,1fr));
+.card-container {
+  margin-top:50px; /* 카드와 사진 사이 간격 */
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px,1fr));
   gap:28px;
   max-width:1100px;
-  margin:0 auto 80px;
+  margin-left:auto;
+  margin-right:auto;
   padding:0 20px;
 }
 
@@ -119,6 +188,7 @@ body{margin:0; font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif; backgroun
   font-size:13px;
   line-height:1.4;
 }
+
 
 /* ================== 푸터 ================== */
 footer{background:var(--ku-dark); color:white; padding:18px 15px 28px; text-align:center; font-size:13px;}
@@ -184,15 +254,28 @@ footer{background:var(--ku-dark); color:white; padding:18px 15px 28px; text-alig
     <div class="slide active"><img src="img/lab_group_2024 (2).png" alt="연구실 그룹 사진"></div>
     <div class="slide"><img src="img/KU-enter.png" alt="KU 입구 사진"></div>
     <div class="slide"><img src="img/main3.png" alt="연구실 활동 사진"></div>
-    <div class="slide"><img src="img/main1.png" alt="연구 활동 사진"></div>
-    <div class="slide"><img src="img/DIET.png" alt="DIET 연구 사진"></div>
     <div class="slide"><img src="img/MABR.png" alt="MABR 연구 사진"></div>
+    <div class="slide"><img src="img/main5.png" alt="연구실 사진"></div>
+    <div class="slide"><img src="img/main4.png" alt="DIET 연구 사진"></div>
+    <div class="slide"><img src="img/main1.png" alt="연구 활동 사진"></div>
     <div class="slide"><img src="img/main2.png" alt="연구실 사진"></div>
   </div>
-  <div class="lab-photo-caption">
-    환경생명공학연구실 활동 모습 (여러 사진이 4초 간격으로 순환합니다)
+
+
+  <!-- 썸네일 사진첩 -->
+  <div class="thumbnail-container">
+    <img class="thumb active" src="img/lab_group_2024 (2).png" alt="그룹 사진">
+    <img class="thumb" src="img/KU-enter.png" alt="KU 입구">
+    <img class="thumb" src="img/main3.png" alt="활동 사진">
+    <img class="thumb" src="img/MABR.png" alt="MABR 연구">
+    <img class="thumb" src="img/main5.png" alt="연구실 사진">
+    <img class="thumb" src="img/main4.png" alt="DIET 연구">
+    <img class="thumb" src="img/main1.png" alt="연구 활동">
+    <img class="thumb" src="img/main2.png" alt="연구실 사진">
   </div>
 </div>
+</div>
+
 
 <!-- ================== CARDS ================== -->
 <div class="card-container">
@@ -318,18 +401,34 @@ footer{background:var(--ku-dark); color:white; padding:18px 15px 28px; text-alig
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const slides = document.querySelectorAll('.slideshow .slide');
+  const thumbs = document.querySelectorAll('.thumbnail-container .thumb');
   let index = 0;
-  function slideMove() {
-    slides.forEach(s => s.className = "slide");
-    slides[index].classList.add("prev");
-    index = (index + 1) % slides.length;
-    slides[index].classList.add("active");
+  let slideInterval;
+
+  function showSlide(i) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    thumbs.forEach(thumb => thumb.classList.remove('active'));
+
+    slides[i].classList.add('active');
+    thumbs[i].classList.add('active');
+    index = i;
   }
-  setInterval(slideMove, 4000);
+
+  function nextSlide() {
+    index = (index + 1) % slides.length;
+    showSlide(index);
+  }
+
+  slideInterval = setInterval(nextSlide, 4000);
+
+  // 썸네일 클릭 이벤트
+  thumbs.forEach((thumb, i) => {
+    thumb.addEventListener('click', () => {
+      clearInterval(slideInterval); // 클릭 시 자동 슬라이드 일시정지
+      showSlide(i);
+      slideInterval = setInterval(nextSlide, 4000); // 다시 자동 슬라이드
+    });
+  });
 });
 </script>
-
-</body>
-</html>
-
 
