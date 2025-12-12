@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>연락처 | 환경생명공학연구실</title>
+<title>Gallery | Environmental Biotechnology Laboratory</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 :root{
@@ -12,239 +12,183 @@
   --bg-gray:#f5f2f2;
 }
 *{box-sizing:border-box;}
-body{
-  margin:0;
-  font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif;
-  background:var(--bg-gray);
-  color:#333;
-}
+body{margin:0;font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif;background:var(--bg-gray);color:#333;}
 
 /* NAVBAR */
-.navbar{
-  background:var(--ku-main);
-  color:#fff;
-  padding:10px 36px;
-  display:flex;
-  align-items:center;
-  gap:20px;
-}
-
+.navbar{background:var(--ku-main);color:#fff;padding:10px 36px;display:flex;align-items:center;gap:20px;}
 .navbar-left img{height:48px;}
-
 .navbar-right{margin-left:auto;}
-
-.main-menu{
-  list-style:none;
-  display:flex;
-  gap:22px;
-  margin:0;
-  padding:0;
-}
-
-.main-menu > li{position:relative;}
-
-/* 🔥 메인메뉴 = 볼드 */
-.main-menu > li > a{
-  color:#fff;
-  text-decoration:none;
-  font-weight:600;   /* ★ 볼드 */
-  font-size:14px;
-  padding:6px 0;
-}
-
-.main-menu > li > a:hover{
-  color:#ffe6e5;
-  border-bottom:2px solid #ffe6e5;
-}
-
-.has-sub > a::after{
-  content:" ▾";
-  font-size:11px;
-  margin-left:4px;
-  opacity:0.9;
-}
-
-.sub-menu, .sub-menu li{
-  list-style:none; margin:0; padding:0;
-}
-
-.sub-menu{
-  position:absolute;
-  top:100%;
-  left:50%;
-  transform:translateX(-50%);
-  background:var(--ku-main);
-  min-width:160px;
-  padding:6px 0;
-  border-radius:6px;
-  display:none;
-  box-shadow:0 8px 20px rgba(0,0,0,0.25);
-  white-space:nowrap;
-  z-index:1200;
-}
-
+.main-menu{list-style:none;display:flex;gap:22px;margin:0;padding:0;}
+.main-menu>li{position:relative;}
+.main-menu>li>a{color:#fff;font-weight:600;font-size:14px;padding:6px 0;text-decoration:none;}
+.main-menu>li>a:hover{color:#ffe6e5;border-bottom:2px solid #ffe6e5;}
+.has-sub > a::after{content:" ▾"; font-size:11px; margin-left:4px;} /* 화살표만 유지 */
+.sub-menu{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:var(--ku-main);border-radius:6px;min-width:160px;padding:6px 0;box-shadow:0 6px 16px rgba(0,0,0,0.25);z-index:999;}
+.sub-menu a{display:block;padding:8px 14px;color:#fff;text-decoration:none;font-size:12.5px;font-weight:400;border-bottom:1px solid rgba(255,255,255,0.15);}
+.sub-menu a:hover{background:var(--ku-hover);}
 .has-sub:hover .sub-menu{display:block;}
 
-/* 🔥 서브메뉴 = 무조건 일반체 */
-.sub-menu a{
-  display:block;
-  padding:8px 14px;
-  font-size:12.5px;
-  color:white;
-  border-bottom:1px solid rgba(255,255,255,0.12);
-  text-decoration:none;
-  font-weight:400 !important;   /* ★ 일반체 강제 */
-}
+/* SECTION */
+.gallery-wrapper{width:90%;max-width:1100px;margin:40px auto 60px;}
+.year-section{background:#fff;border-radius:12px;margin-bottom:40px;padding:20px 24px;box-shadow:0 8px 20px rgba(0,0,0,0.08);transition:0.3s ease;}
+.year-section:hover{transform:translateY(-3px);}
+.year-title{font-size:20px;font-weight:700;color:var(--ku-main);margin-bottom:16px;}
 
-.sub-menu a:hover{
-  background:var(--ku-hover);
-  border-bottom-color:transparent;
-}
+/* Grid 썸네일 + 캡션 */
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;}
+.photo-item{display:flex;flex-direction:column;}
+.photo-item img{width:100%;height:180px;object-fit:cover;border-radius:10px;cursor:pointer;}
+.photo-caption{font-size:13px;color:#444;text-align:center;margin-top:6px;}
 
-/* CONTENT WRAPPER */
-.wrapper{
-  width:90%;
-  max-width:900px;
-  margin:40px auto 60px;
-  background:#fff;
-  border-radius:12px;
-  padding:30px 26px 36px;
-  box-shadow:0 8px 18px rgba(0,0,0,0.08);
-}
+/* POPUP */
+.popup{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:none;justify-content:center;align-items:center;padding:20px;z-index:5000;}
+.popup-content{position:relative;display:inline-block;max-width:90%;max-height:85%;text-align:center;}
+#popupImg{max-width:100%;max-height:75vh;border-radius:10px;object-fit:contain;opacity:0;transform:scale(0.97);transition:opacity 0.35s ease, transform 0.35s ease;display:block;}
+.popup-caption{color:#fff;margin-top:12px;font-size:15px;}
 
-h1{
-  margin-top:0;
-  color:var(--ku-main);
-}
-
-h2{
-  color:var(--ku-main);
-  margin-bottom:8px;
-}
-
-.section{
-  margin-bottom:26px;
-}
-
-/* TABLE */
-.info-table{
-  width:100%;
-  border-collapse:collapse;
-  margin-top:8px;
-  font-size:14px;
-}
-
-.info-table th,
-.info-table td{
-  border:1px solid #ddd;
-  padding:8px 10px;
-}
-
-.info-table th{
-  background:#f9e7e7;
-  text-align:center;
-}
-
-.info-table td{
-  background:#fff;
-}
-
-/* MAP */
-.map-section{
-  text-align:center;
-  margin-top:10px;
-}
-
-.map-section img{
-  max-width:420px;
-  width:100%;
-  height:auto;
-  border-radius:10px;
-  box-shadow:0 6px 14px rgba(0,0,0,0.18);
-}
-
-.map-caption{
-  margin-top:8px;
-  font-size:13px;
-  color:#555;
-}
+/* 버튼 */
+.close-btn{position:absolute;top:10px;left:10px;font-size:28px;color:white;cursor:pointer;font-weight:700;z-index:10;background:none;border:none;}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);font-size:40px;color:white;cursor:pointer;padding:10px;background:rgba(0,0,0,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:10;}
+.arrow-left{left:10px;}
+.arrow-right{right:10px;}
 
 /* FOOTER */
-.footer{
-  background:var(--ku-dark);
-  color:#fff;
-  text-align:center;
-  padding:16px;
-  font-size:13px;
-}
-
-.footer-logo img{
-  height:34px;
-  margin-bottom:6px;
-}
+.footer{background:var(--ku-dark);color:#fff;padding:20px;text-align:center;margin-top:40px;}
 </style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
-  <div class="navbar-left">
-    <a href="index.html"><img src="img/ku_logo.png" alt="KU"></a>
-  </div>
-
+  <div class="navbar-left"><a href="index.html"><img src="img/ku_logo.png" alt="KU"></a></div>
   <div class="navbar-right">
     <ul class="main-menu">
       <li><a href="index.html">Home</a></li>
       <li><a href="notice.html">Notice</a></li>
-
-      <li class="has-sub">
-        <a href="people.html">People</a>
+      <li class="has-sub"><a href="people.html">People</a>
         <ul class="sub-menu">
           <li><a href="people_prof.html">지도교수</a></li>
           <li><a href="people_members.html">연구원 및 대학원생</a></li>
           <li><a href="people_former.html">Former Members</a></li>
         </ul>
       </li>
-
-      <li class="has-sub">
-        <a href="research.html">Research</a>
+      <li class="has-sub"><a href="research.html">Research</a>
         <ul class="sub-menu">
           <li><a href="research_nitrogen.html">Nitrogen Cycle</a></li>
           <li><a href="research_diet.html">DIET Research</a></li>
           <li><a href="research_other.html">Other Research</a></li>
         </ul>
       </li>
-
-      <li class="has-sub">
-        <a href="publications.html">Publications</a>
+      <li class="has-sub"><a href="publications.html">Publications</a>
         <ul class="sub-menu">
           <li><a href="publications_papers.html">논문·특허</a></li>
           <li><a href="publications_confs.html">학회 발표</a></li>
           <li><a href="publications_books.html">저서</a></li>
         </ul>
       </li>
-
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
   </div>
 </div>
 
+<div class="gallery-wrapper">
+  <!-- 2010–2011 -->
+  <div class="year-section" data-year="2010">
+    <div class="year-title">2010 – 2011</div>
+    <div class="photo-grid">
+      <div class="photo-item"><img src="img/gallery/2010_1.jpg" onclick="openPopup('2010',0)"><div class="photo-caption">2010 춘계 물환경학회</div></div>
+      <div class="photo-item"><img src="img/gallery/2010_2.jpg" onclick="openPopup('2010',1)"><div class="photo-caption">헝가리 부다페스트공대 교류 협의</div></div>
+      <div class="photo-item"><img src="img/gallery/2010_3.jpg" onclick="openPopup('2010',2)"><div class="photo-caption">연구 주제 발표</div></div>
+      <div class="photo-item"><img src="img/gallery/2010_4.jpg" onclick="openPopup('2010',3)"><div class="photo-caption">MDIW 2010 학회 참가</div></div>
+      <div class="photo-item"><img src="img/gallery/2010_5.jpg" onclick="openPopup('2010',4)"><div class="photo-caption">1st Annual Meeting</div></div>
+      <div class="photo-item"><img src="img/gallery/2010_6.jpg" onclick="openPopup('2010',5)"><div class="photo-caption">The 2010 Asian Biohydrogen Symposium 박정훈 학생 우수논문상 수상</div></div>
+    </div>
+  </div>
 
-<!-- CONTENT -->
-<div class="wrapper">
-  <h1>DIET research</h1>
-  <p></p>
-  <div class="research-card-container"></div>
+  <!-- 2012–2013 -->
+  <div class="year-section" data-year="2012">
+    <div class="year-title">2012 – 2013</div>
+    <div class="photo-grid">
+      <div class="photo-item"><img src="img/gallery/2012_1.jpg" onclick="openPopup('2012',0)"><div class="photo-caption">2012 워크숍</div></div>
+      <div class="photo-item"><img src="img/gallery/2012_2.jpg" onclick="openPopup('2012',1)"><div class="photo-caption">2013 연구 발표</div></div>
+    </div>
+  </div>
+
+  <!-- 2014–2016 -->
+  <div class="year-section" data-year="2014">
+    <div class="year-title">2014 – 2016</div>
+    <div class="photo-grid">
+      <div class="photo-item"><img src="img/gallery/2014_1.jpg" onclick="openPopup('2014',0)"><div class="photo-caption">2014 실험 현장</div></div>
+      <div class="photo-item"><img src="img/gallery/2014_2.jpg" onclick="openPopup('2014',1)"><div class="photo-caption">2016 세미나</div></div>
+    </div>
+  </div>
+
+  <!-- 2023–2025 -->
+  <div class="year-section" data-year="2023">
+    <div class="year-title">2023 – 2025</div>
+    <div class="photo-grid">
+      <div class="photo-item"><img src="img/gallery/2023_1.jpg" onclick="openPopup('2023',0)"><div class="photo-caption">2023 새 장비 도입</div></div>
+      <div class="photo-item"><img src="img/gallery/2023_2.jpg" onclick="openPopup('2023',1)"><div class="photo-caption">2024 연구성과 발표</div></div>
+    </div>
+  </div>
 </div>
 
-<!-- FOOTER -->
-<div class="footer">
-  © Environmental Biotechnology Laboratory, Korea University<br>
-  Address: Korea University, Seoul, Korea | Email: nocont2xt@korea.ac.kr
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <img id="popupImg" src="">
+    <div class="popup-caption" id="popupCaption"></div>
+    <div class="close-btn" onclick="closePopup()">×</div>
+    <div class="arrow arrow-left" onclick="prevImg()">❮</div>
+    <div class="arrow arrow-right" onclick="nextImg()">❯</div>
+  </div>
 </div>
 
+<script>
+const galleries={
+  "2010":[
+    {src:"img/gallery/2010_1.jpg", cap:"2010 춘계 물환경학회"},
+    {src:"img/gallery/2010_2.jpg", cap:"헝가리 부다페스트공대 교류 협의"},
+    {src:"img/gallery/2010_3.jpg", cap:"연구 주제 발표"},
+    {src:"img/gallery/2010_4.jpg", cap:"MDIW 2010 학회 참가"},
+    {src:"img/gallery/2010_5.jpg", cap:"The 1st Annual Meeting on Chinese-Korean-Japanese Joint Research Collaboration Program"},
+    {src:"img/gallery/2010_6.jpg", cap:"The 2010 Asian Biohydrogen Symposium   박정훈 학생 우수논문상 수상"}
+  ],
+  "2012":[
+    {src:"img/gallery/2012_1.jpg", cap:"2012 워크숍"},
+    {src:"img/gallery/2012_2.jpg", cap:"2013 연구 발표"}
+  ],
+  "2014":[
+    {src:"img/gallery/2014_1.jpg", cap:"2014 실험 현장"},
+    {src:"img/gallery/2014_2.jpg", cap:"2016 세미나"}
+  ],
+  "2023":[
+    {src:"img/gallery/2023_1.jpg", cap:"2023 새 장비 도입"},
+    {src:"img/gallery/2023_2.jpg", cap:"2024 연구성과 발표"}
+  ]
+};
+let currentSet="", currentIndex=0;
+function openPopup(set,index){ currentSet=set; currentIndex=index; showPopup(); }
+function showPopup(){
+  const popup=document.getElementById("popup");
+  const img=document.getElementById("popupImg");
+  const caption=document.getElementById("popupCaption");
+  const data=galleries[currentSet][currentIndex];
+  img.style.opacity=0; img.style.transform="scale(0.97)";
+  img.src=data.src; caption.innerText=data.cap;
+  popup.style.display="flex";
+  setTimeout(()=>{ img.style.opacity=1; img.style.transform="scale(1)"; },10);
+}
+function closePopup(){ 
+  const popup=document.getElementById("popup");
+  const img=document.getElementById("popupImg");
+  img.style.opacity=0; img.style.transform="scale(0.97)";
+  setTimeout(()=>{ popup.style.display="none"; },350);
+}
+function prevImg(){ currentIndex=(currentIndex-1+galleries[currentSet].length)%galleries[currentSet].length; showPopup(); }
+function nextImg(){ currentIndex=(currentIndex+1)%galleries[currentSet].length; showPopup(); }
+</script>
+
+<div class="footer">© Environmental Biotechnology Laboratory, Korea University</div>
 </body>
 </html>
 
