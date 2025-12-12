@@ -45,7 +45,7 @@ body{margin:0; font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif; backgroun
 .hero h1{font-size:36px; color:white; text-shadow:0 2px 5px rgba(0,0,0,.5); margin:0;}
 
 /* ================== 슬라이드쇼 ================== */
-.lab-photo-section{text-align:center; margin:60px auto 20px;}
+.lab-photo-section{text-align:center; margin:px auto 20px;}
 .slideshow{position:relative; max-width:520px; width:90%; margin:0 auto; border-radius:14px; overflow:hidden; box-shadow:0 6px 16px rgba(0,0,0,0.25); height:320px;}
 .slide{position:absolute; width:100%; height:100%; left:100%; top:0; transition:left 0.8s ease-in-out;}
 .slide img{width:100%; height:100%; object-fit:cover; display:block;}
@@ -207,9 +207,11 @@ footer{background:var(--ku-dark); color:white; padding:18px 15px 28px; text-alig
   <div class="nav-left">
     <a href="index.html"><img src="img/ku_logo.png" alt="Korea University"></a>
   </div>
+
   <div class="nav-center">
     <a href="index.html">Home</a>
     <a href="notice.html">Notice</a>
+
     <div class="has-dropdown">
       <a href="people.html" class="parent-link">People ▾</a>
       <div class="dropdown">
@@ -218,6 +220,7 @@ footer{background:var(--ku-dark); color:white; padding:18px 15px 28px; text-alig
         <a href="people_former.html">Former Members</a>
       </div>
     </div>
+
     <div class="has-dropdown">
       <a href="research.html" class="parent-link">Research ▾</a>
       <div class="dropdown">
@@ -226,6 +229,7 @@ footer{background:var(--ku-dark); color:white; padding:18px 15px 28px; text-alig
         <a href="research_other.html">Other Research</a>
       </div>
     </div>
+
     <div class="has-dropdown">
       <a href="publications.html" class="parent-link">Publications ▾</a>
       <div class="dropdown">
@@ -234,8 +238,13 @@ footer{background:var(--ku-dark); color:white; padding:18px 15px 28px; text-alig
         <a href="publications_books.html">저서</a>
       </div>
     </div>
+
+    <!-- 🔥 새로 추가된 Gallery 메뉴 (단일 메뉴) -->
+    <a href="gallery.html">Gallery</a>
+
     <a href="contact.html">Contact Us</a>
   </div>
+
   <div class="nav-right">
     <a href="https://blog.naver.com/heedeung" target="_blank">
       <img src="img/hemmlogo.png" alt="Engineering Logo">
@@ -274,7 +283,11 @@ footer{background:var(--ku-dark); color:white; padding:18px 15px 28px; text-alig
     <img class="thumb" src="img/main2.png" alt="연구실 사진">
   </div>
 </div>
-</div>
+  <div class="lab-photo-caption">
+    환경생명공학연구실 활동 모습 (여러 사진이 4초 간격으로 순환합니다)
+  </div>
+  </div>
+  </div>
 
 
 <!-- ================== CARDS ================== -->
@@ -431,4 +444,3 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
-
