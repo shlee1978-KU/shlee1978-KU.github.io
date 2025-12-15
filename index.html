@@ -280,6 +280,70 @@ footer{background:var(--ku-dark); color:white; padding:18px 15px 28px; text-alig
   .lab-photo-caption{font-size:12px; margin-top:20px;}
   .hero h1{font-size:26px;}
 }
+
+/* ================== QUICK MENU (KU STYLE) ================== */
+.quick-menu {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 46px;
+  padding: 22px 20px;
+  background: var(--ku-main);
+  color: white;
+  font-size: 14px;
+  z-index: 998;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.quick-menu a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0.9;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.quick-menu a:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.quick-menu .icon {
+  font-size: 18px;
+}
+
+/* 고정 상태 */
+.quick-menu.fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 -6px 18px rgba(0,0,0,0.25);
+}
+
+/* footer가 가려지지 않게 여백 */
+body {
+  padding-bottom: 80px;
+}
+
+/* ================== 모바일 ================== */
+@media(max-width:600px){
+  .quick-menu {
+    flex-wrap: wrap;
+    gap: 18px;
+    font-size: 13px;
+    padding: 16px 12px;
+  }
+
+  .quick-menu .icon {
+    font-size: 16px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -376,6 +440,24 @@ footer{background:var(--ku-dark); color:white; padding:18px 15px 28px; text-alig
   </a>
 </div>
 
+<!-- ================== QUICK MENU ================== -->
+<!-- ================== QUICK MENU ================== -->
+<div class="quick-menu" id="quickMenu">
+  <a href="http://www.korea.ac.kr" target="_blank">
+    <span class="icon">🏛️</span>
+    <span>고려대학교</span>
+  </a>
+  <a href="http://graduate.korea.ac.kr" target="_blank">
+    <span class="icon">🎓</span>
+    <span>일반대학원</span>
+  </a>
+  <a href="https://ace.korea.ac.kr/" target="_blank">
+    <span class="icon">🏗️</span>
+    <span>건축사회환경공학부</span>
+  </a>
+</div>
+
+
 <!-- ================== FOOTER ================== -->
 <footer>
   <div class="footer-logo"><img src="img/hemm_logo.png" alt="HEMM Logo"></div>
@@ -414,6 +496,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+
 </script>
 
 </body>
