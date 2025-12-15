@@ -8,19 +8,196 @@
 <meta name="keywords" content="환경생명공학, DIET, 하수처리, 미생물, 연구실, Korea University">
 <meta name="author" content="Environmental Biotechnology Laboratory, Korea University">
 
-<!-- SNS 공유용 -->
-<meta property="og:title" content="환경생명공학연구실 | Korea University">
-<meta property="og:description" content="환경생명공학연구실 공식 홈페이지. 연구분야, 구성원, 연구성과 안내.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="img/ku_logo.png">
-<meta property="og:url" content="https://여기에_사이트주소">
-
 <link rel="icon" type="image/png" href="img/hemmlogo.png">
-<link rel="shortcut icon" type="image/png" href="img/hemmlogo.png">
 
 <style>
 body{margin:0; font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif; background:#fafafa;}
-:root{--ku-main:#8C1D18; --ku-dark:#701414; --ku-hover:#A32620; --light-gray:#f4f4f4; --text-dark:#222;}
+:root {
+  --ku-main:#8C1D18;
+  --ku-dark:#701414;
+  --ku-hover:#A32620;
+  --light-gray:#f4f4f4;
+  --text-dark:#222;
+}
+
+/* ================== 기본 세팅 ================== */
+body {
+  margin:0; 
+  font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif; 
+  background:#fafafa;
+  color: var(--text-dark);
+}
+
+/* ================== NAVBAR ================== */
+.navbar {
+  background:var(--ku-main);
+  color:white;
+  padding:16px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.nav-left,.nav-center,.nav-right {
+  display:flex; 
+  align-items:center; 
+  gap:18px;
+}
+
+.navbar img {
+  height:70px;
+}
+
+.nav-center > a,.has-dropdown > a {
+  color:white;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:600;
+  padding:4px 0;
+  transition:.2s;
+}
+
+.nav-center > a:hover,.has-dropdown > a:hover {
+  color:#ffe6e5;
+  border-bottom:2px solid #ffe6e5;
+}
+
+.has-dropdown {
+  position:relative;
+}
+
+.dropdown {
+  position:absolute; 
+  top:100%; 
+  left:50%;
+  transform:translateX(-50%) translateY(10px);
+  background:var(--ku-main); 
+  min-width:180px; 
+  border-radius:0 0 12px 12px;
+  box-shadow:0 8px 18px rgba(0,0,0,.3); 
+  opacity:0; 
+  visibility:hidden; 
+  transition:.2s ease; 
+  z-index:999;
+  list-style:none; 
+  margin:0; 
+  padding:0;
+}
+
+.has-dropdown:hover .dropdown {
+  opacity:1; 
+  visibility:visible; 
+  transform:translateX(-50%) translateY(0);
+}
+
+.dropdown a {
+  display:block; 
+  padding:8px 18px; 
+  font-size:13px; 
+  text-decoration:none; 
+  color:#fff;
+}
+
+.dropdown a:hover {
+  background:var(--ku-hover);
+}
+
+/* ================== HERO ================== */
+.hero {
+  text-align:center;
+  padding:100px 20px 60px; /* 상단 메뉴와 간격 넉넉하게 */
+  background:var(--ku-main);
+}
+
+.hero h1 {
+  font-size:36px;
+  color:white;
+  text-shadow:0 2px 5px rgba(0,0,0,.5);
+  margin:0;
+}
+
+/* ================== PHOTO SLIDESHOW ================== */
+.lab-photo-section {
+  text-align:center;
+  margin-top:60px; /* HERO와 간격 */
+}
+
+.slideshow {
+  position: relative;
+  max-width:520px; 
+  width:90%;
+  margin:0 auto; 
+  border-radius:14px; 
+  overflow:hidden; 
+  box-shadow:0 6px 16px rgba(0,0,0,0.25); 
+  height:320px;
+}
+
+.slide {
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  opacity:0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.slide.active {
+  opacity:1;
+  z-index:2;
+}
+
+.lab-photo-caption {
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+  margin-top: 30px;
+  line-height: 1.4;
+}
+
+/* 썸네일 */
+.thumbnail-container {
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:15px;
+  flex-wrap:wrap;
+}
+
+.thumbnail-container .thumb {
+  width: 60px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.8;
+  border: 2px solid transparent;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.thumbnail-container .thumb:hover,
+.thumbnail-container .thumb.active {
+  opacity: 1;
+  border-color: #8C1D18;
+}
+
+/* ================== CARD GRID ===========*
+.card-container{
+ display:grid;
+ grid-template-columns:repeat(4,minmax(200px,1fr));
+ gap:28px;
+ max-width:1100px;
+ margin:80px auto 80px;
+ padding:0 20px;
+}
 
 /* ================== 네비게이션 ================== */
 .navbar{background:var(--ku-main); color:white; padding:16px 40px; display:flex; justify-content:space-between; align-items:center;}
@@ -41,210 +218,105 @@ body{margin:0; font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif; backgroun
 .dropdown a:hover{background:var(--ku-hover);}
 
 /* ================== 메인 타이틀 ================== */
-.hero{text-align:center; padding:60px 20px 40px; background:var(--ku-main);}
+.hero{text-align:center; padding:60px 20px 60px;background:var(--ku-main);}
 .hero h1{font-size:36px; color:white; text-shadow:0 2px 5px rgba(0,0,0,.5); margin:0;}
 
-/* ================== 슬라이드쇼 ================== */
-.lab-photo-section{text-align:center; margin:px auto 20px;}
+/* ================== PHOTO SLIDESHOW ================== */
+.lab-photo-section{margin-top:80px;text-align:center; margin:50px auto 20px;}
 .slideshow{position:relative; max-width:520px; width:90%; margin:0 auto; border-radius:14px; overflow:hidden; box-shadow:0 6px 16px rgba(0,0,0,0.25); height:320px;}
-.slide{position:absolute; width:100%; height:100%; left:100%; top:0; transition:left 0.8s ease-in-out;}
+.slide{position:absolute; width:100%; height:100%; top:0; left:0; opacity:0; transition: opacity 1s ease-in-out;}
 .slide img{width:100%; height:100%; object-fit:cover; display:block;}
-.slide.active{left:0;}
-.slide.prev{left:-100%;}
-
-/* 캡션 */
-.lab-photo-caption{
-  margin-top:12px;
-  font-size:12px;
-  color:rgba(0,0,0,0.5);
-  line-height:1.4;
-  text-align:center;
-}
-.slideshow{
-  position: relative;
-  max-width:520px;
-  width:90%;
-  margin:0 auto;
-  border-radius:14px;
-  overflow:hidden;
-  box-shadow:0 6px 16px rgba(0,0,0,0.25);
-  height:320px;
-}
-
-.slide{
-  position:absolute;
-  width:100%;
-  height:100%;
-  top:0;
-  left:0;
-  opacity:0;
-  transition: opacity 1s ease-in-out;
-}
-
-.slide img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
-
-.slide.active{
-  opacity:1;
-  z-index:2;
-}
-
-.lab-photo-caption {
-  text-align: center;
-  font-size: 13px;
-  color: #555;
-  margin-top: 30px; /* 썸네일과 캡션 사이 간격 확보 */
-  line-height: 1.4;
-}
+.slide.active{opacity:1; z-index:2;}
+.lab-photo-caption{text-align:center; font-size:13px; color:#555; margin-top:30px; line-height:1.4;}
 
 /* ================== THUMBNAILS ================== */
-.thumbnail-container{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  margin-top:15px;
-  flex-wrap:wrap;
-}
+.thumbnail-container{display:flex; justify-content:center; gap:10px; margin-top:15px; flex-wrap:wrap;}
+.thumbnail-container .thumb{width:60px; height:40px; object-fit:cover; border-radius:6px; cursor:pointer; opacity:0.8; border:2px solid transparent; transition: opacity 0.2s ease, border-color 0.2s ease;}
+.thumbnail-container .thumb:hover, .thumbnail-container .thumb.active{opacity:1; border-color: #8C1D18;}
 
-.thumbnail-container .thumb {
-  width: 60px;
-  height: 40px;
-  object-fit: cover;
-  border-radius: 6px;
-  cursor: pointer;
-  opacity: 0.8;               /* 기본 투명도 */
-  border: 2px solid transparent;
-  transition: opacity 0.2s ease, border-color 0.2s ease; /* 필요한 효과만 */
-}
-
-/* hover 시 효과 */
-.thumbnail-container .thumb:hover,
-.thumbnail-container .thumb.active {
-  opacity: 1;                  /* 살짝 강조 */
-  border-color: #8C1D18;       /* 고려대 빨강 테두리 */
-  transform: none;             /* 확대나 이동 제거 */
-}
-/* ================== 카드 (동그랗고 흐린 이미지 + 흰색 글씨) ================== */
-.card-container {
-  margin-top:50px; /* 카드와 사진 사이 간격 */
-  display: grid;
-  grid-template-columns: repeat(4, minmax(200px,1fr));
-  gap:28px;
-  max-width:1100px;
-  margin-left:auto;
-  margin-right:auto;
-  padding:0 20px;
-}
-
+/* ================== 카드 (동그란 카드) ================== */
+.card-container{display:grid; grid-template-columns:repeat(4,minmax(200px,1fr)); gap:28px; max-width:1100px; margin:50px auto 80px; padding:0 20px;}
 .card{
   position: relative;
   width:220px;
   height:220px;
-  border-radius:50%; /* 동그라미 */
+  border-radius:50%;
   overflow:hidden;
   display:flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align:center;
-  box-shadow:0 8px 18px rgba(0,0,0,0.12);
-  transition: transform 0.3s, box-shadow 0.3s;
-  background-size:cover;
-  background-position:center;
-  color:white;
+  background:white;
+  color:#555;
+  font-family: 'Poppins', 'Noto Sans KR', sans-serif;
   font-weight:600;
+  box-shadow:0 8px 18px rgba(0,0,0,0.12);
+  text-decoration:none;
+  transition: all 0.4s ease;
 }
-
-.card:hover{
-  transform: translateY(-6px) scale(1.05);
-  box-shadow:0 16px 28px rgba(140,29,24,0.25);
-}
-
-/* 흐린 배경 */
-.card-overlay{
-  position: absolute;
-  top:0; left:0; width:100%; height:100%;
-  background: rgba(0,0,0,0.2); /* 덜 어둡게 */
-  z-index:1;
-}
-
-/* 글씨 */
-.card h2, .card p{
-  position: relative;
-  z-index:2;
-  margin:0;
-}
-
-.card h2{
-  font-size:18px;
-  margin-bottom:6px;
-}
-
-.card p{
-  font-size:13px;
-  line-height:1.4;
-}
-
+.card-overlay{position:absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.25); opacity:0; transition: opacity 0.4s ease; z-index:1; border-radius:50%;}
+.card h2, .card p{position: relative; z-index:2; margin:0;}
+.card h2{font-size:20px; margin-bottom:6px; color: #8C1D18; transition: color 0.4s ease;}
+.card p{font-size:12px; line-height:1.4; color:#555; transition: color 0.4s ease;}
+.card:hover{background-image: var(--bg-img); background-size:cover; background-position:center; color:white; box-shadow:0 16px 28px rgba(140,29,24,0.25);}
+.card:hover .card-overlay{opacity:1;}
+.card:hover h2, .card:hover p{color:white; text-shadow: 1px 1px 4px rgba(0,0,0,0.6);}
 
 /* ================== 푸터 ================== */
 footer{background:var(--ku-dark); color:white; padding:18px 15px 28px; text-align:center; font-size:13px;}
 .footer-logo img{height:48px;}
 
-/* 반응형 */
-@media(max-width:900px){.card-container{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:600px){.navbar{padding:10px 16px; flex-wrap:wrap;}.card-container{grid-template-columns:1fr;}}
+/* ================== 반응형 ================== */
+@media(max-width:900px){.card-container{grid-template-columns:repeat(2,1fr); gap:20px;}}
+@media(max-width:600px){
+  .navbar{flex-direction:column; align-items:flex-start; padding:12px 16px;}
+  .nav-center{flex-direction:column; width:100%; gap:10px;}
+  .nav-center a, .has-dropdown > a{font-size:14px;}
+  .nav-right{margin-top:10px;}
+  .card-container{grid-template-columns:1fr; gap:18px;}
+  .card{width:180px; height:180px;}
+  .slideshow{max-width:90%; height:220px;}
+  .lab-photo-caption{font-size:12px; margin-top:20px;}
+  .hero h1{font-size:26px;}
+}
 </style>
 </head>
-
 <body>
 
 <!-- ================== 네비게이션 ================== -->
 <div class="navbar">
-  <div class="nav-left">
-    <a href="index.html"><img src="img/ku_logo.png" alt="Korea University"></a>
-  </div>
-
+  <div class="nav-left"><a href="index.html"><img src="img/ku_logo.png" alt="Korea University"></a></div>
   <div class="nav-center">
     <a href="index.html">Home</a>
     <a href="notice.html">Notice</a>
-
     <div class="has-dropdown">
-      <a href="people.html" class="parent-link">People ▾</a>
+      <a href="people.html">People ▾</a>
       <div class="dropdown">
         <a href="people_prof.html">지도교수</a>
         <a href="people_members.html">연구원 및 대학원생</a>
         <a href="people_former.html">Former Members</a>
       </div>
     </div>
-
     <div class="has-dropdown">
-      <a href="research.html" class="parent-link">Research ▾</a>
+      <a href="research.html">Research ▾</a>
       <div class="dropdown">
         <a href="research_nitrogen.html">Nitrogen Cycle</a>
         <a href="research_diet.html">DIET Research</a>
         <a href="research_other.html">Other Research</a>
       </div>
     </div>
-
     <div class="has-dropdown">
-      <a href="publications.html" class="parent-link">Publications ▾</a>
+      <a href="publications.html">Publications ▾</a>
       <div class="dropdown">
         <a href="publications_papers.html">논문·특허</a>
         <a href="publications_confs.html">학회 발표</a>
         <a href="publications_books.html">저서</a>
       </div>
     </div>
-
-    <!-- 🔥 새로 추가된 Gallery 메뉴 (단일 메뉴) -->
     <a href="gallery.html">Gallery</a>
-
     <a href="contact.html">Contact Us</a>
   </div>
-
   <div class="nav-right">
     <a href="https://blog.naver.com/heedeung" target="_blank">
       <img src="img/hemmlogo.png" alt="Engineering Logo">
@@ -253,9 +325,7 @@ footer{background:var(--ku-dark); color:white; padding:18px 15px 28px; text-alig
 </div>
 
 <!-- ================== 메인 타이틀 ================== -->
-<div class="hero">
-  <h1>Environmental Biotechnology Laboratory</h1>
-</div>
+<div class="hero"><h1>Environmental Biotechnology Laboratory</h1></div>
 
 <!-- ================== PHOTO SLIDESHOW ================== -->
 <div class="lab-photo-section">
@@ -269,9 +339,6 @@ footer{background:var(--ku-dark); color:white; padding:18px 15px 28px; text-alig
     <div class="slide"><img src="img/main1.png" alt="연구 활동 사진"></div>
     <div class="slide"><img src="img/main2.png" alt="연구실 사진"></div>
   </div>
-
-
-  <!-- 썸네일 사진첩 -->
   <div class="thumbnail-container">
     <img class="thumb active" src="img/lab_group_2024 (2).png" alt="그룹 사진">
     <img class="thumb" src="img/KU-enter.png" alt="KU 입구">
@@ -282,10 +349,10 @@ footer{background:var(--ku-dark); color:white; padding:18px 15px 28px; text-alig
     <img class="thumb" src="img/main1.png" alt="연구 활동">
     <img class="thumb" src="img/main2.png" alt="연구실 사진">
   </div>
+  <div class="lab-photo-caption">
+    환경생명공학연구실 활동 모습 (여러 사진이 4초 간격으로 순환합니다)
   </div>
-  </div>
-  </div>
-
+</div>
 
 <!-- ================== CARDS ================== -->
 <div class="card-container">
@@ -311,95 +378,6 @@ footer{background:var(--ku-dark); color:white; padding:18px 15px 28px; text-alig
   </a>
 </div>
 
-<style>
-/* ================== CARD GRID ================== */
-.card-container{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(200px,1fr));
-  gap:28px;
-  max-width:1100px;
-  margin:0 auto 80px;
-  padding:0 20px;
-}
-
-/* ================== CARD ================== */
-.card{
-  position: relative;
-  width:220px;
-  height:220px;
-  border-radius:50%;          /* 동그라미 */
-  overflow:hidden;
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align:center;
-  background:white;           /* 기본 흰색 */
-  color:#555;                 /* 기본 진한 회색 */
-  font-family: 'Poppins', 'Noto Sans KR', sans-serif;
-  font-weight:600;
-  box-shadow:0 8px 18px rgba(0,0,0,0.12);
-  text-decoration:none;        /* 밑줄 제거 */
-  transition: all 0.4s ease;
-}
-
-/* ================== OVERLAY ================== */
-.card-overlay{
-  position: absolute;
-  top:0; left:0; width:100%; height:100%;
-  background: rgba(0,0,0,0.25);
-  opacity:0;
-  transition: opacity 0.4s ease;
-  z-index:1;
-  border-radius:50%;
-}
-
-/* ================== TEXT ================== */
-.card h2{
-  position: relative;
-  z-index:2;
-  margin:0;
-  font-size:20px;            /* 제목 글씨 크기 */
-  margin-bottom:6px;
-  color: #8C1D18;            /* 고려대 색상 */
-  transition: color 0.4s ease;
-}
-
-.card p{
-  position: relative;
-  z-index:2;
-  margin:0;
-  font-size:12px;            /* 설명 글씨 크기 */
-  line-height:1.4;
-  color:#555;                /* 진한 회색 유지 */
-  transition: color 0.4s ease;
-}
-
-/* ================== HOVER EFFECT ================== */
-/* ================== HOVER EFFECT ================== */
-.card:hover{
-  background-image: var(--bg-img); /* 이미지 적용 */
-  background-size:cover;
-  background-position:center;
-  color:white;                     /* 호버 시 글씨 흰색 */
-  box-shadow:0 16px 28px rgba(140,29,24,0.25);
-}
-
-.card:hover .card-overlay{
-  opacity:1;
-}
-
-/* 글씨 색상 변경 + 그림자 적용 */
-.card:hover h2, .card:hover p{
-  color:white;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.6); /* 그림자 추가 */
-}
-
-
-/* ================== 반응형 ================== */
-@media(max-width:900px){.card-container{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:600px){.card-container{grid-template-columns:1fr;}}
-</style>
 <!-- ================== FOOTER ================== -->
 <footer>
   <div class="footer-logo"><img src="img/hemm_logo.png" alt="HEMM Logo"></div>
@@ -418,7 +396,6 @@ document.addEventListener('DOMContentLoaded', function () {
   function showSlide(i) {
     slides.forEach(slide => slide.classList.remove('active'));
     thumbs.forEach(thumb => thumb.classList.remove('active'));
-
     slides[i].classList.add('active');
     thumbs[i].classList.add('active');
     index = i;
@@ -431,13 +408,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   slideInterval = setInterval(nextSlide, 4000);
 
-  // 썸네일 클릭 이벤트
   thumbs.forEach((thumb, i) => {
     thumb.addEventListener('click', () => {
-      clearInterval(slideInterval); // 클릭 시 자동 슬라이드 일시정지
+      clearInterval(slideInterval);
       showSlide(i);
-      slideInterval = setInterval(nextSlide, 4000); // 다시 자동 슬라이드
+      slideInterval = setInterval(nextSlide, 4000);
     });
   });
 });
 </script>
+
+</body>
+</html>
+
