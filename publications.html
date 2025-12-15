@@ -124,21 +124,26 @@ body{
   gap:30px;
   padding:0 24px;
 }
-.card{
-  background:white;
-  padding:30px 20px;
-  border-radius:14px;
-  text-align:center;
-  text-decoration:none;
-  color:#333;
-  box-shadow:0 8px 16px rgba(0,0,0,0.08);
-  border:1px solid #eee;
-  transition:.25s;
+.card {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%; /* 완전 원 */
+  background: #fff; /* 안쪽 흰색 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eee;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
-.card:hover{
-  transform:translateY(-6px);
-  border-color:var(--ku-main);
-  box-shadow:0 12px 24px rgba(140,29,24,.22);
+
+.card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2);
 }
 .card h2{
   margin:0;
@@ -249,6 +254,5 @@ body{
 
 </body>
 </html>
-
 
 
