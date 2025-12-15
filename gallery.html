@@ -119,10 +119,10 @@ body{margin:0;font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif;background:
     <div class="year-title">2023 – 2025</div>
     <div class="photo-grid">
       <div class="photo-item"><img src="img/gallery/2023_1.jpg" onclick="openPopup('2023',0)"><div class="photo-caption">연구실 식구 졸업식</div></div>
+      <div class="photo-item"><img src="img/gallery/2023_2.jpg" onclick="openPopup('2023',1)"><div class="photo-caption">애기능 앞에서</div></div>
+
     </div>
   </div>
-
-
 
   <!-- 2014–2016 -->
   <div class="year-section" data-year="2014">
@@ -262,7 +262,9 @@ const galleries={
 
   ],
   "2023":[
-    {src:"img/gallery/2023_1.jpg", cap:"연구실 식구 졸업식"},  ]
+    {src:"img/gallery/2023_1.jpg", cap:"연구실 식구 졸업식"},
+    {src:"img/gallery/2023_2.jpg", cap:"애기능 앞에서"},   
+]
 };
 let currentSet="", currentIndex=0;
 function openPopup(set,index){ currentSet=set; currentIndex=index; showPopup(); }
@@ -302,4 +304,3 @@ document.getElementById("popup").addEventListener("click", function(e){
 
 </body>
 </html>
-
