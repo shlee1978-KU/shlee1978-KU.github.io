@@ -281,68 +281,55 @@ footer{background:var(--ku-dark); color:white; padding:18px 15px 28px; text-alig
   .hero h1{font-size:26px;}
 }
 
-/* ================== QUICK MENU (KU STYLE) ================== */
+/* ================== QUICK MENU (SLIM KU STYLE) ================== */
 .quick-menu {
-  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 46px;
-  padding: 22px 20px;
+  gap: 36px;
+  padding: 10px 20px;          /* 🔥 얇게 */
   background: var(--ku-main);
   color: white;
-  font-size: 14px;
-  z-index: 998;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  font-size: 13px;             /* 🔥 글씨 작게 */
+  font-weight: 500;
+  border-top: 1px solid rgba(255,255,255,0.25);
+  border-bottom: 1px solid rgba(255,255,255,0.25);
 }
 
 .quick-menu a {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   color: white;
   text-decoration: none;
-  font-weight: 600;
   opacity: 0.9;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition: opacity 0.2s ease;
 }
 
 .quick-menu a:hover {
   opacity: 1;
-  transform: translateY(-2px);
 }
 
 .quick-menu .icon {
-  font-size: 18px;
+  font-size: 14px;             /* 🔥 아이콘도 작게 */
 }
 
-/* 고정 상태 */
-.quick-menu.fixed {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  box-shadow: 0 -6px 18px rgba(0,0,0,0.25);
-}
-
-/* footer가 가려지지 않게 여백 */
-body {
-  padding-bottom: 80px;
 }
 
 /* ================== 모바일 ================== */
 @media(max-width:600px){
   .quick-menu {
-    flex-wrap: wrap;
-    gap: 18px;
-    font-size: 13px;
-    padding: 16px 12px;
+    gap: 16px;
+    padding: 8px 12px;
+    font-size: 12px;
   }
 
   .quick-menu .icon {
-    font-size: 16px;
+    font-size: 13px;
   }
 }
+
 
 </style>
 </head>
@@ -390,6 +377,24 @@ body {
 
 <!-- ================== 메인 타이틀 ================== -->
 <div class="hero"><h1>Environmental Biotechnology Laboratory</h1></div>
+
+<!-- ================== QUICK MENU ================== -->
+<!-- ================== QUICK MENU ================== -->
+<div class="quick-menu" id="quickMenu">
+  <a href="http://www.korea.ac.kr" target="_blank">
+    <span class="icon">🏛️</span>
+    <span>고려대학교</span>
+  </a>
+  <a href="http://graduate.korea.ac.kr" target="_blank">
+    <span class="icon">🎓</span>
+    <span>일반대학원</span>
+  </a>
+  <a href="https://ace.korea.ac.kr/" target="_blank">
+    <span class="icon">🏗️</span>
+    <span>건축사회환경공학부</span>
+  </a>
+</div>
+
 
 <!-- ================== PHOTO SLIDESHOW ================== -->
 <div class="lab-photo-section">
@@ -440,22 +445,6 @@ body {
   </a>
 </div>
 
-<!-- ================== QUICK MENU ================== -->
-<!-- ================== QUICK MENU ================== -->
-<div class="quick-menu" id="quickMenu">
-  <a href="http://www.korea.ac.kr" target="_blank">
-    <span class="icon">🏛️</span>
-    <span>고려대학교</span>
-  </a>
-  <a href="http://graduate.korea.ac.kr" target="_blank">
-    <span class="icon">🎓</span>
-    <span>일반대학원</span>
-  </a>
-  <a href="https://ace.korea.ac.kr/" target="_blank">
-    <span class="icon">🏗️</span>
-    <span>건축사회환경공학부</span>
-  </a>
-</div>
 
 
 <!-- ================== FOOTER ================== -->
@@ -502,4 +491,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
 </body>
 </html>
-
