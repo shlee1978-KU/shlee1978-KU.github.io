@@ -47,8 +47,16 @@ body{margin:0;font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif;background:
 
 /* Grid 썸네일 + 캡션 */
 .photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;justify-items:center;grid-auto-flow:dense;}
-.photo-item{display:flex;flex-direction:column;}
-.photo-item img{width:100%;height:180px;object-fit:cover;border-radius:10px;cursor:pointer;}
+.photo-item{display:flex;flex-direction:column;border-radius:10px;overflow:hidden;}
+.photo-item img{
+  width:100%;
+  height:180px;          /* 🔒 그리드 높이 유지 */
+  object-fit:contain;   /* 🔥 비율 유지 + 안 잘림 */
+  object-position:center;
+  border-radius:10px;
+  cursor:pointer;
+  background:white   /* 여백 보일 때 대비 */
+}
 .photo-caption{font-size:13px;color:#444;text-align:center;margin-top:6px;}
 
 /* POPUP */
@@ -120,6 +128,18 @@ body{margin:0;font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif;background:
     <div class="photo-grid">
       <div class="photo-item"><img src="img/gallery/2023_1.jpg" onclick="openPopup('2023',0)"><div class="photo-caption">연구실 식구 졸업식</div></div>
       <div class="photo-item"><img src="img/gallery/2023_2.jpg" onclick="openPopup('2023',1)"><div class="photo-caption">애기능 앞에서</div></div>
+      <div class="photo-item"><img src="img/gallery/2023_3.jpg" onclick="openPopup('2023',2)"><div class="photo-caption">FEMS MICRO 2025 참석</div></div>
+      <div class="photo-item"><img src="img/gallery/2023_4.jpg" onclick="openPopup('2023',3)"><div class="photo-caption">2025 한국물환경학회 이진용 석박통합생 논문상 수상</div></div>
+      <div class="photo-item"><img src="img/gallery/2023_5.jpg" onclick="openPopup('2023',4)"><div class="photo-caption">NorthWestern University 견학</div></div>
+      <div class="photo-item"><img src="img/gallery/2023_6.jpg" onclick="openPopup('2023',5)"><div class="photo-caption">University of Minnesota Research 세미나</div></div>
+      <div class="photo-item"><img src="img/gallery/2023_7.jpg" onclick="openPopup('2023',6)"><div class="photo-caption">WEFTEC 2025 국제학회 및 전시회 참석</div></div>
+      <div class="photo-item"><img src="img/gallery/2023_10.jpg" onclick="openPopup('2023',7)"><div class="photo-caption">WEFTEC 2025 국제학회 및 전시회 참석</div></div>
+      <div class="photo-item"><img src="img/gallery/2023_8.jpg" onclick="openPopup('2023',8)"><div class="photo-caption">ASME 2025 Hoang Puch Trinh 박사 우수 포스터상 수상</div></div>
+      <div class="photo-item"><img src="img/gallery/2023_9.jpg" onclick="openPopup('2023',9)"><div class="photo-caption">ASME 2025 Hoang Puch Trinh 박사 우수 포스터상 수상</div></div>
+
+
+
+
 
     </div>
   </div>
@@ -264,6 +284,16 @@ const galleries={
   "2023":[
     {src:"img/gallery/2023_1.jpg", cap:"연구실 식구 졸업식"},
     {src:"img/gallery/2023_2.jpg", cap:"애기능 앞에서"},   
+    {src:"img/gallery/2023_3.jpg", cap:"이탈리아 밀라노 FEMS MICRO 2025 참석"},   
+    {src:"img/gallery/2023_4.jpg", cap:"2025 한국물환경학회 이진용 석박통합생 공동포럼 포스터 발표논문상 수상"},   
+    {src:"img/gallery/2023_5.jpg", cap:"NorthWestern University 견학"},   
+    {src:"img/gallery/2023_6.jpg", cap:"University of Minnesota Research 박희등 교수님 세미나 개최"},   
+    {src:"img/gallery/2023_7.jpg", cap:"WEFTEC 2025 국제학회 및 전시회 참석"},   
+    {src:"img/gallery/2023_10.jpg", cap:"WEFTEC 2025 국제학회 및 전시회 참석"},   
+    {src:"img/gallery/2023_8.jpg", cap:"ASME 2025 Hoang Puch Trinh 박사 우수 포스터상 수상"},   
+    {src:"img/gallery/2023_9.jpg", cap:"ASME 2025 Hoang Puch Trinh 박사 우수 포스터상 수상"},   
+
+
 ]
 };
 let currentSet="", currentIndex=0;
