@@ -83,6 +83,30 @@ body{margin:0;font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif;background:
   height:34px;
   margin-bottom:6px;
 }
+
+.thumb-strip{
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  margin-top:14px;
+  overflow-x:auto;
+}
+
+.thumb-strip img{
+  width:60px;
+  height:45px;
+  object-fit:cover;
+  opacity:0.5;
+  cursor:pointer;
+  border-radius:6px;
+  border:2px solid transparent;
+}
+
+.thumb-strip img.active{
+  opacity:1;
+  border-color:#fff;
+}
+
 </style>
 </head>
 <body>
@@ -128,21 +152,45 @@ body{margin:0;font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif;background:
     <div class="photo-grid">
       <div class="photo-item"><img src="img/gallery/2023_1.jpg" onclick="openPopup('2023',0)"><div class="photo-caption">연구실 식구 졸업식</div></div>
       <div class="photo-item"><img src="img/gallery/2023_2.jpg" onclick="openPopup('2023',1)"><div class="photo-caption">애기능 앞에서</div></div>
-      <div class="photo-item"><img src="img/gallery/2023_3.jpg" onclick="openPopup('2023',2)"><div class="photo-caption">FEMS MICRO 2025 참석</div></div>
-      <div class="photo-item"><img src="img/gallery/2023_4.jpg" onclick="openPopup('2023',3)"><div class="photo-caption">2025 한국물환경학회 이진용 석박통합생 논문상 수상</div></div>
-      <div class="photo-item"><img src="img/gallery/2023_5.jpg" onclick="openPopup('2023',4)"><div class="photo-caption">NorthWestern University 견학</div></div>
-      <div class="photo-item"><img src="img/gallery/2023_6.jpg" onclick="openPopup('2023',5)"><div class="photo-caption">NorthWestern University Research 세미나</div></div>
+      <div class="photo-item"><img src="img/gallery/2023_3.jpg" onclick="openPopup('2023',2)"><div class="photo-caption">2024년 2월 졸업식</div></div>
+      <div class="photo-item"><img src="img/gallery/2023_4.jpg" onclick="openPopup('2023',3)"><div class="photo-caption">FEMS MICRO 2025 참석</div></div>
+      <div class="photo-item"><img src="img/gallery/2023_5.jpg" onclick="openPopup('2023',4)"><div class="photo-caption">2025 한국물환경학회 이진용 석박통합생 논문상 수상</div></div>
+      <div class="photo-item"><img src="img/gallery/2023_6.jpg" onclick="openPopup('2023',5)"><div class="photo-caption">NorthWestern University 견학</div></div>
       <div class="photo-item"><img src="img/gallery/2023_7.jpg" onclick="openPopup('2023',6)"><div class="photo-caption">WEFTEC 2025 국제학회 및 전시회 참석</div></div>
-      <div class="photo-item"><img src="img/gallery/2023_10.jpg" onclick="openPopup('2023',7)"><div class="photo-caption">WEFTEC 2025 국제학회 및 전시회 참석</div></div>
-      <div class="photo-item"><img src="img/gallery/2023_8.jpg" onclick="openPopup('2023',8)"><div class="photo-caption">ASME 2025 Hoang Puch Trinh 박사 우수 포스터상 수상</div></div>
-      <div class="photo-item"><img src="img/gallery/2023_9.jpg" onclick="openPopup('2023',9)"><div class="photo-caption">ASME 2025 Hoang Puch Trinh 박사 우수 포스터상 수상</div></div>
-
-
-
-
-
+      <div class="photo-item"><img src="img/gallery/2023_8.jpg" onclick="openPopup('2023',7)"><div class="photo-caption">ASME 2025 Hoang Puch Trinh 박사 우수 포스터상 수상</div></div>
     </div>
   </div>
+
+<!-- 2017–2022 -->
+<div class="year-section" data-year="2017">
+  <div class="year-title">2017 – 2022</div>
+  <div class="photo-grid">
+    <div class="photo-item">
+      <img src="img/gallery/2017_1.jpg" onclick="openPopup('2017',0)">
+      <div class="photo-caption">ISME18 Lausanne 참석</div>
+    </div>
+    <div class="photo-item">
+      <img src="img/gallery/2017_2.jpg" onclick="openPopup('2017',1)">
+      <div class="photo-caption">한-프랑스 국제공동연구</div>
+    </div>
+    <div class="photo-item">
+      <img src="img/gallery/2017_3.jpg" onclick="openPopup('2017',2)">
+      <div class="photo-caption">MSK2019 참석</div>
+    </div>
+    <div class="photo-item">
+      <img src="img/gallery/2017_4.jpg" onclick="openPopup('2017',3)">
+      <div class="photo-caption">연구실 단체 공동프로젝트</div>
+    </div>
+    <div class="photo-item">
+      <img src="img/gallery/2017_5.jpg" onclick="openPopup('2017',4)">
+      <div class="photo-caption">2017 Northwestern University 세미나</div>
+    </div>
+    <div class="photo-item">
+      <img src="img/gallery/2017_6.jpg" onclick="openPopup('2017',5)">
+      <div class="photo-caption">Arizona State University 견학</div>
+    </div>
+  </div>
+</div>
 
   <!-- 2014–2016 -->
   <div class="year-section" data-year="2014">
@@ -155,6 +203,10 @@ body{margin:0;font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif;background:
       <div class="photo-item"><img src="img/gallery/2014_5.jpg" onclick="openPopup('2014',4)"><div class="photo-caption">라피노스 생물막 저해현상 언론 보도</div></div>
       <div class="photo-item"><img src="img/gallery/2014_6.jpg" onclick="openPopup('2014',5)"><div class="photo-caption">폐기물자원순환학회 우수논문상 수상</div></div>
       <div class="photo-item"><img src="img/gallery/2014_7.jpg" onclick="openPopup('2014',6)"><div class="photo-caption">설악산 연구실 MT</div></div>
+      <div class="photo-item"><img src="img/gallery/2014_8.jpg" onclick="openPopup('2014',7)"><div class="photo-caption">ASM2014 참석</div></div>
+      <div class="photo-item"><img src="img/gallery/2014_9.jpg" onclick="openPopup('2014',8)"><div class="photo-caption">2014 ISME 학회 참석</div></div>
+
+
 
     </div>
   </div>
@@ -168,7 +220,7 @@ body{margin:0;font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif;background:
      <div class="photo-item"><img src="img/gallery/2012_3.jpg" onclick="openPopup('2012',2)"><div class="photo-caption">환경부 장관 표창</div></div>
      <div class="photo-item"><img src="img/gallery/2012_4.jpg" onclick="openPopup('2012',3)"><div class="photo-caption">IBS2012 참석</div></div>
      <div class="photo-item"><img src="img/gallery/2012_5.jpg" onclick="openPopup('2012',4)"><div class="photo-caption">JK-ISME2012 참석</div></div>
-     <div class="photo-item"><img src="img/gallery/2012_6.jpg" onclick="openPopup('2012',5)"><div class="photo-caption">이정후 연구원 환경사랑 논문 발표대회 최우수상 수상</div></div>
+     <div class="photo-item"><img src="img/gallery/2012_6.jpg" onclick="openPopup('2012',5)"><div class="photo-caption">이정훈 연구원 환경사랑 논문 발표대회 최우수상 수상</div></div>
      <div class="photo-item"><img src="img/gallery/2012_7.jpg" onclick="openPopup('2012',6)"><div class="photo-caption">Second Symposium on Biological Nitrogen Removal Mechanisms and Process Analysis 참석</div></div>
      <div class="photo-item"><img src="img/gallery/2012_8.jpg" onclick="openPopup('2012',7)"><div class="photo-caption">환경프로그램 워크숍</div></div>
      <div class="photo-item"><img src="img/gallery/2012_9.jpg" onclick="openPopup('2012',8)"><div class="photo-caption">일본 수환경학회 참석</div></div>
@@ -177,6 +229,8 @@ body{margin:0;font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif;background:
      <div class="photo-item"><img src="img/gallery/2012_12.jpg" onclick="openPopup('2012',11)"><div class="photo-caption">대한환경공학회 종합설계 경진대회 장려상 수상</div></div>
      <div class="photo-item"><img src="img/gallery/2012_13.jpg" onclick="openPopup('2012',12)"><div class="photo-caption">The 5th IWA-ASPIRE Conference & Exhibition</div></div>
      <div class="photo-item"><img src="img/gallery/2012_14.jpg" onclick="openPopup('2012',13)"><div class="photo-caption">Tongji News</div></div>
+     <div class="photo-item"><img src="img/gallery/2012_15.jpg" onclick="openPopup('2012',14)"><div class="photo-caption">2013년 졸업식</div></div>
+
 
 
     </div>
@@ -234,96 +288,233 @@ body{margin:0;font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif;background:
   <div class="popup-content">
     <img id="popupImg" src="">
     <div class="popup-caption" id="popupCaption"></div>
+
+    <div class="thumb-strip" id="thumbStrip"></div>
+
     <div class="close-btn" onclick="closePopup()">×</div>
     <div class="arrow arrow-left" onclick="prevImg()">❮</div>
     <div class="arrow arrow-right" onclick="nextImg()">❯</div>
   </div>
 </div>
 
+
 <script>
-const galleries={
+/* =========================
+   GALLERY DATA
+   모든 항목은 images 배열로 통일
+========================= */
+const galleries = {
+
   "2010":[
-    {src:"img/gallery/2010_1.jpg", cap:"2010 춘계 물환경학회"},
-    {src:"img/gallery/2010_2.jpg", cap:"헝가리 부다페스트공대 교류 협의"},
-    {src:"img/gallery/2010_3.jpg", cap:"2011년 대한환경공학회 학술대회 참석"},
-    {src:"img/gallery/2010_4.jpg", cap:"MDIW 2010 학회 참가"},
-    {src:"img/gallery/2010_5.jpg", cap:"The 1st Annual Meeting on Chinese-Korean-Japanese Joint Research Collaboration Program"},
-    {src:"img/gallery/2010_6.jpg", cap:"The 2010 Asian Biohydrogen Symposium 박정훈 학생 우수논문상 수상"},
-    {src:"img/gallery/2010_7.jpg", cap:"2010 대한환경공학회 춘계 박정훈 학생 우수논문상 수상"},
-    {src:"img/gallery/2010_3.jpg", cap:"2011년 대한환경공학회 학술대회 참석"},
-    {src:"img/gallery/2010_8.jpg", cap:"스위스 Eawag 물연구소 Hansruedi Siegrist 교수"}
+    {
+      images:["img/gallery/2010_1.jpg"],
+      cap:"2010 춘계 물환경학회"
+    },
+    {
+      images:[
+        "img/gallery/2010_2.jpg",
+        "img/gallery/2010_2_1.jpg",
+        "img/gallery/2010_2_2.jpg",
+        "img/gallery/2010_2_3.jpg"
+      ],
+      cap:"헝가리 부다페스트공대 교류 협의"
+    },
+    {
+      images:["img/gallery/2010_3.jpg"],
+      cap:"2011년 대한환경공학회 학술대회 참석"
+    },
+    {
+      images:["img/gallery/2010_4.jpg"],
+      cap:"MDIW 2010 학회 참가"
+    },
+    {
+      images:["img/gallery/2010_5.jpg"],
+      cap:"The 1st Annual Meeting on Chinese-Korean-Japanese Joint Research Collaboration Program"
+    },
+    {
+      images:["img/gallery/2010_6.jpg"],
+      cap:"The 2010 Asian Biohydrogen Symposium 박정훈 학생 우수논문상 수상"
+    },
+    {
+      images:["img/gallery/2010_7.jpg"],
+      cap:"2010 대한환경공학회 춘계 박정훈 학생 우수논문상 수상"
+    },
+    {
+      images:["img/gallery/2010_8.jpg"],
+      cap:"스위스 Eawag 물연구소 Hansruedi Siegrist 교수"
+    }
   ],
+
   "2012":[
-    {src:"img/gallery/2012_1.jpg", cap:"환경프로그램 워크숍"},
-    {src:"img/gallery/2012_2.jpg", cap:"Monitoring bacterial community structure and variability in time scale in full-scale anaerobic digesters"},
-    {src:"img/gallery/2012_3.jpg", cap:"환경부 장관 표창"},
-    {src:"img/gallery/2012_4.jpg", cap:"IBS2012 참석, 박정훈 학생의 Bioethanol 관련 포스터 발표 및 혐기성 소화조 미생물 군집 구두 발표"},
-    {src:"img/gallery/2012_5.jpg", cap:"제4회 한일국제미생물생태학회, Evaluation of various oilgotrophic media for cultivation of previously uncultured soil bactera 발표"},
-    {src:"img/gallery/2012_6.jpg", cap:"이정후 연구원 환경사랑 논문 발표대회 최우수상 수상"},
-    {src:"img/gallery/2012_7.jpg", cap:"Second Symposium on Biological Nitrogen Removal Mechanisms and Process Analysis"},
-    {src:"img/gallery/2012_8.jpg", cap:"2013년 환경프로그램 워크숍"},
-    {src:"img/gallery/2012_9.jpg", cap:"일본 수환경학회 참석"},
-    {src:"img/gallery/2012_10.jpg", cap:"ASM 2013 참석"},
-    {src:"img/gallery/2012_11.jpg", cap:"GMRC 국제심포지움"},
-    {src:"img/gallery/2012_12.jpg", cap:"이정훈/박강희 대한환경공학회 종합설계 경진대회 장려상 수상"},
-    {src:"img/gallery/2012_13.jpg", cap:"The 5th IWA-ASPIRE Conference & Exhibition 이상훈 박사 우수발표상 수상"},
-    {src:"img/gallery/2012_14.jpg", cap:"상하이 Tongji News 동지대학교 홈페이지 기사 수록"},
+    { images:["img/gallery/2012_1.jpg"], cap:"환경프로그램 워크숍" },
+    { images:["img/gallery/2012_2.jpg"], cap:"Monitoring bacterial community structure and variability in time scale in full-scale anaerobic digesters" },
+    { images:["img/gallery/2012_3.jpg"], cap:"환경부 장관 표창" },
+    { images:["img/gallery/2012_4.jpg"], cap:"IBS2012 참석 및 포스터·구두 발표" },
+    { images:["img/gallery/2012_5.jpg"], cap:"제4회 한일국제미생물생태학회 참석" },
+    { images:[
+        "img/gallery/2012_6.jpg",
+        "img/gallery/2012_6_1.jpg",
+      ], cap:"이정훈 연구원 환경사랑 논문 발표대회 최우수상 수상" },
+    { images:["img/gallery/2012_7.jpg"], cap:"Biological Nitrogen Removal Mechanisms Symposium" },
+    { images:["img/gallery/2012_8.jpg"], cap:"2013 환경프로그램 워크숍" },
+    { images:[
+        "img/gallery/2012_9.jpg",
+        "img/gallery/2012_9_1.jpg",
+        "img/gallery/2012_9_2.jpg",
+      ], cap:"일본 수환경학회 참석" },
+    { images:[
+        "img/gallery/2012_10.jpg",
+        "img/gallery/2012_10_1.jpg",
+        "img/gallery/2012_10_2.jpg",
+        "img/gallery/2012_10_3.jpg",
+     ], cap:"ASM 2013 참석" },
+    { images:["img/gallery/2012_11.jpg"], cap:"GMRC 국제심포지움" },
+    { images:[
+        "img/gallery/2012_12.jpg",
+        "img/gallery/2012_12_1.jpg",
+      ], cap:"대한환경공학회 종합설계 경진대회 장려상" },
+    { images:[
+         "img/gallery/2012_13.jpg",
+        "img/gallery/2012_13_1.jpg",
+      ], cap:"IWA-ASPIRE Conference 우수발표상" },
+    { images:["img/gallery/2012_14.jpg"], cap:"Tongji University News 게재" },
+    { images:["img/gallery/2012_15.jpg"], cap:"2013년 졸업식" }
+
   ],
 
   "2014":[
-    {src:"img/gallery/2014_1.jpg", cap:"2014 환경그룹 MT"},
-    {src:"img/gallery/2014_2.jpg", cap:"IWA Water Reuse and Energy 2014 1등 Poster Award 수상"},
-    {src:"img/gallery/2014_3.jpg", cap:"New Orleans ASM 2015 참석"},
-    {src:"img/gallery/2014_4.jpg", cap:"박정훈 박사 KU Award 수상"},
-    {src:"img/gallery/2014_5.jpg", cap:"라피노스 생물막 저해현상 언론 보도"},
-    {src:"img/gallery/2014_6.jpg", cap:"박종훈 박사 폐기물자원순환학회 우수논문상 수상"},
-    {src:"img/gallery/2014_7.jpg", cap:"설악산 연구실 MT"},
-
-
+    { images:["img/gallery/2014_1.jpg"], cap:"2014 환경그룹 MT" },
+    { images:["img/gallery/2014_2.jpg"], cap:"IWA Water Reuse and Energy 2014 Poster Award" },
+    { images:["img/gallery/2014_3.jpg",
+        "img/gallery/2014_3_1.jpg",
+        "img/gallery/2014_3_2.jpg",
+        "img/gallery/2014_3_3.jpg",
+        "img/gallery/2014_3_4.jpg",], cap:"ASM 2015 New Orleans" },
+    { images:["img/gallery/2014_4.jpg",
+        "img/gallery/2014_4_1.jpg",], cap:"박정훈 박사 KU Award 수상" },
+    { images:["img/gallery/2014_5.jpg"], cap:"라피노스 생물막 저해현상 언론 보도" },
+    { images:["img/gallery/2014_6.jpg",
+         "img/gallery/2014_6_1.jpg",
+         "img/gallery/2014_6_2.jpg",], cap:"폐기물자원순환학회 우수논문상 수상" },
+    { images:["img/gallery/2014_7.jpg"], cap:"설악산 연구실 MT" },
+    { images:["img/gallery/2014_8.jpg",  
+         "img/gallery/2014_8_1.jpg",
+         "img/gallery/2014_8_2.jpg",], cap:"ASM2014 참석" },
+    { images:["img/gallery/2014_9.jpg"], cap:"2014 ISME 학회 참석" },
   ],
+
+  "2017":[
+    { images:["img/gallery/2017_1.jpg"], cap:"ISME18 Lausanne" },
+    { images:["img/gallery/2017_2.jpg"], cap:"한-프랑스 공동연구" },
+    { images:["img/gallery/2017_3.jpg"], cap:"MSK2019 참석" },
+    { images:["img/gallery/2017_4.jpg"], cap:"연구실 단체 공동프로젝트" },
+    { images:["img/gallery/2017_5.jpg"], cap:"2017 Northwestern University 세미나" },
+    { images:["img/gallery/2017_6.jpg"], cap:"Arizona State University 견학" }
+  ],
+
   "2023":[
-    {src:"img/gallery/2023_1.jpg", cap:"연구실 식구 졸업식"},
-    {src:"img/gallery/2023_2.jpg", cap:"애기능 앞에서"},   
-    {src:"img/gallery/2023_3.jpg", cap:"이탈리아 밀라노 FEMS MICRO 2025 참석"},   
-    {src:"img/gallery/2023_4.jpg", cap:"2025 한국물환경학회 이진용 석박통합생 공동포럼 포스터 발표논문상 수상"},   
-    {src:"img/gallery/2023_5.jpg", cap:"NorthWestern University 견학"},   
-    {src:"img/gallery/2023_6.jpg", cap:"NorthWestern University 박희등 교수님 세미나 개최"},   
-    {src:"img/gallery/2023_7.jpg", cap:"WEFTEC 2025 국제학회 및 전시회 참석"},   
-    {src:"img/gallery/2023_10.jpg", cap:"WEFTEC 2025 국제학회 및 전시회 참석"},   
-    {src:"img/gallery/2023_8.jpg", cap:"ASME 2025 Hoang Puch Trinh 박사 우수 포스터상 수상"},   
-    {src:"img/gallery/2023_9.jpg", cap:"ASME 2025 Hoang Puch Trinh 박사 우수 포스터상 수상"},   
-
-
-]
+    { images:["img/gallery/2023_1.jpg"], cap:"연구실 식구 졸업식" },
+    { images:["img/gallery/2023_2.jpg"], cap:"애기능 앞에서" },
+    { images:["img/gallery/2023_3.jpg"], cap:"2024년 2월 졸업식" },
+    { images:["img/gallery/2023_4.jpg"], cap:"FEMS MICRO 2025 참석" },
+    { images:["img/gallery/2023_5.jpg",
+        "img/gallery/2023_5_1.jpg",
+        "img/gallery/2023_5_2.jpg",], cap:"2025 한국물환경학회 논문상 수상" },
+    { images:["img/gallery/2023_6.jpg",
+        "img/gallery/2023_6_1.jpg",
+        "img/gallery/2023_6_2.jpg",
+        "img/gallery/2023_6_3.jpg",
+        "img/gallery/2023_6_4.jpg",], cap:"NorthWestern University 견학" },
+    { images:["img/gallery/2023_7.jpg",
+        "img/gallery/2023_7_1.jpg",
+        "img/gallery/2023_7_2.jpg",
+        "img/gallery/2023_7_3.jpg",
+        "img/gallery/2023_7_4.jpg",], cap:"WEFTEC 2025 참석" },
+    { images:["img/gallery/2023_8.jpg",
+        "img/gallery/2023_8_1.jpg",], cap:"ASME 2025 우수 포스터상" },
+  ]
 };
-let currentSet="", currentIndex=0;
-function openPopup(set,index){ currentSet=set; currentIndex=index; showPopup(); }
+
+/* =========================
+   POPUP LOGIC
+========================= */
+let currentSet = "";
+let currentIndex = 0;
+let currentImgIndex = 0;
+
+function openPopup(set, index){
+  currentSet = set;
+  currentIndex = index;
+  currentImgIndex = 0;
+  showPopup();
+}
+
+
 function showPopup(){
   const popup=document.getElementById("popup");
   const img=document.getElementById("popupImg");
   const caption=document.getElementById("popupCaption");
+  const thumbStrip=document.getElementById("thumbStrip");
+
   const data=galleries[currentSet][currentIndex];
-  img.style.opacity=0; img.style.transform="scale(0.97)";
-  img.src=data.src; caption.innerText=data.cap;
+  const imgs=data.images;
+
+  // 메인 이미지
+  img.style.opacity=0;
+  img.src=imgs[currentImgIndex];
+  caption.innerText = data.cap + ` (${currentImgIndex+1}/${imgs.length})`;
+
+  // 썸네일 생성
+  thumbStrip.innerHTML="";
+  imgs.forEach((src,i)=>{
+    const t=document.createElement("img");
+    t.src=src;
+    if(i===currentImgIndex) t.classList.add("active");
+    t.onclick=()=>{
+      currentImgIndex=i;
+      showPopup();
+    };
+    thumbStrip.appendChild(t);
+  });
+
   popup.style.display="flex";
-  setTimeout(()=>{ img.style.opacity=1; img.style.transform="scale(1)"; },10);
+  setTimeout(()=>img.style.opacity=1,10);
 }
-function closePopup(){ 
-  const popup=document.getElementById("popup");
-  const img=document.getElementById("popupImg");
-  img.style.opacity=0; img.style.transform="scale(0.97)";
-  setTimeout(()=>{ popup.style.display="none"; },350);
+
+function closePopup(){
+  document.getElementById("popup").style.display = "none";
 }
-function prevImg(){ currentIndex=(currentIndex-1+galleries[currentSet].length)%galleries[currentSet].length; showPopup(); }
-function nextImg(){ currentIndex=(currentIndex+1)%galleries[currentSet].length; showPopup(); }
-// 팝업 바깥 클릭 시 닫기
-document.getElementById("popup").addEventListener("click", function(e){
-  if(e.target === this){
-    closePopup();
-  }
+
+function prevImg(){
+  const imgs=galleries[currentSet][currentIndex].images;
+  currentImgIndex=(currentImgIndex-1+imgs.length)%imgs.length;
+  showPopup();
+}
+
+function nextImg(){
+  const imgs=galleries[currentSet][currentIndex].images;
+  currentImgIndex=(currentImgIndex+1)%imgs.length;
+  showPopup();
+}
+
+
+/* 바깥 클릭 닫기 */
+document.getElementById("popup").addEventListener("click", e=>{
+  if(e.target.id === "popup") closePopup();
+});
+
+/* 키보드 지원 */
+document.addEventListener("keydown", e=>{
+  const popup = document.getElementById("popup");
+  if(popup.style.display !== "flex") return;
+
+  if(e.key === "Escape") closePopup();
+  if(e.key === "ArrowLeft") prevImg();
+  if(e.key === "ArrowRight") nextImg();
 });
 
 </script>
+
 
 </div>
 
