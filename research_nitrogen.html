@@ -121,33 +121,84 @@ h2{
   color:#8C1D18;
 }
 
-/* 이미지 카드 */
-.img-card {
-  background: #fff;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.card-imgs {
+.card-imgs{
   display: flex;
-  gap: 24px;
-  justify-content: center;
-  flex-wrap: wrap;
+  justify-content: center;   /* 가로 가운데 */
+  align-items: center;
+  gap: 18px;                 /* 이미지 사이 간격 */
   margin-top: 16px;
+  flex-wrap: wrap;           /* 화면 줄어들면 줄바꿈 */
 }
 
 .card-imgs img {
-  width: 320px;
-  height: 200px;
+  width: 230px;
+  height: 180px;
   object-fit: contain;       /* 전체 이미지 보이게 */
-  padding: 10px;             /* contain 시 생기는 여백 자연스럽게 */
+  padding: 8px;             /* contain 시 생기는 여백 자연스럽게 */
   background: #fff;          /* 빈 부분 흰색으로 */
   border: 1px solid #ddd;    /* 깔끔한 테두리 */
   border-radius: 10px;       /* 카드형 느낌 유지 */
   box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.6s ease;
+  cursor: pointer;
 }
 
+/* IMAGE POPUP */
+.img-popup{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.popup-inner{
+  position: relative; /* 기준 */
+}
+
+.popup-inner img{
+  max-width: 90vw;
+  max-height: 85vh;
+  background:#fff;
+  padding:12px;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.45);
+}
+
+/* 🔥 X 버튼: 이미지 밖 */
+.close-btn{
+  position: absolute;
+  top: -42px;     /* 이미지 바깥 */
+  left: 0;
+  font-size: 26px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  background: rgba(0,0,0,0.6);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* 이미지 hover 애니메이션 */
+.popup-inner img{
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+
+.card-imgs img:hover{
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  filter: brightness(1.04);
+}
 
 /* FOOTER */
 .footer{
@@ -343,10 +394,39 @@ h2{
   <div class="research-card-container"></div>
 </div>
 
+<!-- IMAGE POPUP -->
+<div class="img-popup" id="imgPopup">
+  <div class="popup-inner">
+    <span class="close-btn" onclick="closePopup()">×</span>
+    <img id="popupImg">
+  </div>
+</div>
+
 <div class="footer">
   © Environmental Biotechnology Laboratory, Korea University<br>
   Address: Korea University, Seoul, Korea | Email: nocont2xt@korea.ac.kr
 </div>
+<script>
+const popup = document.getElementById("imgPopup");
+const popupImg = document.getElementById("popupImg");
 
+document.querySelectorAll(".card-imgs img").forEach(img=>{
+  img.addEventListener("click",()=>{
+    popup.style.display = "flex";
+    popupImg.src = img.src;
+  });
+});
+
+function closePopup(){
+  popup.style.display = "none";
+}
+
+/* 배경 클릭 → 닫기 */
+popup.addEventListener("click", e=>{
+  if(e.target === popup){
+    closePopup();
+  }
+});
+</script>
 </body>
 </html>
