@@ -31,10 +31,7 @@ body{
   align-items:center;
   gap:20px;
 }
-.navbar-left img{
-  height:48px;
-  display:block;
-}
+.navbar-left img{height:48px;}
 .navbar-right{margin-left:auto;}
 .main-menu{
   list-style:none;
@@ -59,12 +56,11 @@ body{
   content:" ▾";
   font-size:11px;
   margin-left:4px;
-  opacity:0.9;
 }
 .sub-menu,.sub-menu li{list-style:none;margin:0;padding:0;}
 .sub-menu{
   position:absolute;
-  top:calc(100% + 8px);
+  top:100%;
   left:50%;
   transform:translateX(-50%);
   background:var(--ku-main);
@@ -74,15 +70,12 @@ body{
   display:none;
   box-shadow:0 8px 20px rgba(0,0,0,0.25);
   z-index:1200;
-  white-space:nowrap;
 }
 .has-sub:hover .sub-menu{display:block;}
 .sub-menu a{
   display:block;
-  font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif !important;
-  font-size:12.5px !important;
-  font-weight:400 !important;
-  letter-spacing:-0.2px !important;
+  font-size:12.5px;
+  font-weight:400;
   color:white;
   border-bottom:1px solid rgba(255,255,255,0.12);
   text-decoration:none;
@@ -90,20 +83,6 @@ body{
 }
 .sub-menu a:hover{
   background:var(--ku-hover);
-  border-bottom-color:transparent;
-}
-
-/* HERO */
-.hero{
-  background:var(--ku-main);
-  text-align:center;
-  padding:60px 20px 45px;
-}
-.hero h1{
-  color:#fff;
-  font-size:36px;
-  margin:0;
-  text-shadow:0 2px 4px rgba(0,0,0,0.3);
 }
 
 /* CONTENT */
@@ -116,11 +95,9 @@ body{
   padding:30px;
   box-shadow:0 8px 18px rgba(0,0,0,0.08);
 }
-h1{color:var(--ku-main);margin-top:0;}
-.section{margin-top:20px;}
-.section h2{color:var(--ku-main);margin-bottom:12px;}
 
-/* 카드형 연구 레이아웃 */
+h1{color:var(--ku-main);margin-top:0;}
+
 .research-card-container{
   display:flex;
   flex-direction:column;
@@ -148,36 +125,56 @@ h1{color:var(--ku-main);margin-top:0;}
   margin-bottom:14px;
 }
 
-/* 카드 안 이미지 동일 정방형 */
+/* 카드 이미지 */
 .card-imgs{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  align-items:center;
   gap:30px;
-  min-height:180px;
 }
 
 .card-imgs img{
   width:200px;
-  height:200px;
+  height:230px;
   object-fit:cover;
   border-radius:8px;
-  display:block;
+  cursor:pointer;
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-imgs img:hover{
+  transform:scale(1.04);
+  box-shadow:0 8px 18px rgba(0,0,0,0.25);
 }
 
-/* 연구 소개 이미지 */
-.research-intro-image-wrap{
-  width:100%;
-  max-width:720px;
-  margin:18px 0 28px;
+/* IMAGE POPUP */
+.img-popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.85);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:6000;
 }
-.research-intro-image-wrap img{
-  width:100%;
-  display:block;
+
+.img-popup img{
+  max-width:90vw;
+  max-height:85vh;
   border-radius:12px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.12);
 }
+
+.img-popup .close{
+  position:absolute;
+  top:18px;
+  left:18px;
+  font-size:30px;
+  color:#fff;
+  cursor:pointer;
+  font-weight:700;
+}
+
+/* 연구 소개 이미지 */ .research-intro-image-wrap{ width:100%; max-width:720px; margin:18px 0 28px; } .research-intro-image-wrap img{ width:100%; display:block; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.12); }
+
 
 /* FOOTER */
 .footer{
@@ -188,9 +185,6 @@ h1{color:var(--ku-main);margin-top:0;}
   font-size:13px;
 }
 
-@media(max-width:900px){
-  .card-imgs{justify-content:center;}
-}
 @media(max-width:600px){
   .card-imgs{flex-direction:column; align-items:center;}
 }
@@ -202,118 +196,103 @@ h1{color:var(--ku-main);margin-top:0;}
 <!-- NAVBAR -->
 <div class="navbar">
   <div class="navbar-left">
-    <a href="index.html"><img src="img/ku_logo.png" alt="KU"></a>
+    <a href="index.html"><img src="img/ku_logo.png"></a>
   </div>
-
   <div class="navbar-right">
     <ul class="main-menu">
       <li><a href="index.html">Home</a></li>
       <li><a href="notice.html">Notice</a></li>
-
-      <li class="has-sub">
-        <a href="people.html">People</a>
+      <li class="has-sub"><a href="people.html">People</a>
         <ul class="sub-menu">
           <li><a href="people_prof.html">지도교수</a></li>
           <li><a href="people_members.html">연구원 및 대학원생</a></li>
           <li><a href="people_former.html">Former Members</a></li>
         </ul>
       </li>
-
-      <li class="has-sub">
-        <a href="research.html">Research</a>
+      <li class="has-sub"><a href="research.html">Research</a>
         <ul class="sub-menu">
           <li><a href="research_nitrogen.html">Nitrogen Cycle</a></li>
           <li><a href="research_diet.html">DIET Research</a></li>
           <li><a href="research_other.html">Other Research</a></li>
         </ul>
       </li>
-
-      <li class="has-sub">
-        <a href="publications.html">Publications</a>
-        <ul class="sub-menu">
-          <li><a href="publications_papers.html">논문·특허</a></li>
-          <li><a href="publications_confs.html">학회 발표</a></li>
-          <li><a href="publications_books.html">저서</a></li>
-        </ul>
-      </li>
-
-      <!-- 🔥 추가된 Gallery 메뉴 -->
       <li><a href="gallery.html">Gallery</a></li>
-
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
   </div>
 </div>
 
-
 <!-- CONTENT -->
 <div class="wrapper">
   <h1>연구분야 (Research)</h1>
   <p>
-    환경생명공학연구실에서는 질소순환(Nitrogen cycle), Direct Interspecies Electron Transfer(DIET)를 활용한 메탄생성,
-    멤브레인·바이오필름·미생물군집 해석 등 다양한 주제를 연구합니다.
+    환경생명공학연구실은 질소순환, DIET 기반 메탄생성,
+    바이오필름·미생물군집 분석 등 환경·에너지 분야 연구를 수행합니다.
   </p>
 
-  <!-- 유튜브 영상 대체 이미지 -->
-  <div style="text-align:center; margin:30px 0;">
-    <img src="img/youtube.png" style="width:100%; max-width:600px;" />
-    <p style="margin-top:10px;">
-      <a href="https://www.youtube.com/watch?v=EZPPR00Fy-4">
-        ▶ 유튜브 영상 보러가기
-      </a>
-    </p>
-  </div>
+<!-- 유튜브 영상 대체 이미지 --> <div style="text-align:center; margin:30px 0;"> <img src="img/youtube.png" style="width:100%; max-width:600px;" /> <p style="margin-top:10px;"> <a href="https://www.youtube.com/watch?v=EZPPR00Fy-4"> ▶ 유튜브 영상 보러가기 </a> </p> </div>
 
   <div class="research-card-container">
 
-    <!-- 카드 1 -->
     <div class="research-card">
       <h3>1. Nitrogen Cycle 연구</h3>
-      <p>
-        아나목스(anammox), DNRA, 탈질 등 관련 미생물군집과 기능을 메타게놈/메타트랜스크립톰으로 규명하고,
-        반응기 설계에 적용합니다.
-      </p>
+      <p>아나목스, DNRA, 탈질 미생물 및 반응기 설계 연구</p>
       <div class="card-imgs">
-        <img src="img/research_n_cycle1.png">
-        <img src="img/research_n_cycle2.png">
-        <img src="img/research_n_cycle3.png">
+        <img src="img/research_n_cycle1.png" onclick="openImg(this.src)">
+        <img src="img/research_n_cycle2.png" onclick="openImg(this.src)">
+        <img src="img/research_n_cycle3.png" onclick="openImg(this.src)">
       </div>
     </div>
 
-    <!-- 카드 2 -->
     <div class="research-card">
       <h3>2. DIET 연구</h3>
-      <p>
-        전도성 물질을 통한 직접 전자전달(DIET)로 메탄생성 효율을 개선하는 연구를 수행합니다.
-      </p>
+      <p>혐기소화 공정 내 이종간 전자전달 기전 규명</p>
       <div class="card-imgs">
-        <img src="img/research_diet1.png">
-        <img src="img/research_diet2.png">
-        <img src="img/research_diet3.png">
+        <img src="img/research_diet1.png" onclick="openImg(this.src)">
+        <img src="img/research_diet2.png" onclick="openImg(this.src)">
+        <img src="img/research_diet3.png" onclick="openImg(this.src)">
       </div>
     </div>
 
-    <!-- 카드 3 -->
     <div class="research-card">
       <h3>3. 기타 연구</h3>
-      <p>
-        멤브레인 바이오파울링 제어, 나노복합 멤브레인 개발, 항생제 내성 유전자(ARG) 분석 등.
-      </p>
+      <p>멤브레인, ARG, 나노복합 소재 연구</p>
       <div class="card-imgs">
-        <img src="img/research_other1.png">
-        <img src="img/research_other2.png">
-        <img src="img/research_other3.png">
-        <img src="img/research_other4.png">
+        <img src="img/research_other1.png" onclick="openImg(this.src)">
+        <img src="img/research_other2.png" onclick="openImg(this.src)">
+        <img src="img/research_other3.png" onclick="openImg(this.src)">
       </div>
     </div>
 
   </div>
 </div>
 
-<div class="footer">
-  © Environmental Biotechnology Laboratory, Korea University<br>
-  Address: Korea University, Seoul, Korea | Email: nocont2xt@korea.ac.kr
+<!-- IMAGE POPUP -->
+<div class="img-popup" id="imgPopup">
+  <span class="close" onclick="closeImg()">×</span>
+  <img id="popupImg">
 </div>
+
+<div class="footer">
+  © Environmental Biotechnology Laboratory, Korea University
+</div>
+
+<script>
+function openImg(src){
+  const popup=document.getElementById("imgPopup");
+  const img=document.getElementById("popupImg");
+  img.src=src;
+  popup.style.display="flex";
+}
+
+function closeImg(){
+  document.getElementById("imgPopup").style.display="none";
+}
+
+document.getElementById("imgPopup").addEventListener("click",function(e){
+  if(e.target===this) closeImg();
+});
+</script>
 
 </body>
 </html>
