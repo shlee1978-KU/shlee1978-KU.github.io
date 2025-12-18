@@ -56,11 +56,18 @@ body{
   content:" ▾";
   font-size:11px;
   margin-left:4px;
+  opacity:0.9;
 }
-.sub-menu,.sub-menu li{list-style:none;margin:0;padding:0;}
+
+.sub-menu,.sub-menu li{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
 .sub-menu{
   position:absolute;
-  top:100%;
+  top:calc(100% + 8px);   /* 🔥 이게 핵심 */
   left:50%;
   transform:translateX(-50%);
   background:var(--ku-main);
@@ -71,19 +78,26 @@ body{
   box-shadow:0 8px 20px rgba(0,0,0,0.25);
   z-index:1200;
 }
-.has-sub:hover .sub-menu{display:block;}
+
+.has-sub:hover .sub-menu{
+  display:block;
+}
+
 .sub-menu a{
   display:block;
+  padding:8px 14px;
   font-size:12.5px;
-  font-weight:400;
   color:white;
   border-bottom:1px solid rgba(255,255,255,0.12);
   text-decoration:none;
-  padding:8px 14px;
+  font-weight:400 !important;
 }
+
 .sub-menu a:hover{
   background:var(--ku-hover);
+  border-bottom-color:transparent;
 }
+
 
 /* CONTENT */
 .wrapper{
@@ -194,33 +208,52 @@ h1{color:var(--ku-main);margin-top:0;}
 <body>
 
 <!-- NAVBAR -->
+<!-- NAVBAR -->
 <div class="navbar">
   <div class="navbar-left">
-    <a href="index.html"><img src="img/ku_logo.png"></a>
+    <a href="index.html"><img src="img/ku_logo.png" alt="KU"></a>
   </div>
+
   <div class="navbar-right">
     <ul class="main-menu">
       <li><a href="index.html">Home</a></li>
       <li><a href="notice.html">Notice</a></li>
-      <li class="has-sub"><a href="people.html">People</a>
+
+      <li class="has-sub">
+        <a href="people.html">People</a>
         <ul class="sub-menu">
           <li><a href="people_prof.html">지도교수</a></li>
           <li><a href="people_members.html">연구원 및 대학원생</a></li>
           <li><a href="people_former.html">Former Members</a></li>
         </ul>
       </li>
-      <li class="has-sub"><a href="research.html">Research</a>
+
+      <li class="has-sub">
+        <a href="research.html">Research</a>
         <ul class="sub-menu">
           <li><a href="research_nitrogen.html">Nitrogen Cycle</a></li>
           <li><a href="research_diet.html">DIET Research</a></li>
           <li><a href="research_other.html">Other Research</a></li>
         </ul>
       </li>
+
+      <li class="has-sub">
+        <a href="publications.html">Publications</a>
+        <ul class="sub-menu">
+          <li><a href="publications_papers.html">논문·특허</a></li>
+          <li><a href="publications_confs.html">학회 발표</a></li>
+          <li><a href="publications_books.html">저서</a></li>
+        </ul>
+      </li>
+
+      <!-- 🔥 추가된 Gallery 메뉴 -->
       <li><a href="gallery.html">Gallery</a></li>
+
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
   </div>
 </div>
+
 
 <!-- CONTENT -->
 <div class="wrapper">
@@ -296,4 +329,3 @@ document.getElementById("imgPopup").addEventListener("click",function(e){
 
 </body>
 </html>
-
