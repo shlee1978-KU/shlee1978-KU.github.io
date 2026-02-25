@@ -10,6 +10,7 @@
 
 <link rel="icon" type="image/png" href="img/hemmlogo.png">
 
+
 <style>
 body{margin:0; font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif; background:#fafafa;}
 :root {
@@ -29,12 +30,12 @@ body {
 }
 
 /* ================== NAVBAR ================== */
-.navbar {
+.navbar{
   background:var(--ku-main);
   color:white;
   padding:16px 40px;
+  position:relative;
   display:flex;
-  justify-content:space-between;
   align-items:center;
 }
 
@@ -44,10 +45,15 @@ body {
   gap:18px;
 }
 
-.navbar img {
-  height:70px;
+.nav-left img {
+  height:70px;   /* KU 로고 크기 유지 */
 }
 
+.nav-right img {
+  height:100px;
+  position: relative;
+  top: -10px;   /* 숫자 조절해서 위치 맞추기 */
+}
 .nav-center > a,.has-dropdown > a {
   color:white;
   text-decoration:none;
@@ -57,9 +63,26 @@ body {
   transition:.2s;
 }
 
+.nav-center{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
 .nav-center > a:hover,.has-dropdown > a:hover {
   color:#ffe6e5;
   border-bottom:2px solid #ffe6e5;
+}
+
+.nav-left{
+  margin-right:auto;
+}
+
+.nav-right{
+  margin-left:auto;
 }
 
 .has-dropdown {
@@ -212,7 +235,6 @@ body {
 /* ================== 네비게이션 ================== */
 .navbar{background:var(--ku-main); color:white; padding:16px 40px; display:flex; justify-content:space-between; align-items:center;}
 .nav-left,.nav-center,.nav-right{display:flex; align-items:center; gap:18px;}
-.navbar img{height:70px;}
 .nav-center > a,.has-dropdown > a{color:white; text-decoration:none; font-size:15px; font-weight:600; padding:4px 0; transition:.2s;}
 .nav-center > a:hover,.has-dropdown > a:hover{color:#ffe6e5; border-bottom:2px solid #ffe6e5;}
 .has-dropdown{position:relative;}
@@ -328,6 +350,8 @@ footer{background:var(--ku-dark); color:white; padding:18px 15px 28px; text-alig
 
 }
 
+
+
 /* ================== 모바일 ================== */
 @media(max-width:600px){
   .quick-menu {
@@ -379,11 +403,11 @@ footer{background:var(--ku-dark); color:white; padding:18px 15px 28px; text-alig
     <a href="gallery.html">Gallery</a>
     <a href="contact.html">Contact Us</a>
   </div>
-  <div class="nav-right">
-    <a href="https://blog.naver.com/heedeung" target="_blank">
-      <img src="img/hemmlogo.png" alt="Engineering Logo">
-    </a>
-  </div>
+<div class="nav-right">
+  <a href="https://blog.naver.com/heedeung" target="_blank">
+    <img class="hemm-logo" src="img/hemmlogo.png" alt="Engineering Logo">
+  </a>
+</div>
 </div>
 
 <!-- ================== 메인 타이틀 ================== -->
@@ -505,3 +529,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
 </body>
 </html>
+
