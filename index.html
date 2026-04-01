@@ -22,45 +22,27 @@ body{margin:0; font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif; backgroun
 }
 
 /* ================== 기본 세팅 ================== */
-body {
-  margin:0; 
-  font-family:"Segoe UI","Noto Sans KR",Arial,sans-serif; 
-  background:#fafafa;
-  color: var(--text-dark);
+.navbar{
+  background:#ffffff;
+  height:90px;
+  color:#222;
+  padding:0 40px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  z-index:1000;
 }
 
-/* ================== NAVBAR ================== */
-.navbar{
-  background:var(--ku-main);
-  color:white;
-  padding:16px 40px;
-  position:relative;
+.nav-left,
+.nav-center,
+.nav-right{
   display:flex;
   align-items:center;
 }
 
-.nav-left,.nav-center,.nav-right {
-  display:flex; 
-  align-items:center; 
-  gap:18px;
-}
-
-.nav-left img {
-  height:70px;   /* KU 로고 크기 유지 */
-}
-
-.nav-right img {
-  height:100px;
-  position: relative;
-  top: -10px;   /* 숫자 조절해서 위치 맞추기 */
-}
-.nav-center > a,.has-dropdown > a {
-  color:white;
-  text-decoration:none;
-  font-size:15px;
-  font-weight:600;
-  padding:4px 0;
-  transition:.2s;
+.nav-left{
+  flex:0 0 auto;
 }
 
 .nav-center{
@@ -69,62 +51,78 @@ body {
   transform:translateX(-50%);
   display:flex;
   align-items:center;
-  gap:18px;
-}
-
-.nav-center > a:hover,.has-dropdown > a:hover {
-  color:#ffe6e5;
-  border-bottom:2px solid #ffe6e5;
-}
-
-.nav-left{
-  margin-right:auto;
+  gap:20px;
 }
 
 .nav-right{
-  margin-left:auto;
+  flex:0 0 auto;
 }
 
-.has-dropdown {
+.nav-left img{
+  height:90px;
+}
+
+.nav-right img{
+  height:120px;
+  position:relative;
+  top:-10px;
+}
+
+.nav-center > a,
+.has-dropdown > a{
+  color:#8C1D18;
+  text-decoration:none;
+  font-size:18px;
+  font-weight:600;
+  padding:4px 0;
+  transition:.2s;
+}
+
+.nav-center > a:hover,
+.has-dropdown > a:hover{
+  color:#A32620;
+  border-bottom:2px solid #A32620;
+}
+
+.has-dropdown{
   position:relative;
 }
 
-.dropdown {
-  position:absolute; 
-  top:100%; 
+.dropdown{
+  position:absolute;
+  top:100%;
   left:50%;
   transform:translateX(-50%) translateY(10px);
-  background:var(--ku-main); 
-  min-width:180px; 
+  background:#8C1D18;
+  min-width:180px;
   border-radius:0 0 12px 12px;
-  box-shadow:0 8px 18px rgba(0,0,0,.3); 
-  opacity:0; 
-  visibility:hidden; 
-  transition:.2s ease; 
+  box-shadow:0 8px 18px rgba(0,0,0,.25);
+  opacity:0;
+  visibility:hidden;
+  transition:.2s ease;
   z-index:999;
-  list-style:none; 
-  margin:0; 
+  list-style:none;
+  margin:0;
   padding:0;
 }
 
-.has-dropdown:hover .dropdown {
-  opacity:1; 
-  visibility:visible; 
+.has-dropdown:hover .dropdown{
+  opacity:1;
+  visibility:visible;
   transform:translateX(-50%) translateY(0);
 }
 
-.dropdown a {
-  display:block; 
-  padding:8px 18px; 
-  font-size:13px; 
-  text-decoration:none; 
+.dropdown a{
+  display:block;
+  padding:8px 18px;
+  font-size:13px;
+  text-decoration:none;
   color:#fff;
 }
 
-.dropdown a:hover {
-  background:var(--ku-hover);
+.dropdown a:hover{
+  background:#A32620;
 }
-
 /* ================== HERO ================== */
 .hero {
   text-align:center;
@@ -234,20 +232,47 @@ body {
 
 /* ================== 네비게이션 ================== */
 .navbar{background:var(--ku-main); color:white; padding:16px 40px; display:flex; justify-content:space-between; align-items:center;}
-.nav-left,.nav-center,.nav-right{display:flex; align-items:center; gap:18px;}
-.nav-center > a,.has-dropdown > a{color:white; text-decoration:none; font-size:15px; font-weight:600; padding:4px 0; transition:.2s;}
-.nav-center > a:hover,.has-dropdown > a:hover{color:#ffe6e5; border-bottom:2px solid #ffe6e5;}
-.has-dropdown{position:relative;}
-.dropdown{
-  position:absolute; top:100%; left:50%;
-  transform:translateX(-50%) translateY(10px);
-  background:var(--ku-main); min-width:180px; border-radius:0 0 12px 12px;
-  box-shadow:0 8px 18px rgba(0,0,0,.3); opacity:0; visibility:hidden; transition:.2s ease; z-index:999;
-  list-style:none; margin:0; padding:0;
+.navbar{
+  background:#ffffff;
+  height:90px;
+  color:#222;
+  padding:16px 40px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
-.has-dropdown:hover .dropdown{opacity:1; visibility:visible; transform:translateX(-50%) translateY(0);}
-.dropdown a{display:block; padding:8px 18px; font-size:13px; text-decoration:none; color:#fff;}
-.dropdown a:hover{background:var(--ku-hover);}
+
+.nav-left,
+.nav-center,
+.nav-right{
+  display:flex;
+  align-items:center;
+}
+
+.nav-center{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  gap:20px;
+}
+
+.nav-center > a,
+.has-dropdown > a{
+  color:#8C1D18;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:600;
+}
+
+.nav-center > a:hover,
+.has-dropdown > a:hover{
+  color:#A32620;
+}
+
+.dropdown{
+  background:#8C1D18;
+}
 
 /* ================== 메인 타이틀 ================== */
 .hero{text-align:center; padding:50px 20px 60px;background:var(--ku-main);}
